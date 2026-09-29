@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded",()=>{
 
   function card(c){
     return `<a class="case-card" href="caso.html?id=${c.id}">
+      <div class="case-photo-wrap"><img class="case-photo" src="${c.image}" alt="Fotografía de ${c.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="case-photo-fallback">${c.accent}</div><div class="photo-shade"></div></div>
       <div class="case-top"><span class="case-index">${String(cases.indexOf(c)+1).padStart(2,"0")}</span><span>${c.period}</span></div>
-      <div class="case-monogram">${c.accent}</div>
       <div class="case-body"><div><h3>${c.name}</h3><p>${c.alias}</p></div><span class="arrow">↗</span></div>
       <div class="tags">${c.tags.map(t=>`<span>${t}</span>`).join("")}</div>
     </a>`;

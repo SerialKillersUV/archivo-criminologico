@@ -25,3 +25,11 @@ Edmund Kemper; Jeffrey Dahmer; Henry Howard Holmes; Albert DeSalvo; Anatoli Onop
 
 ## Editar contenido
 Los datos principales están en `js/data.js`. Puedes cambiar nombres, textos, etiquetas y añadir casos sin tocar el diseño.
+
+
+## Fotografías
+La web integra fotografías en las tarjetas y expedientes. La mayoría proceden de Wikimedia Commons. La fotografía de Anatoli Onoprienko enlazada procede de UNIAN y sus derechos de uso no están verificados; para una publicación pública definitiva conviene sustituirla por una imagen con licencia abierta o comprobar sus condiciones de uso.
+
+
+## Actualización v2
+La ficha individual de cada caso utiliza ahora un formato de "case file": fotografía grande, identificación, víctimas, condena/estado, etiquetas y bloques de análisis criminológico.
