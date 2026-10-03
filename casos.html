@@ -1,20 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Casos — Archivo Criminológico</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body><div class="grain"></div>
-<header class="site-header"><a class="brand" href="index.html"><span>AC</span> ARCHIVO CRIMINOLÓGICO</a><button class="menu-toggle">☰</button>
-<nav><a href="index.html">Inicio</a><a class="active" href="casos.html">Casos</a><a href="comparativa.html">Comparativa</a><a href="conceptos.html">Conceptos</a></nav></header>
-<main class="page">
-<section class="page-hero"><div class="section-label">ARCHIVO / CASOS</div><h1>Casos<br><em>estudiados</em></h1><p>Nueve expedientes organizados desde una perspectiva criminológica.</p></section>
-<section class="cases-section">
-<div class="filters"><input id="searchCases" type="search" placeholder="Buscar caso, alias o concepto..."><div id="caseCount"></div></div>
-<div id="allCases" class="case-grid"></div>
-</section></main>
-<footer><span>ARCHIVO CRIMINOLÓGICO</span><span>Proyecto académico · 2026</span></footer>
-<script src="js/data.js"></script><script src="js/app.js"></script></body></html>
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b0b0d"><meta name="description" content="Archivo académico de casos para estudiantes de Investigación Criminal: Perfil e Informe Criminológico. Hechos, victimología, investigación y claves de repaso."><title>Casos — Archivo Criminológico</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css"></head>
+<body><a class="skip-link" href="#main">Saltar al contenido</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><a class="brand" href="index.html" aria-label="Archivo Criminológico, inicio"><span class="brand-mark">AC<span class="brand-dot"></span></span><span>ARCHIVO<br>CRIMINOLÓGICO</span></a><button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="siteNav"><span></span><span></span></button><nav id="siteNav" aria-label="Navegación principal"><a href="index.html" >Inicio</a><a href="casos.html" class="active" aria-current="page" >Casos</a><a href="comparativa.html" >Comparativa</a><a href="conceptos.html" >Conceptos</a></nav><span class="header-meta">CUADERNO DE ESTUDIO <i></i></span></header>
+<main id="main"><section class="page-hero"><div class="eyebrow">ARCHIVO / 01—09</div><h1>Los <em>expedientes.</em></h1><p>Hechos, trayectorias y análisis. Una estructura común para estudiar cada caso.</p></section><section class="cases-section"><div class="filters"><label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">Buscar casos por nombre, lugar o concepto</span><input id="searchCases" type="search" placeholder="Nombre, lugar o concepto…" autocomplete="off"><kbd aria-hidden="true">/</kbd></label><span id="caseCount" role="status" aria-live="polite"></span></div><div class="filter-chips" id="filterChips" aria-label="Filtrar por concepto"></div><div id="allCases" class="case-grid"></div><div class="empty-state" id="emptyState" hidden><h2>No hay coincidencias.</h2><p>Prueba otro nombre o elimina el filtro.</p><button class="btn btn-ghost" id="clearFilters" type="button">Restablecer búsqueda</button></div></section></main>
+<section class="purpose-footer"><div class="eyebrow">CONOCIMIENTO COMPARTIDO</div><p>Una herramienta para que todos los estudiantes puedan estudiar con facilidad los casos que analizamos en clase.</p><a href="casos.html">Volver a los expedientes <span aria-hidden="true">↗</span></a></section>
+<footer><a class="footer-brand" href="index.html">AC / ARCHIVO CRIMINOLÓGICO</a><p>Página web creada por Martí Gadea y Sergio Pastor</p><span>PROYECTO ACADÉMICO · 2026</span></footer><script src="js/data.js"></script><script src="js/app.js"></script></body></html>

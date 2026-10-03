@@ -1,68 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Caso — Archivo Criminológico</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body><div class="grain"></div>
-<header class="site-header">
-<a class="brand" href="index.html"><span>AC</span> ARCHIVO CRIMINOLÓGICO</a>
-<button class="menu-toggle">☰</button>
-<nav><a href="index.html">Inicio</a><a class="active" href="casos.html">Casos</a><a href="comparativa.html">Comparativa</a><a href="conceptos.html">Conceptos</a></nav>
-</header>
-
-<main class="page">
-<section class="case-file-hero" id="caseHero"></section>
-<section class="section case-analysis" id="caseContent"></section>
-</main>
-
-<footer><span>ARCHIVO CRIMINOLÓGICO</span><span>Proyecto académico · 2026</span></footer>
-
-<script src="js/data.js"></script>
-<script>
-const id=new URLSearchParams(location.search).get("id")||"kemper";
-const c=cases.find(x=>x.id===id)||cases[0], d=details[id]||{};
-document.title=c.name+" — Archivo Criminológico";
-
-document.querySelector("#caseHero").innerHTML=`
-<div class="case-file-kicker">EXPEDIENTE CRIMINOLÓGICO / ${String(cases.indexOf(c)+1).padStart(2,"0")}</div>
-<div class="case-file-grid">
-  <div class="case-file-image">
-    <img src="${c.image}" alt="Fotografía de ${c.name}">
-    <div class="photo-caption">${(typeof imageCredits!=="undefined" && imageCredits[id])||"Fotografía de archivo."}</div>
-  </div>
-  <div class="case-file-info">
-    <div class="case-stamp">CASE FILE</div>
-    <h1>${c.name}<em>${c.alias}</em></h1>
-    <p class="case-location">${c.place} · ${c.period}</p>
-    <div class="case-facts">
-      <div><span>VÍCTIMAS</span><strong>${c.victims}</strong></div>
-      <div><span>CONDENA / ESTADO</span><strong>${c.sentence}</strong></div>
-    </div>
-    <div class="tags">${c.tags.map(t=>`<span>${t}</span>`).join("")}</div>
-  </div>
-</div>`;
-
-document.querySelector("#caseContent").innerHTML=`
-<div class="analysis-header">
-  <div><span class="section-label">ANÁLISIS DEL EXPEDIENTE</span><h2>Perfil<br><em>criminológico</em></h2></div>
-  <p>El análisis se organiza en las categorías trabajadas en el proyecto: trayectoria, victimología, modus operandi, perfil y teorías.</p>
-</div>
-<div class="detail-grid">
-${[
-["01","Infancia y adolescencia",d.child],
-["02","Desarrollo / carrera criminal",d.career],
-["03","Victimología",d.victimology],
-["04","Modus operandi",d.mo],
-["05","Perfil criminológico",d.profile],
-["06","Teorías",d.theories]
-].map(x=>`<article class="analysis-card"><span>${x[0]}</span><h3>${x[1]}</h3><p>${x[2]||"Contenido pendiente de ampliar a partir del material de estudio."}</p></article>`).join("")}
-</div>
-<div class="case-note"><strong>NOTA ACADÉMICA</strong><p>Este expediente diferencia, siempre que el material lo permite, entre hechos documentados y las interpretaciones o marcos teóricos utilizados para analizarlos.</p></div>
-<div class="case-navigation"><a class="text-link" href="casos.html">← Volver al archivo</a><a class="text-link" href="comparativa.html">Ir a comparativa →</a></div>
-`;
-</script>
-</body></html>
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b0b0d"><meta name="description" content="Archivo académico de casos para estudiantes de Investigación Criminal: Perfil e Informe Criminológico. Hechos, victimología, investigación y claves de repaso."><title>Expediente — Archivo Criminológico</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/style.css"></head>
+<body><a class="skip-link" href="#main">Saltar al contenido</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header"><a class="brand" href="index.html" aria-label="Archivo Criminológico, inicio"><span class="brand-mark">AC<span class="brand-dot"></span></span><span>ARCHIVO<br>CRIMINOLÓGICO</span></a><button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="siteNav"><span></span><span></span></button><nav id="siteNav" aria-label="Navegación principal"><a href="index.html" >Inicio</a><a href="casos.html" class="active" aria-current="page" >Casos</a><a href="comparativa.html" >Comparativa</a><a href="conceptos.html" >Conceptos</a></nav><span class="header-meta">CUADERNO DE ESTUDIO <i></i></span></header>
+<main id="main"><div id="casePage"></div></main>
+<section class="purpose-footer"><div class="eyebrow">CONOCIMIENTO COMPARTIDO</div><p>Una herramienta para que todos los estudiantes puedan estudiar con facilidad los casos que analizamos en clase.</p><a href="casos.html">Volver a los expedientes <span aria-hidden="true">↗</span></a></section>
+<footer><a class="footer-brand" href="index.html">AC / ARCHIVO CRIMINOLÓGICO</a><p>Página web creada por Martí Gadea y Sergio Pastor</p><span>PROYECTO ACADÉMICO · 2026</span></footer><script src="js/data.js"></script><script src="js/app.js"></script></body></html>
