@@ -16,7 +16,79 @@ html {
 .analysis-body { padding-top:20px; }
 .case-card .case-alias { margin-bottom:20px; }
 
+/* A compact visual index and a clear study route. */
+.archive-overview { grid-template-columns:1fr; gap:38px; }
+.overview-heading { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px 40px; }
+.overview-heading .eyebrow { flex-basis:100%; margin-bottom:0; }
+.overview-heading p { color:var(--muted); max-width:280px; margin:0; }
+.overview-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+.overview-piece { position:relative; padding:28px; border:1px solid var(--line); background:linear-gradient(140deg,#21151a,var(--panel) 70%); overflow:hidden; transition:border-color .3s,background .3s; }
+.overview-piece::after { content:''; position:absolute; top:0; left:0; height:2px; width:100%; background:var(--red); transform:scaleX(0); transform-origin:left; transition:transform .4s; }
+.overview-piece:hover::after,.overview-piece:focus-visible::after { transform:scaleX(1); }
+.overview-piece:hover { border-color:#75414a; }
+.piece-index,.route-label { font:10px var(--mono); letter-spacing:.08em; color:var(--red); }
+.overview-piece h3 { font:32px/1.2 var(--serif); margin:32px 0 10px; }
+.overview-piece p { font-size:13px; color:var(--muted); margin:0; }
+.piece-link { display:flex; justify-content:space-between; gap:12px; margin-top:30px; font-size:12px; }
+.piece-link span { color:var(--red); transition:transform .3s; }
+.overview-piece:hover .piece-link span { transform:translate(3px,-3px); }
+.route-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; border-block:1px solid var(--line); }
+.route-step { display:flex; gap:20px; align-items:flex-start; padding:32px 24px; position:relative; transition:background .3s; }
+.route-step+.route-step { border-left:1px solid var(--line); }
+.route-step::before { content:''; position:absolute; inset:0 0 auto; height:2px; background:var(--red); transform:scaleX(0); transform-origin:left; transition:transform .35s; }
+.route-step:hover::before,.route-step:focus-visible::before { transform:scaleX(1); }
+.route-step:hover { background:#e33b4b09; }
+.route-number { font:38px/1 var(--serif); color:#71303c; transition:color .3s; }
+.route-step:hover .route-number { color:var(--red); }
+.route-step h3 { font-size:18px; line-height:1.3; margin:12px 0; }
+.route-step p { font-size:12px; color:var(--muted); margin:0; }
+.route-step .arrow { margin-left:auto; font-size:18px; }
+.route-step:hover .arrow { transform:translate(3px,-3px); }
+
+/* Every portrait appears in a manually controllable, pausable gallery. */
+.hero-gallery { position:absolute; inset:0; }
+.hero-gallery .gallery-group { opacity:0; visibility:hidden; animation:none; transform:translateX(12px); transition:opacity .8s,transform .8s,visibility .8s; }
+.hero-gallery .gallery-group.is-active { opacity:1; visibility:visible; transform:translateX(0); }
+.hero-gallery .gallery-group img { width:38%; margin:0 -3%; height:95%; }
+.hero-gallery .gallery-group img:nth-child(2) { height:87%; }
+.hero-gallery .gallery-group img:nth-child(3) { height:94%; }
+.hero-gallery .four-portraits { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:repeat(2,minmax(0,1fr)); gap:8px; inset:48px 22px 62px; }
+.hero-gallery .four-portraits img:nth-child(n) { width:100%; height:100%; margin:0; }
+.gallery-controls { display:flex; align-items:center; gap:9px; white-space:nowrap; }
+.gallery-controls button { display:grid; place-items:center; width:28px; height:28px; border:1px solid #593139; background:#151115; color:var(--ink); font:14px var(--mono); transition:background .25s,border-color .25s; }
+.gallery-controls button:hover { background:var(--crimson); border-color:var(--red); }
+.gallery-controls button[hidden] { display:none; }
+.gallery-controls #galleryCount { font:9px var(--mono); }
+.hero-art .art-bottom { align-items:center; }
+.hero-art .art-bottom>span { max-width:52%; line-height:1.6; }
+
+/* Definitions stay available without turning the grid into a wall of text. */
+.concept-grid { align-items:start; gap:22px; }
+.concept-card { position:relative; overflow:hidden; padding:28px; background:linear-gradient(145deg,#21171c,var(--panel) 65%); }
+.concept-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:var(--red); opacity:.35; transition:opacity .3s; }
+.concept-card:hover::before,.concept-card:focus-within::before { opacity:1; }
+.concept-top { display:flex; justify-content:space-between; align-items:center; gap:16px; }
+.concept-index { font:10px var(--mono); letter-spacing:.08em; color:var(--muted); }
+.concept-icon { display:grid; place-items:center; color:var(--red); width:48px; height:48px; border:1px solid #65303c; background:#e33b4b09; transition:background .3s,transform .3s; }
+.concept-icon svg { width:26px; height:26px; }
+.concept-card:hover .concept-icon { background:#e33b4b18; transform:rotate(-5deg); }
+.concept-card h2 { font:32px/1.15 var(--serif); margin:26px 0 12px; }
+.concept-card .concept-short { color:var(--ink); font-size:14px; min-height:48px; }
+.concept-definition { margin-top:24px; border-top:1px solid var(--line); }
+.concept-definition summary { display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:52px; font-size:12px; color:var(--muted); list-style:none; cursor:pointer; }
+.concept-definition summary::-webkit-details-marker { display:none; }
+.concept-definition summary:hover { color:var(--ink); }
+.concept-definition .when-open { display:none; }
+.concept-definition[open] .when-open { display:inline; }
+.concept-definition[open] .when-closed { display:none; }
+.concept-definition[open] .detail-toggle { transform:rotate(45deg); }
+.concept-definition p { padding-top:8px; font-size:14px; line-height:1.85; }
+
 @media screen {
+ .header-meta { font-size:14px; font-weight:600; letter-spacing:.06em; color:var(--ink); }
+ .cases-section .filters { margin-bottom:32px; }
+ .case-card .case-alias { margin-bottom:0; }
+ .concept-definition[open] p { animation:archive-enter .35s both; }
  .site-header nav { gap:12px; }
  .site-header nav a {
   font-size:16px; font-weight:600; padding:12px 20px;
@@ -114,10 +186,25 @@ html {
  .timeline li:hover { border-color:var(--red); }
 }
 @media screen and (max-width:1100px) {
+ .route-step { padding:26px 18px; gap:12px; }
  .hero { min-height:600px; gap:26px; }
  .hero-art { height:420px; }
 }
 @media screen and (max-width:760px) {
+ .overview-heading { display:block; }
+ .overview-heading h2 { margin:22px 0 18px; }
+ .overview-heading p { max-width:360px; }
+ .overview-grid,.route-grid { grid-template-columns:1fr; }
+ .overview-piece { padding:24px; }
+ .overview-piece h3 { margin-top:22px; }
+ .route-step+.route-step { border-left:0; border-top:1px solid var(--line); }
+ .route-step { padding:26px 12px; gap:22px; }
+ .concept-card { padding:24px; }
+ .concept-card h2 { font-size:29px; }
+ .hero-art .art-bottom { left:14px; right:14px; }
+ .gallery-controls { gap:5px; }
+ .gallery-controls button { width:30px; height:32px; }
+ .hero-art .art-bottom>span { max-width:43%; font-size:7px; }
  .site-header nav { gap:6px; }
  .site-header nav a { font-size:18px; padding:14px 16px; }
  .site-header nav a::after { left:16px; width:28px; }

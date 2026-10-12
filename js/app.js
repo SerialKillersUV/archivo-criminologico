@@ -18,8 +18,7 @@
  const number = c => String(cases.indexOf(c) + 1).padStart(2,'0');
  const portraits = c => (c.images || [{src:c.image,name:c.name}]);
  const portraitMarkup = c => `<div class="portrait-row ${c.images ? 'duo' : ''}">${portraits(c).map(p=>`<img src="${e(p.src)}" alt="${e(p.name)} · fotografía de archivo con fondo eliminado" loading="lazy" decoding="async">`).join('')}</div>`;
- const tagMarkup = c => `<div class="tags">${c.tags.map(t=>`<span>${e(t)}</span>`).join('')}</div>`;
- const card = c => `<a class="case-card reveal" href="caso.html?id=${encodeURIComponent(c.id)}"><div class="case-photo-wrap"><span class="case-number" aria-hidden="true">${number(c)}</span>${portraitMarkup(c)}<div class="photo-gradient"></div><div class="case-meta"><span>EXPEDIENTE ${number(c)}</span><span>${e(c.period)}</span></div></div><div class="card-content"><div class="case-title"><h3>${e(c.name)}</h3><span class="arrow" aria-hidden="true">↗</span></div><p class="case-alias">${e(c.alias)}</p>${tagMarkup(c)}</div></a>`;
+ const card = c => `<a class="case-card reveal" href="caso.html?id=${encodeURIComponent(c.id)}"><div class="case-photo-wrap"><span class="case-number" aria-hidden="true">${number(c)}</span>${portraitMarkup(c)}<div class="photo-gradient"></div><div class="case-meta"><span>EXPEDIENTE ${number(c)}</span><span>${e(c.period)}</span></div></div><div class="card-content"><div class="case-title"><h3>${e(c.name)}</h3><span class="arrow" aria-hidden="true">↗</span></div><p class="case-alias">${e(c.alias)}</p></div></a>`;
  let revealObserver;
  function reveal() {
   if(noMotion || !('IntersectionObserver' in window)) return;
@@ -39,21 +38,17 @@
  window.matchMedia('(min-width:761px)').addEventListener('change',ev=>{if(ev.matches)closeMenu();});
  if($('#featuredCases')) $('#featuredCases').innerHTML=cases.slice(0,3).map(card).join('');
  const search=$('#searchCases'), all=$('#allCases');
- let activeTag='Todos';
  const normalize = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
  if(all){
-  const tags=['Todos','victimología','M.O.','ADN','engaño','necrofilia','coautoría'];
-  $('#filterChips').innerHTML=tags.map(t=>`<button type="button" class="filter-chip" data-tag="${e(t)}" aria-pressed="${t==='Todos'}">${e(t)}</button>`).join('');
   const render=()=>{
    const q=normalize(search.value.trim());
-   const filtered=cases.filter(c=>(activeTag==='Todos'||c.tags.includes(activeTag))&&normalize([c.name,c.alias,c.place,c.focus,...c.tags].join(' ')).includes(q));
+   const filtered=cases.filter(c=>normalize([c.name,c.alias,c.place].join(' ')).includes(q));
    revealObserver?.disconnect();all.innerHTML=filtered.map(card).join('');
    $('#caseCount').textContent=`${filtered.length} de ${cases.length} expedientes`;
    $('#emptyState').hidden=filtered.length!==0;reveal();
   };
   search.addEventListener('input',render);
-  $('#filterChips').addEventListener('click',ev=>{const button=ev.target.closest('[data-tag]');if(!button)return;activeTag=button.dataset.tag;document.querySelectorAll('[data-tag]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));render();});
-  $('#clearFilters').addEventListener('click',()=>{search.value='';activeTag='Todos';document.querySelectorAll('[data-tag]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.tag==='Todos')));render();search.focus();});
+  $('#clearFilters').addEventListener('click',()=>{search.value='';render();search.focus();});
   render();
  }
  const sections=[['child','Antecedentes y desarrollo','Reconstrucción biográfica'],['career','Trayectoria criminal','Hechos y cronología'],['victimology','Victimología','Víctimas y contexto'],['mo','Modus operandi','Conductas y procedimientos'],['signature','Conducta expresiva y firma','Lectura conductual · hipótesis'],['investigation','Investigación y resolución','Evidencia y resultado'],['theories','Lecturas criminológicas','Propuestas para el análisis']];
@@ -65,7 +60,7 @@
   else{
    const d=details[c.id], index=cases.indexOf(c), prev=cases[(index+cases.length-1)%cases.length], next=cases[(index+1)%cases.length], credit=imageSources[c.id];
    document.title=`${c.name} — Archivo Criminológico`;
-   $('#casePage').innerHTML=`<section class="case-hero"><div class="case-breadcrumb"><a href="casos.html">← Todos los expedientes</a><span>/</span><span>ARCHIVO ${number(c)}</span></div><div class="case-hero-grid"><div><div class="case-portrait"><span class="case-number" aria-hidden="true">${number(c)}</span>${portraitMarkup(c)}<div class="portrait-labels">${portraits(c).map(p=>`<span>${e(p.name)}</span>`).join('')}</div></div><p class="photo-credit">${e(credit[0])} · fondo eliminado digitalmente a partir de la fotografía.<br><a href="#portraitSource">Procedencia del retrato ↗</a></p></div><div class="case-heading"><div class="eyebrow">EXPEDIENTE CRIMINOLÓGICO / ${number(c)}</div><h1>${e(c.name)}</h1><p class="alias">${e(c.alias)}</p><p class="location">${e(c.place)} · ${e(c.period)}</p><div class="case-facts"><div><span>VÍCTIMAS / ALCANCE DE LA CIFRA</span><strong>${e(c.victims)}</strong></div><div><span>RESOLUCIÓN JUDICIAL</span><strong>${e(c.sentence)}</strong></div></div><p class="case-summary">${e(d.summary)}</p>${tagMarkup(c)}</div></div></section>
+   $('#casePage').innerHTML=`<section class="case-hero"><div class="case-breadcrumb"><a href="casos.html">← Todos los expedientes</a><span>/</span><span>ARCHIVO ${number(c)}</span></div><div class="case-hero-grid"><div><div class="case-portrait"><span class="case-number" aria-hidden="true">${number(c)}</span>${portraitMarkup(c)}<div class="portrait-labels">${portraits(c).map(p=>`<span>${e(p.name)}</span>`).join('')}</div></div><p class="photo-credit">${e(credit[0])} · fondo eliminado digitalmente a partir de la fotografía.<br><a href="#portraitSource">Procedencia del retrato ↗</a></p></div><div class="case-heading"><div class="eyebrow">EXPEDIENTE CRIMINOLÓGICO / ${number(c)}</div><h1>${e(c.name)}</h1><p class="alias">${e(c.alias)}</p><p class="location">${e(c.place)} · ${e(c.period)}</p><div class="case-facts"><div><span>VÍCTIMAS / ALCANCE DE LA CIFRA</span><strong>${e(c.victims)}</strong></div><div><span>RESOLUCIÓN JUDICIAL</span><strong>${e(c.sentence)}</strong></div></div><p class="case-summary">${e(d.summary)}</p></div></div></section>
    <div class="case-layout"><aside class="case-sidebar"><div class="eyebrow">EN ESTE EXPEDIENTE</div><nav aria-label="Apartados del expediente"><a href="#repaso">Claves de repaso</a><a href="#cronologia">Cronología</a>${sections.map(([key,label])=>`<a href="#${key}">${e(label)}</a>`).join('')}<a href="#fuentes">Fuentes y matices</a></nav><button class="small-button" type="button" id="printCase">Imprimir expediente ↗</button></aside>
    <div class="case-content"><section class="study-summary" id="repaso"><div class="eyebrow">PARA RECORDAR</div><h2>Tres claves del caso</h2><ul>${d.keys.map(k=>`<li>${e(k)}</li>`).join('')}</ul></section><section class="timeline-section" id="cronologia"><h2>La secuencia de los hechos</h2><ol class="timeline">${d.timeline.map(([date,text])=>`<li><time>${e(date)}</time><p>${e(text)}</p></li>`).join('')}</ol></section>
    ${sections.map(([key,label,category],i)=>`<section class="analysis-section reveal" id="${key}"><details class="analysis-detail"><summary><span class="analysis-title"><span>${String(i+1).padStart(2,'0')}</span><h2>${e(label)}</h2></span><span class="detail-toggle" aria-hidden="true">+</span></summary><div class="analysis-body"><p>${linkedText(d[key])}</p><span class="section-category">${e(category)}</span></div></details></section>`).join('')}
@@ -92,8 +87,12 @@
   $('#selectAll').addEventListener('click',()=>{document.querySelectorAll('#compareSelection input').forEach(c=>c.checked=true);renderComparison();});
   $('#clearSelection').addEventListener('click',()=>{document.querySelectorAll('#compareSelection input').forEach(c=>c.checked=false);renderComparison();});renderComparison();
  }
+ const conceptShort = ['Mismo autor. Episodios separados.','El procedimiento para cometer el delito.','La posible dimensión expresiva del delito.','La víctima, su vida y su contexto.','Conductas para evitar la identificación.','Conectar hechos mediante evidencias.','Tres recuentos que no son equivalentes.','Hipótesis que orientan la investigación.','Participación conjunta, aportaciones individuales.','Cómo el autor justifica su conducta.','Preguntas que siguen abiertas.','Interpretar no equivale a diagnosticar.'];
+ const conceptGroups = ['PATRONES','CONDUCTA','CONDUCTA','VÍCTIMAS','CONDUCTA','INVESTIGACIÓN','EVIDENCIA','ANÁLISIS','AUTORÍA','ANÁLISIS','INVESTIGACIÓN','ANÁLISIS'];
+ const conceptPaths = ['<circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/><path d="M9 12h6M6 4v3m12 10v3"/>','<path d="M4 6h10m-4-4 4 4-4 4M20 18H10m4-4-4 4 4 4"/>','<path d="m4 18 4-12 4 8 4-8 4 12M4 21h16"/>','<circle cx="12" cy="7" r="4"/><path d="M4 21v-3a8 8 0 0 1 16 0v3"/>','<path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6zM9 12l2 2 4-4"/>','<circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="19" r="2"/><path d="m7 6 10 0M6 8l5 9m7-9-5 9"/>','<path d="M5 4h14v17H5zM8 8h8m-8 4h8m-8 4h4"/>','<circle cx="10" cy="10" r="6"/><path d="m14 14 6 6M7 10h6m-3-3v6"/>','<circle cx="8" cy="7" r="3"/><circle cx="17" cy="8" r="3"/><path d="M2 21v-3a6 6 0 0 1 12 0v3m1-7a5 5 0 0 1 7 4v3"/>','<path d="M4 4h16v12H9l-5 5zM8 8h8m-8 4h5"/>','<circle cx="12" cy="12" r="9"/><path d="M9 9a3 3 0 1 1 4 3c-1 .5-1 1-1 2m0 3h.01"/>','<path d="M12 3v18M3 21h18M5 7h14M5 7l-3 7h6zm14 0-3 7h6z"/>'];
+ const conceptIcon=i=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+conceptPaths[i]+'</svg>';
  if($('#conceptGrid')){
-  $('#conceptGrid').innerHTML=concepts.map(([title,description],i)=>`<article class="concept-card reveal"><span>CONCEPTO ${String(i+1).padStart(2,'0')}</span><h2>${e(title)}</h2><p>${e(description)}</p></article>`).join('');
+  $('#conceptGrid').innerHTML=concepts.map(([title,description],i)=>`<article class="concept-card reveal"><div class="concept-top"><span class="concept-index">${String(i+1).padStart(2,'0')} / ${conceptGroups[i]}</span><span class="concept-icon">${conceptIcon(i)}</span></div><h2>${e(title)}</h2><p class="concept-short">${conceptShort[i]}</p><details class="concept-definition"><summary><span class="when-closed">Ver definición</span><span class="when-open">Cerrar definición</span><span class="detail-toggle" aria-hidden="true">+</span></summary><p>${e(description)}</p></details></article>`).join('');
   $('#conceptSources').innerHTML=`<div class="eyebrow">PARA AMPLIAR</div><h2>Marco documental</h2><ol>${sharedSources.map(s=>`<li><a href="${e(s.url)}" target="_blank" rel="noopener noreferrer">${e(s.label)} ↗</a></li>`).join('')}</ol><p>Definiciones orientativas para el estudio. Usa la formulación y los marcos específicos de clase cuando prepares el examen.</p>`;
  }
  let pendingFrame=false;
@@ -102,5 +101,24 @@
  let printDetails=[];addEventListener('beforeprint',()=>{printDetails=[...document.querySelectorAll('details')].map(el=>({el,open:el.open}));printDetails.forEach(({el})=>el.open=true);document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));});addEventListener('afterprint',()=>printDetails.forEach(({el,open})=>el.open=open));
  // If an asset fails, retain the name and an explicit availability message.
  document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{const note=document.createElement('span');note.className='photo-credit';note.textContent='Retrato no disponible: '+img.alt;img.replaceWith(note);},{once:true}));
+ const gallery=$('#heroGallery');
+ if(gallery){
+  const people=cases.flatMap(c=>portraits(c));
+  const sets=[people.slice(0,3),people.slice(3,6),people.slice(6)];
+  gallery.innerHTML=sets.map((set,i)=>`<div class="hero-portraits gallery-group ${i===0?'is-active':''} ${set.length===4?'four-portraits':''}" aria-hidden="${i!==0}">${set.map(p=>`<img src="${e(p.src)}" alt="${e(p.name)} · retrato de archivo" decoding="async">`).join('')}</div>`).join('');
+  const groups=[...gallery.children], count=$('#galleryCount'), pause=$('#galleryPause'), art=$('.hero-art');
+  let current=0, paused=false, hovering=false, focused=false, timer;
+  const show=index=>{current=(index+groups.length)%groups.length;groups.forEach((group,i)=>{group.classList.toggle('is-active',i===current);group.setAttribute('aria-hidden',String(i!==current));});count.textContent=String(current+1).padStart(2,'0')+' / '+String(groups.length).padStart(2,'0');};
+  const schedule=()=>{clearInterval(timer);if(!noMotion&&!paused&&!hovering&&!focused&&!document.hidden)timer=setInterval(()=>show(current+1),6500);};
+  $('#galleryPrev').addEventListener('click',()=>{show(current-1);schedule();});
+  $('#galleryNext').addEventListener('click',()=>{show(current+1);schedule();});
+  pause.hidden=noMotion;
+  pause.addEventListener('click',()=>{paused=!paused;pause.setAttribute('aria-pressed',String(paused));pause.setAttribute('aria-label',paused?'Reanudar rotación de retratos':'Pausar rotación de retratos');pause.textContent=paused?'▶':'Ⅱ';schedule();});
+  art.addEventListener('mouseenter',()=>{hovering=true;schedule();});
+  art.addEventListener('mouseleave',()=>{hovering=false;schedule();});
+  art.addEventListener('focusin',()=>{focused=true;schedule();});
+  art.addEventListener('focusout',ev=>{if(!art.contains(ev.relatedTarget)){focused=false;schedule();}});
+  document.addEventListener('visibilitychange',schedule);schedule();
+ }
  reveal();
 })();
