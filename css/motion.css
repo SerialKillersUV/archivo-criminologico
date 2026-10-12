@@ -1,4 +1,10 @@
 /* Archive motion: preserve the original palette, portraits and graphic details. */
+/* Keep browser text inflation and scrollbar changes from resizing the layout. */
+html {
+ -webkit-text-size-adjust:100%;
+ text-size-adjust:100%;
+ scrollbar-gutter:stable;
+}
 .analysis-detail summary {
  display:flex; align-items:center; justify-content:space-between; gap:20px;
  cursor:pointer; list-style:none; min-height:44px;
