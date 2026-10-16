@@ -1,22 +1,22 @@
-# Procedencia de los retratos
+# Procedencia de los cinco retratos
 
-Cada ficha enlaza la fotografía de referencia. Los PNG son derivados editados.
+Fotografías de archivo con edición del fondo; el original enlazado es la referencia documental. El tratamiento CSS en escala de grises unifica las tarjetas.
 
-| Archivo | Persona | Referencia original |
+| Archivo | Persona | Referencia |
 |---|---|---|
-| kemper.png | Edmund Kemper | https://commons.wikimedia.org/wiki/File:Kempermugshot.jpg |
-| dahmer.png | Jeffrey Dahmer | https://en.wikipedia.org/wiki/File:Jeffrey_Dahmer_Milwaukee_Police_1991_mugshot.jpg |
-| holmes.png | H. H. Holmes | https://commons.wikimedia.org/wiki/File:H._H._Holmes.jpg |
-| desalvo.png | Albert DeSalvo | https://commons.wikimedia.org/wiki/File:Albert_deSalvo2.jpg |
-| onoprienko.png | Anatoly Onoprienko | https://en.wikipedia.org/wiki/File:Anatoly_Onoprienko_mugshot.jpg |
-| ridgway.png | Gary Ridgway | https://commons.wikimedia.org/wiki/File:Gary_Ridgway_1982_Mugshot.jpg |
-| gacy.png | John Wayne Gacy | https://commons.wikimedia.org/wiki/File:John_Wayne_Gacy_1978_mugshot.jpg |
-| bianchi.png | Kenneth Bianchi | https://commons.wikimedia.org/wiki/File:KennethBianchi_1979.jpg |
-| buono.png | Angelo Buono | https://commons.wikimedia.org/wiki/File:Angelo_Buono.jpg |
-| little.png | Samuel Little | https://commons.wikimedia.org/wiki/File:Samuel_Little.webp |
+| ferrandiz.webp | Joaquín Ferrándiz Ventura | [Informativos Telecinco, 22/07/2023](https://www.telecinco.es/noticias/sociedad/20230722/asesino-mujeres-castellon-sale-carcel-be5ma_18_010107790.html) |
+| kemper.png | Edmund Kemper | [Ficha policial de 1973](https://commons.wikimedia.org/wiki/File:Kempermugshot.jpg) |
+| dahmer.png | Jeffrey Dahmer | [Ficha policial de Milwaukee, 1991](https://en.wikipedia.org/wiki/File:Jeffrey_Dahmer_Milwaukee_Police_1991_mugshot.jpg) |
+| onoprienko.png | Anatoli Onoprienko | [Retrato de archivo](https://en.wikipedia.org/wiki/File:Anatoly_Onoprienko_mugshot.jpg) |
+| ridgway.png | Gary Ridgway | [Ficha policial de 1982](https://commons.wikimedia.org/wiki/File:Gary_Ridgway_1982_Mugshot.jpg) |
 
-## Edición
+Los cuatro retratos anteriores se conservan del repositorio. La edición asistida puede modificar píxeles: no usar los recortes para análisis biométrico o documental. Las condiciones pertenecen a sus fuentes; no se atribuye una licencia de dominio público uniforme.
 
-Se utilizó el editor de imágenes con cada fotografía real como referencia y fondo transparente. Las instrucciones pidieron preservar identidad, facciones, expresión y aspecto de archivo; extraer cabeza y busto, eliminar fondo, rótulos y encuadres ajenos, y mantener el rostro completo. En el montaje de Bianchi se seleccionó el retrato frontal. Después se optimizaron los PNG conservando el canal alfa, hasta un máximo de 700 × 900 píxeles.
+## Ferrándiz: edición del 16/10/2026
 
-La edición asistida puede alterar detalles de píxeles. Para análisis documental debe consultarse el original. Las condiciones de reutilización se consultan en cada fuente; algunas fotografías se alojan en Wikipedia bajo condiciones específicas y no se declara que todas sean de dominio público.
+Herramienta integrada `image_gen`, modo de edición con fotografía real como referencia y fondo transparente. Archivo final: `assets/portraits/ferrandiz.webp`. Después se redujo a un máximo de 680 × 900 píxeles conservando el canal alfa.
+
+Prompt empleado:
+
+> Use case: background-extraction. Edit target: the provided real historical portrait photo of Joaquín Ferrándiz Ventura. For an academic criminology website portrait card. Extract ONLY the existing man (head, hair, neck, suit shoulders, white shirt and tie) from this exact source photograph. Remove the light photo background AND the black side bars; make all background actually transparent. Preserve his exact real identity, original facial proportions, expression, age, dark hair, clothes, pose and natural archived photo quality. Keep the full head and hair within the image with a small transparent margin above. Centered head and shoulders portrait, vertical 3:4 framing. Do not invent, beautify, change the face or add any features. No text, no logos, no border, no props. The only requested edit is background extraction and framing.
+
