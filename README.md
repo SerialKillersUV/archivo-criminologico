@@ -1,47 +1,51 @@
 # Archivo Criminológico
 
-Página web creada por Martí Gadea y Sergio Pastor.
+Página web creada por Martí Gadea y Sergio Pastor. Revisión del 16 de octubre de 2026.
 
-Material de apoyo para que estudiantes de criminología puedan estudiar fácilmente los casos analizados en clase. Rework del repositorio SerialKillersUV/archivo-criminologico, preparado el 3 de octubre de 2026.
+Cuaderno de estudio para estudiantes de criminología. Conserva la estética oscura y carmesí, las tipografías locales, los retratos de archivo y la composición del proyecto.
+
+## Contenido
+
+- Cinco casos: Joaquín Ferrándiz Ventura, Edmund Kemper, Jeffrey Dahmer, Anatoli Onoprienko y Gary Leon Ridgway.
+- Ocho apartados, por este orden: presentación / estilo de vida / personalidad; escena del crimen; perfil geográfico; modus operandi; firma criminal; victimología; AV; propuesta de perfil.
+- Claves de repaso, cronología, fuentes por apartado, impresión y navegación entre los cinco expedientes.
+- Comparativa seleccionable de M.O., victimología y perfil, con enlaces a los apartados completos.
+- Dieciséis conceptos con definición y aplicación visibles, sin desplegables.
+- Veinticinco preguntas, cinco por caso, con tres opciones y una respuesta correcta. Corrección individual, explicación, enlace al tema, progreso, resultado y reinicio.
+
+Las respuestas se conservan al cambiar de bloque durante la visita a Preguntas. Se borran al recargar o abandonar esa página; no se guardan datos personales ni se requiere una cuenta.
 
 ## Abrir y publicar
 
-Descomprime el paquete y abre `index.html` en un navegador. Mantén juntas las carpetas `css`, `js` y `assets`. La interfaz, fotografías y tipografías funcionan sin servicios externos; los enlaces documentales requieren internet.
-
-Para GitHub Pages, sustituye los archivos del proyecto por el contenido de esta carpeta, conservando la estructura. No hacen falta instalación, compilación ni claves. Este paquete no se ha publicado: la conexión disponible al repositorio solo permite lectura.
-
-## Qué incluye
-
-- Portada, catálogo de nueve expedientes, fichas, comparación seleccionable y doce conceptos.
-- Kemper, Dahmer, Holmes, DeSalvo, Onoprienko, Ridgway, Gacy, Bianchi y Buono, y Little.
-- Antecedentes, trayectoria, victimología, modus operandi, conducta expresiva, investigación y propuestas de análisis en cada expediente.
-- Cronologías, claves para estudiar, preguntas de repaso y fuentes numeradas.
-- Diez retratos PNG con transparencia; Bianchi y Buono aparecen separados en su expediente compartido.
-- Estética oscura y carmesí, animaciones suaves, menú móvil, búsqueda, filtros, impresión y respeto al movimiento reducido.
+Sitio estático sin instalación ni compilación. Abre `index.html` o sirve esta carpeta con un servidor HTTP. Para GitHub Pages, el contenido se encuentra en la raíz de la rama publicada. Mantén juntas las carpetas `assets`, `css` y `js`.
 
 ## Criterio documental
 
-Se describen delitos sexuales, homicidios y conductas posteriores con lenguaje directo y finalidad académica. Se distingue entre condenas, confesiones, atribuciones e hipótesis. El contenido ampliado procede de fuentes externas enlazadas y se identifica como complemento documental; no se presenta como transcripción del material del profesorado. Las propuestas teóricas son orientaciones para el debate y no diagnósticos clínicos.
+La base es el documento de clase `CASOS PARA WEB.pdf`, pp. 1–15. Las ampliaciones externas se citan dentro de cada expediente. El PDF completo no se incorpora a los archivos públicos. Se usan términos directos —agresión sexual, estrangulación, decapitación, desmembramiento, necrofilia y canibalismo— cuando la información del caso lo requiere.
 
-Los datos históricos mantienen su fecha: los casos verificados que comunicó el FBI sobre Little en 2019 no se presentan como una cifra actualizada de 2026. Las fuentes y matices están dentro de cada ficha. Los enlaces documentales pueden cambiar.
+Firma, AV y propuesta de perfil se identifican como interpretación o ejercicio retrospectivo. Los cinco autores están identificados: el último apartado explica cómo se plantearía una propuesta si faltara la biografía. No se presenta un perfil retrospectivo como una predicción policial histórica ni se inventan coordenadas, puntuaciones PCL-R o diagnósticos.
 
-## Retratos
+Se han ajustado afirmaciones problemáticas del material: no se afirma que Kemper comiera las cuerdas vocales de su madre, no se sitúa el primer homicidio de Dahmer en la vivienda de la abuela, no se presenta como verificada una familia de diez víctimas en el primer episodio de Onoprienko y se distinguen las 48 condenas iniciales de Ridgway de la adicional de 2011. Confesión, evidencia y condena no se equiparan.
 
-Los PNG se prepararon a partir de fotografías de archivo de cada persona, con edición asistida para eliminar el fondo y encuadrar el rostro. Son derivados editados; la fotografía original enlazada es la referencia documental. No son nuevas fotografías históricas. Consulta `assets/portraits/FUENTES.md` para la procedencia y el proceso. No se atribuye una licencia libre uniforme a las fotografías: las condiciones pertenecen a sus fuentes.
+Las fotografías son derivados editados de imágenes reales. Procedencia, condiciones y edición en `assets/portraits/FUENTES.md`. No se declara una licencia libre uniforme sobre las fotografías. Inter y Oswald se incluyen con sus licencias.
 
-Inter y Oswald se incluyen localmente junto a sus licencias en `assets/fonts`.
+## Interacción y accesibilidad
 
-## Comprobaciones
+Menú adaptable, navegación con teclado, enlaces de salto, etiquetas de formulario, estados anunciados, alternativas textuales y contenido imprimible. Las animaciones incluyen entrada de secciones, transiciones de tarjetas y tablas, progreso del test, correcciones y rotación de retratos con pausa. Se respeta `prefers-reduced-motion`, también si cambia durante la visita.
 
-Se verificaron mediante ejecución del JavaScript en DOM: cinco páginas, nueve expedientes, sus siete secciones, cronologías y repaso, imágenes locales, búsqueda, filtros, estados vacíos, comparación, menú móvil y enlaces internos. Se comprobó la sintaxis del JavaScript y la transparencia real de los diez PNG.
+## Verificación
 
-Los retratos se inspeccionaron en una hoja de contacto. Queda pendiente revisar visualmente las páginas completas en navegador, especialmente a distintos anchos: el navegador remoto del entorno bloqueó los archivos locales. Las comprobaciones DOM no sustituyen esa revisión de diseño.
+Sintaxis de los tres archivos JavaScript; ejecución DOM de las seis páginas y los cinco perfiles; 40 apartados en orden; 25 preguntas, 75 opciones y una solución por pregunta; 16 definiciones; 379 enlaces o recursos locales revisados. Se comprobaron búsqueda con y sin resultados, selección comparativa, galería sin grupos vacíos, corrección de aciertos y errores, filtros y reinicio del test, menú y URLs de casos retirados.
 
-## Editar
+La revisión visual se realizó en navegador de escritorio y en un marco de 390 píxeles de ancho para verificar la adaptación móvil. No equivale a una prueba en un teléfono físico.
 
-- `js/data.js`: fichas, fuentes, cronologías, conceptos y metadatos.
-- `js/app.js`: navegación, filtros, comparación y generación de fichas.
-- `css/style.css`: diseño, adaptación a pantallas e impresión.
-- `assets/portraits`: fotografías utilizadas por la interfaz.
+## Edición
 
-Los créditos y la finalidad académica están en las cinco páginas.
+- `js/data.js`: cinco casos, ocho apartados, fuentes, comparativa y conceptos.
+- `js/questions.js`: preguntas, opciones, soluciones y explicaciones.
+- `js/app.js`: generación de contenido e interacciones.
+- `css/style.css` y `css/motion.css`: diseño original y animaciones existentes.
+- `css/study.css`: extensiones del rework, formularios y adaptación.
+
+Las referencias documentales externas necesitan conexión. El contenido de estudio, imágenes y tipografías se sirven localmente.
+

@@ -1,176 +1,236 @@
-/* Síntesis documental ampliada. Las lecturas teóricas son propuestas de análisis, no diagnósticos. */
+/* Base: material de clase. Las ampliaciones se citan; el análisis retrospectivo se identifica. */
 const sharedSources = [
  {label:'FBI · Serial Murder: Multi-Disciplinary Perspectives for Investigators (2008)',url:'https://www.fbi.gov/file-repository/reports-and-publications/stats-services-publications-serial-murder-serial-murder-july-2008-pdf/view'},
- {label:'FBI · Serial Murder: Pathways for Investigations',url:'https://www.fbi.gov/file-repository/reports-and-publications/serialmurder-pathwaysforinvestigations-1.pdf/view'}
+ {label:'Canter y Larkin (1993) · The environmental range of serial rapists',url:'https://www.davidcanter.com/resources/selected-journal-articles/'},
+ {label:'Holmes, Tewksbury y Holmes (1999) · Fractured Identity Syndrome',url:'https://www.researchgate.net/publication/249713496_Fractured_Identity_Syndrome_A_New_Theory_of_Serial_Murder'}
+];
+const sections = [
+ ['presentation','Presentación / estilo de vida / personalidad','Biografía y conducta'],
+ ['scene','Escena del crimen','Hallazgos y espacios'],
+ ['geography','Perfil geográfico','Distribución espacial'],
+ ['mo','Modus operandi','Conducta instrumental'],
+ ['signature','Firma criminal','Dimensión expresiva · interpretación'],
+ ['victimology','Victimología','Características de las víctimas'],
+ ['av','AV · Análisis de vinculación','Conducta y evidencia'],
+ ['proposal','Propuesta de perfil','Cómo se plantearía con autor desconocido']
 ];
 const cases = [
- {id:'kemper',name:'Edmund Kemper',alias:'Co-ed Killer',place:'California · Estados Unidos',period:'1964–1973',victims:'10 víctimas conocidas',sentence:'Ocho condenas a prisión perpetua por la serie de 1972–1973',tags:['victimología','M.O.','necrofilia','control'],accent:'EK',image:'assets/portraits/kemper.png',focus:'Violencia sexual, control y conducta posterior al homicidio.'},
- {id:'dahmer',name:'Jeffrey Dahmer',alias:'Asesino de Milwaukee',place:'Ohio y Wisconsin · Estados Unidos',period:'1978–1991',victims:'17 víctimas reconocidas',sentence:'15 perpetuas en Wisconsin y otra por el homicidio de Ohio; murió en prisión en 1994',tags:['victimología','M.O.','firma','investigación'],accent:'JD',image:'assets/portraits/dahmer.png',focus:'Posesión de las víctimas y fallos en la respuesta institucional.'},
- {id:'holmes',name:'H. H. Holmes',alias:'Herman Webster Mudgett',place:'Estados Unidos y Canadá',period:'Década de 1890',victims:'Total incierto; condenado por el asesinato de Benjamin Pitezel',sentence:'Ejecutado en 1896',tags:['fraude','engaño','ocultación','fuentes'],accent:'HH',image:'assets/portraits/holmes.png',focus:'Homicidio instrumental y contraste entre evidencia y leyenda.'},
- {id:'desalvo',name:'Albert DeSalvo',alias:'Vinculado al Estrangulador de Boston',place:'Massachusetts · Estados Unidos',period:'1962–1964 · serie atribuida',victims:'13 homicidios tradicionalmente atribuidos a la serie; ADN en el caso Sullivan',sentence:'Perpetua por otros delitos sexuales; murió en prisión en 1973',tags:['ADN','confesión','victimología','atribución'],accent:'AD',image:'assets/portraits/desalvo.png',focus:'Alcance de la prueba genética y límites de una confesión.'},
- {id:'onoprienko',name:'Anatoli Onoprienko',alias:'La Bestia de Ucrania',place:'Ucrania',period:'1989 y 1995–1996',victims:'52 homicidios por los que fue condenado',sentence:'Pena de muerte conmutada por perpetua; murió en prisión en 2013',tags:['M.O.','robos','familias','neutralización'],accent:'AO',image:'assets/portraits/onoprienko.png',focus:'Ataques a familias, violencia instrumental y destrucción de pruebas.'},
- {id:'ridgway',name:'Gary Leon Ridgway',alias:'Green River Killer',place:'Washington · Estados Unidos',period:'1982–1998 · homicidios conocidos',victims:'49 homicidios con condena; confesó otros',sentence:'49 penas de prisión perpetua sin libertad condicional',tags:['victimología','ADN','necrofilia','ocultación'],accent:'GR',image:'assets/portraits/ridgway.png',focus:'Selección de víctimas vulnerables y resolución mediante ADN.'},
- {id:'gacy',name:'John Wayne Gacy',alias:'Asesino de Chicago',place:'Illinois · Estados Unidos',period:'1972–1978',victims:'33 víctimas',sentence:'Condenado a muerte en 1980; ejecutado en 1994',tags:['victimología','engaño','M.O.','identificación'],accent:'JG',image:'assets/portraits/gacy.png',focus:'Apariencia de respetabilidad, captación y ocultación doméstica.'},
- {id:'bpb',name:'Kenneth Bianchi y Angelo Buono',alias:'Estranguladores de Hillside',place:'Los Ángeles · Estados Unidos',period:'1977–1978 · serie conjunta',victims:'10 víctimas de la serie; Bianchi cometió otros dos homicidios en Washington',sentence:'Prisión perpetua; Buono fue condenado por nueve homicidios y murió en 2002',tags:['coautoría','engaño','violencia sexual','simulación'],accent:'KB / AB',image:'assets/portraits/bianchi.png',images:[{src:'assets/portraits/bianchi.png',name:'Kenneth Bianchi'},{src:'assets/portraits/buono.png',name:'Angelo Buono'}],focus:'Dinámica de coautoría y necesidad de corroborar el relato de cada autor.'},
- {id:'little',name:'Samuel Little',alias:'Samuel McDowell Little',place:'Diversos estados · Estados Unidos',period:'1970–2005 · según sus confesiones',victims:'93 homicidios confesados; 50 verificados por el FBI en su publicación de 2019',sentence:'Tres perpetuas en 2014 por homicidios de Los Ángeles; murió en 2020',tags:['victimología','ADN','movilidad','casos sin resolver'],accent:'SL',image:'assets/portraits/little.png',focus:'Invisibilidad de las víctimas y conexión de casos entre jurisdicciones.'}
+ {id:'ferrandiz',name:'Joaquín Ferrándiz Ventura',alias:'El depredador de Castellón',place:'Castellón · España',period:'1995–1996',victims:'5 mujeres asesinadas',sentence:'69 años de prisión; excarcelado en julio de 2023 tras cumplir 25',image:'assets/portraits/ferrandiz.webp'},
+ {id:'kemper',name:'Edmund Kemper',alias:'Co-ed Killer',place:'California · Estados Unidos',period:'1964 / 1972–1973',victims:'10 víctimas: 2 abuelos y 8 en la serie adulta',sentence:'Ocho condenas a prisión perpetua por los homicidios de 1972–1973',image:'assets/portraits/kemper.png'},
+ {id:'dahmer',name:'Jeffrey Dahmer',alias:'Asesino de Milwaukee',place:'Ohio y Wisconsin · Estados Unidos',period:'1978–1991',victims:'17 adolescentes y hombres jóvenes',sentence:'15 perpetuas en Wisconsin y otra en Ohio; murió en prisión en 1994',image:'assets/portraits/dahmer.png'},
+ {id:'onoprienko',name:'Anatoli Onoprienko',alias:'La Bestia de Ucrania',place:'Ucrania',period:'1989 / 1995–1996',victims:'52 homicidios con condena',sentence:'Pena de muerte conmutada por perpetua; murió en prisión en 2013',image:'assets/portraits/onoprienko.png'},
+ {id:'ridgway',name:'Gary Leon Ridgway',alias:'Green River Killer',place:'Washington · Estados Unidos',period:'1982–1998 · homicidios conocidos',victims:'49 homicidios con condena; confesó otros',sentence:'Prisión perpetua sin libertad condicional',image:'assets/portraits/ridgway.png'}
 ];
+const portraitSources = {
+ ferrandiz:{label:'Retrato de archivo publicado por Informativos Telecinco (22/07/2023)',url:'https://www.telecinco.es/noticias/sociedad/20230722/asesino-mujeres-castellon-sale-carcel-be5ma_18_010107790.html'},
+ kemper:{label:'Ficha policial de 1973',url:'https://commons.wikimedia.org/wiki/File:Kempermugshot.jpg'},
+ dahmer:{label:'Ficha policial de Milwaukee de 1991',url:'https://en.wikipedia.org/wiki/File:Jeffrey_Dahmer_Milwaukee_Police_1991_mugshot.jpg'},
+ onoprienko:{label:'Retrato de archivo',url:'https://en.wikipedia.org/wiki/File:Anatoly_Onoprienko_mugshot.jpg'},
+ ridgway:{label:'Ficha policial de 1982',url:'https://commons.wikimedia.org/wiki/File:Gary_Ridgway_1982_Mugshot.jpg'}
+};
 const details = {
+ ferrandiz:{
+ summary:'Cinco asesinatos de mujeres en Castellón. La aproximación mediante una apariencia fiable, el uso del vehículo y la estrangulación articulan una serie en la que victimología y geografía resultan centrales.',
+ presentation:[
+  'Trabajaba en el sector de los seguros y mantenía una imagen de hombre educado, sociable y laboralmente integrado. En 1989 cometió una agresión sexual por la que fue condenado; después obtuvo la libertad condicional. La integración aparente coexistió con la planificación de ataques a mujeres. [1]',
+  'El material describe frialdad afectiva, manipulación, egocentrismo y rasgos compatibles con psicopatía. Son descriptores interpersonales, no una puntuación clínica acreditada. Generar confianza fue un recurso de aproximación, más útil para el análisis que el apodo «psicópata educado». [1]'
+ ],
+ scene:[
+  'Hay que separar contacto, agresión y hallazgo. Sonia Rubio apareció en un paraje de Oropesa; tres víctimas, junto al río Mijares en Vila-real; Amelia Sandra, en una balsa de Onda. El lugar del cadáver no prueba por sí solo dónde ocurrió el homicidio. [2]',
+  'Estrangulación, ataduras y cobertura de la cabeza permiten comparar escenas. La manipulación para dificultar la identificación debe examinarse por su función de ocultación, sin atribuirle automáticamente un significado ritual. [1, 2]'
+ ],
+ geography:[
+  'La concentración en Castellón conecta zonas de ocio y prostitución con lugares apartados de depósito. El coche separaba captación, agresión y abandono. Los accesos utilizados son compatibles con familiaridad territorial. [1]',
+  'Los apuntes relacionan el caso con la hipótesis del círculo de Canter: la distribución de los delitos puede orientar hacia un área habitual. Es probabilística, no localiza con certeza una vivienda. No se dibuja un círculo real sin coordenadas verificadas de cada escenario. [1]'
+ ],
+ mo:[
+  'Localizaba mujeres en contextos nocturnos y empleaba trato amistoso u ofertas de transporte. El traslado a lugares aislados facilitaba el control; la estrangulación era el mecanismo homicida recurrente. Ataduras y abandono del cuerpo completaban la secuencia instrumental. [1]',
+  'En julio de 1998 los agentes que lo vigilaban observaron un intento de ataque después de desinflar la rueda del coche de una joven y ofrecer ayuda. Ese episodio permitió detenerlo; no se asigna ese mismo procedimiento a los cinco homicidios. [2]'
+ ],
+ signature:[
+  'No se acredita una postura ritual única. El control, la exposición del cuerpo y la ocultación del rostro permiten explorar dominación o despersonalización como hipótesis expresiva. [1]',
+  'Estrangular mata; atar inmoviliza; dificultar la identificación reduce la detección. Repetir esas acciones no basta para llamarlas firma. Hay que comparar presencia, variaciones y función para sostener un significado psicológico adicional.'
+ ],
+ victimology:[
+  'Las víctimas fueron Sonia Rubio Arrufat, Amelia Sandra García Costa, Natalia Archelós Olaria, Francisca Salas León y Mercedes Vélez Ayala. Tres ejercían prostitución; las otras dos fueron abordadas en contextos distintos. Una ocupación única no define la serie. [1]',
+  'Nocturnidad, aislamiento situacional y acceso mediante el coche son variables compartidas. Los contactos previos deben comprobarse individualmente; no se presupone que todas fueran desconocidas para él. [1, 2]'
+ ],
+ av:[
+  'Como ejercicio retrospectivo, se compararían estrangulación, ataduras, cobertura de la cabeza, cronología, acceso y lugares de depósito. La combinación de variables aporta más que un solo método de muerte. [1]',
+  'La diversidad entre víctimas no excluye una autoría común. Tampoco permite atribuirle cualquier cadáver de la zona: confesión y evidencia de cada episodio deben contrastar las semejanzas. Se explica un razonamiento de AV, no se reproduce un informe policial. [2]'
+ ],
+ proposal:['El autor está identificado y existe el apartado 1. Si faltara esa información, se formularía una propuesta provisional sobre acceso a víctimas, movilidad, control y familiaridad territorial. Orientaría a comprobar rutinas y disponibilidad de vehículo; no permitiría deducir nombre, empleo o diagnóstico. Se revisaría con nuevas evidencias.'],
+ comparison:{mo:'Confianza, transporte, aislamiento, estrangulación y abandono.',victimology:'Mujeres con contextos distintos; tres ejercían prostitución.',profile:'Integración social aparente, manipulación y planificación; serie concentrada en Castellón.'},
+ keys:['Cinco víctimas con contextos distintos.','Separar captación, agresión y depósito.','Estrangulación: M.O.; la firma necesita justificación expresiva.'],
+ timeline:[['1989','Agresión sexual previa y condena.'],['1995–1996','Cinco asesinatos en Castellón.'],['1998','Vigilancia, detención y confesión.'],['2000 / 2023','Condena; excarcelación tras 25 años.']],
+ sources:[{label:'Material de clase aportado · CASOS PARA WEB.pdf, pp. 1–3'},{label:'EFE · Reconstrucción con investigadores de la Guardia Civil (2023)',url:'https://efe.com/comunidad-valenciana/2023-09-10/las-apariencias-enganan-cronica-de-un-asesino-en-serie/'}],
+ caveat:'Firma y AV se presentan como análisis académico. El modelo geográfico orienta una búsqueda, no acredita una identidad.'
+ },
  kemper:{
- summary:'Kemper asesinó a sus abuelos cuando era adolescente y, años después, a seis jóvenes, a su madre y a una amiga de esta. El caso permite estudiar cómo la captación aparentemente cordial coexistía con violencia sexual y manipulación de los cadáveres.',
- child:'Nació en 1948. La reconstrucción biográfica describe conflictos familiares y una relación hostil con su madre. Parte de esas explicaciones procede de su propio relato posterior. A los quince años mató a sus abuelos y fue internado en Atascadero; salió en 1969. Estos antecedentes contextualizan su trayectoria, pero no prueban que una infancia conflictiva produzca necesariamente homicidio serial. [1, 2]',
- career:'Entre 1972 y 1973 mató a Mary Ann Pesce, Anita Luchessa, Aiko Koo, Cynthia Schall, Rosalind Thorpe y Alice Liu. En abril de 1973 asesinó a su madre, Clarnell Strandberg, y a Sally Hallett. La suma de estos ocho homicidios y los dos de sus abuelos explica las diez víctimas conocidas. [1, 2]',
- victimology:'La serie adulta reunió dos contextos: jóvenes a las que encontraba en sus desplazamientos y mujeres de su entorno familiar. Varias eran estudiantes que hacían autostop; Aiko Koo era menor. El acceso a las víctimas y la posibilidad de llevarlas a lugares aislados importan más para el análisis que una etiqueta uniforme de «universitarias». [1, 2]',
- mo:'Ofrecía transporte y aprovechaba la confianza inicial para aislar y someter a las jóvenes. No utilizó un único método de muerte: hubo apuñalamiento, asfixia y disparos. Tras los homicidios trasladó cuerpos, los decapitó y desmembró y dispersó restos. También realizó actos sexuales con cadáveres. La descripción debe distinguir la ejecución del homicidio, la ocultación y la actividad sexual post mortem. [1, 2]',
- signature:'La necrofilia y algunas mutilaciones permiten plantear una función de posesión o expresión más allá de matar. Sin embargo, una decapitación puede cumplir varias funciones y su repetición no basta para declarar una «firma» única. Esta es una lectura conductual que debe comprobarse en cada escena, no una conclusión automática.',
- investigation:'Tras los últimos asesinatos se desplazó a Colorado y telefoneó a la policía para confesar. En 1973 fue declarado culpable de ocho homicidios y recibió penas perpetuas. Su entrega y la corroboración material deben diferenciarse de las entrevistas posteriores en las que explicó sus motivaciones. [1, 2]',
- theories:'Propuesta de análisis: relacionar captación, aislamiento y control con las oportunidades del delito; comparar los actos de precaución con los comportamientos sexuales posteriores. La interpretación de las jóvenes como sustitutas de su madre es una hipótesis vinculada a su relato, no una causalidad demostrada. Evitar convertir la biografía o una etiqueta de personalidad en una explicación total.',
- keys:['10 víctimas: dos abuelos y ocho víctimas de la serie adulta.','El método de muerte varía; la manipulación post mortem requiere análisis propio.','La entrega voluntaria no sustituye la corroboración de los hechos.'],
- question:'¿Qué conductas servían para captar u ocultar y cuáles podrían tener una función expresiva?',
- answer:'Ofrecer transporte y dispersar restos tienen funciones instrumentales. La necrofilia permite plantear una función sexual o de posesión; las mutilaciones deben evaluarse individualmente.',
- timeline:[['1964','Homicidio de sus abuelos e internamiento.'],['1969','Salida de Atascadero.'],['1972–1973','Serie de seis jóvenes y dos mujeres de su entorno.'],['1973','Confesión y condenas perpetuas.']],
- sources:[{label:'Síntesis biográfica · Edmund Kemper',url:'https://en.wikipedia.org/wiki/Edmund_Kemper'},{label:'Biography · Edmund Kemper',url:'https://www.biography.com/crime/edmund-kemper'}],
- caveat:'Las explicaciones retrospectivas del autor sobre su madre o sus fantasías deben tratarse como declaraciones. No se presenta el canibalismo como un hecho acreditado.'
+ summary:'Diez víctimas conocidas: sus abuelos en 1964 y ocho personas en 1972–1973. La captación en coche y los actos sexuales post mortem exigen separar procedimiento, ocultación y conducta expresiva.',
+ presentation:[
+  'La biografía recoge conflictos familiares, aislamiento y violencia temprana. Mató a sus abuelos a los quince años y fue internado en Atascadero. Al salir mantuvo trabajos y contacto social con policías; el trato aparentemente afable coexistió con los homicidios. [1]',
+  'Sus relatos muestran fantasías de dominio y hostilidad hacia su madre. Convertir esa relación en causa única reproduce su explicación. La identidad fracturada permite discutir facetas sociales coexistentes, no una doble personalidad ni un diagnóstico demostrado. [1, 2]'
+ ],
+ scene:[
+  'La serie adulta combina captación en carretera, agresión en vehículo o lugares apartados, manipulación en espacios privados y dispersión de restos. Un cuerpo recuperado puede proceder de una agresión en otro lugar. [1]',
+  'Decapitación, desmembramiento y actos sexuales con cadáveres deben situarse en su secuencia temporal. El homicidio de su madre y el de Sally Hallett ocurrieron en el entorno doméstico, una variación respecto de las autoestopistas. [1]'
+ ],
+ geography:[
+  'La fase adulta se sitúa en California, en torno a Santa Cruz y rutas utilizadas por jóvenes autoestopistas. El coche conectaba contacto, muerte y depósito. North Fork, donde mató a sus abuelos, pertenece a un episodio anterior que se estudia aparte. [1]',
+  'Se compararían rutas habituales, residencias y accesos a los depósitos. La dispersión indica movilidad, pero no calcula una residencia sin ubicaciones, fechas y recorridos contrastados.'
+ ],
+ mo:[
+  'Ofrecía transporte y una apariencia fiable para facilitar la entrada en su coche. Después sometía y mataba a las jóvenes; utilizó armas de fuego, armas blancas y asfixia en diferentes episodios. Cambiar el mecanismo no excluye continuidad de autoría. [1]',
+  'Trasladar y fraccionar cuerpos podía facilitar su manejo u ocultación. Esa función práctica debe separarse de la actividad sexual y de la manipulación de partes corporales. [1, 2]'
+ ],
+ signature:[
+  'Los actos sexuales post mortem y la manipulación de cabezas permiten explorar posesión y control sobre una víctima incapaz de resistirse. Al exceder lo necesario para matar, son relevantes para una hipótesis de firma. [1, 2]',
+  'Decapitar y desmembrar puede combinar ocultación y expresión. No se presupone un ritual idéntico en todos los hechos: se contrastan cada escena y las declaraciones del autor.'
+ ],
+ victimology:[
+  'La serie adulta comprende seis jóvenes: Mary Ann Pesce, Anita Luchessa, Aiko Koo, Cindy Schall, Rosalind Thorpe y Alice Liu; además de Clarnell, su madre, y Sally Hallett. Aiko era menor. Las captadas durante desplazamientos forman un grupo relacional distinto de las víctimas del entorno familiar. [1]',
+  'Sus abuelos, asesinados en 1964, constituyen otro contexto. El acceso a autoestopistas es una oportunidad aprovechada por el agresor, no una responsabilidad de las víctimas. «Co-ed Killer» no describe a las diez personas asesinadas. [1]'
+ ],
+ av:[
+  'Se contrastarían transporte, rutas estudiantiles, movilidad, mutilaciones y actos sexuales post mortem. El mecanismo de muerte debe registrarse como variable cambiante, sin excluir conexiones solo por el arma. [1]',
+  'La confesión y la localización de restos vinculan episodios cuando aportan datos verificables. La relación con su madre no acredita un único motivo para todos los delitos. Este AV es una lectura retrospectiva para el estudio. [1, 2]'
+ ],
+ proposal:['Si no hubiera apartado 1, se propondrían comprobaciones sobre movilidad en coche, aproximación a autoestopistas y acceso a espacios privados donde manipular cuerpos. El perfil priorizaría rutas y lugares. No permitiría inferir una historia familiar concreta, profesión o cociente intelectual a partir de las mutilaciones.'],
+ comparison:{mo:'Oferta de transporte, sometimiento, métodos de muerte variables y dispersión de restos.',victimology:'Seis jóvenes en la serie adulta, su madre y una amiga; dos abuelos en 1964.',profile:'Aproximación social y fantasías de posesión; actividad sexual post mortem y distintos grupos de víctimas.'},
+ keys:['10 víctimas en total; 8 en la serie adulta.','Captación y actividad post mortem tienen funciones diferentes.','No equiparar autoestopistas y víctimas familiares.'],
+ timeline:[['1964','Homicidio de sus abuelos e internamiento.'],['1969','Salida de Atascadero.'],['1972–1973','Seis jóvenes y dos mujeres de su entorno.'],['1973','Confesión y ocho condenas perpetuas.']],
+ sources:[{label:'Material de clase aportado · CASOS PARA WEB.pdf, pp. 4–7'},{label:'Meloy (1989) · Serial Murder: A Forensic Psychiatric Perspective',url:'https://drreidmeloy.com/wp-content/uploads/2015/12/1989_SerialMurderAFo.pdf'}],
+ caveat:'No se incorpora el canibalismo como hecho acreditado ni se infiere una causa genética a partir de comportamientos infantiles.'
  },
  dahmer:{
- summary:'Dahmer mató a diecisiete adolescentes y hombres jóvenes. La investigación encontró restos humanos y fotografías de los cuerpos; sus delitos incluyeron necrofilia, desmembramiento y canibalismo. El expediente también exige examinar las oportunidades perdidas para proteger a sus víctimas.',
- child:'Nació en 1960. Las biografías recogen aislamiento, interés por restos animales y consumo problemático de alcohol en la adolescencia. Son antecedentes, no indicadores suficientes para predecir homicidio. La interpretación del miedo al abandono procede en parte de sus declaraciones y debe separarse de la reconstrucción material de los delitos. [1]',
- career:'El primer homicidio fue el de Steven Hicks en Ohio, en 1978. La serie posterior se concentró en Wisconsin y culminó en 1991. La cifra de diecisiete víctimas reconocidas no equivale a diecisiete condenas: recibió quince por los homicidios de Wisconsin y una adicional en Ohio. [1, 2]',
- victimology:'Las víctimas fueron adolescentes y hombres jóvenes, muchos de ellos negros. Hubo captación en espacios de ocio y en la calle. Ofertas de dinero, compañía o fotografías facilitaban el contacto; la asimetría de poder y la falta de protección institucional aumentaban el peligro. Su orientación sexual no explica la violencia ni convierte a otros hombres homosexuales en personas de riesgo. [1]',
- mo:'Solía atraer a las víctimas a un espacio privado, sedarlas y estrangularlas. Después fotografiaba y desmembraba cuerpos, conservaba partes y cometía actos sexuales con cadáveres; en algunos casos hubo canibalismo. También practicó perforaciones craneales e introdujo sustancias para intentar mantener a las víctimas incapacitadas. Estos actos fueron agresiones graves, no experimentos clínicos. [1]',
- signature:'La conservación de restos y las fotografías permiten plantear una función de posesión y repetición de fantasías. Debe distinguirse de desmembrar para ocultar. La propuesta de una firma requiere contrastar frecuencia, variaciones y significado; el mismo comportamiento puede tener un componente instrumental y otro expresivo.',
- investigation:'El 22 de julio de 1991 un hombre escapó con una esposa policial en la muñeca y condujo a los agentes al apartamento. El FBI colaboró con identificación, ADN, análisis químicos, biológicos y de marcas de herramientas. En mayo, Konerak Sinthasomphone, de catorce años, había sido devuelto a Dahmer por agentes pese a que otras personas alertaron sobre su estado. Murió en prisión en 1994. [2, 3]',
- theories:'Propuesta de análisis: estudiar control coercitivo, cosificación y oportunidades en espacios privados, junto con el efecto de los sesgos institucionales sobre la protección de víctimas. Comparar lo que el autor decía buscar con lo que muestran las escenas. Un diagnóstico retrospectivo o una explicación basada solo en «soledad» no sustituye ese contraste.',
- keys:['17 víctimas reconocidas; distinguir esa cifra de las condenas.','Captación y sedación: M.O.; conservación de restos: posible dimensión expresiva.','La respuesta a Konerak permite estudiar un fallo de protección concreto.'],
- question:'¿Por qué no basta con describir el caso como un problema de soledad?',
- answer:'Porque esa explicación deja fuera las decisiones de captación, sometimiento y ocultación, la violencia sexual y las fallas institucionales. Debe contrastarse el relato del autor con evidencia.',
- timeline:[['1978','Homicidio de Steven Hicks, en Ohio.'],['1987–1991','Serie posterior en Wisconsin.'],['1991','Escape de una víctima y hallazgo del apartamento.'],['1992 / 1994','Condenas; muerte en prisión dos años después.']],
- sources:[{label:'Síntesis biográfica · Jeffrey Dahmer',url:'https://en.wikipedia.org/wiki/Jeffrey_Dahmer'},{label:'FBI · Investigación y análisis forense',url:'https://www.fbi.gov/news/stories/serial-killers-part-7-jeffrey-dahmer'},{label:'UPI · Contacto policial con Konerak (1991)',url:'https://www.upi.com/Archives/1991/07/26/Three-more-mass-murder-victims-identified/5880680500800/'}],
- caveat:'Los antecedentes familiares, el consumo de alcohol y la orientación sexual no establecen por sí mismos una explicación causal del homicidio.'
- },
- holmes:{
- summary:'Herman Webster Mudgett utilizó el nombre H. H. Holmes. Su expediente conecta fraude, engaño y homicidio, pero requiere depurar la leyenda del «castillo del asesinato». El núcleo judicial es la muerte de Benjamin Pitezel; la investigación también recuperó los restos de tres de sus hijos.',
- child:'Nació en 1861 y se formó en medicina. La profesión y las identidades utilizadas le facilitaron una apariencia de credibilidad. Los relatos sobre una infancia que supuestamente anticipaba sus crímenes varían mucho entre fuentes: no es adecuado convertir anécdotas sensacionalistas en antecedentes clínicos demostrados. [1]',
- career:'Desarrolló actividades fraudulentas y se vinculó con Benjamin Pitezel en un plan de estafa a una aseguradora. Pitezel debía simular su muerte, pero murió realmente en 1894. Holmes obtuvo el dinero y mantuvo engañada a la familia. Fue condenado por ese homicidio y ejecutado en 1896. [1, 2]',
- victimology:'El grupo mejor documentado es el de Pitezel y sus hijos Alice, Nellie y Howard. El acceso se construyó mediante confianza, dependencia y mentiras sobre el paradero del padre. Otras desapariciones se han relacionado con Holmes, pero su grado de acreditación no es uniforme y no deben sumarse como condenas. [1, 2]',
- mo:'La secuencia central combinó fraude asegurador, manipulación de familiares, uso de alias y desplazamientos entre ciudades. El forense planteó que Alice y Nellie habían sido encerradas en un baúl y asfixiadas con gas; sus cuerpos se encontraron enterrados en Toronto. Ese mecanismo es una reconstrucción histórica, no una observación directa. Los restos de Howard se encontraron en Indianápolis. La evidencia y el relato de Holmes no coinciden en todos los detalles de la muerte de Pitezel. [1, 2]',
- signature:'No hay base suficiente en esta síntesis para afirmar una firma estable de tortura asociada al edificio de Chicago. El engaño reiterado es una estrategia útil para el fraude y la ocultación; no debe llamarse «firma» simplemente porque aparece varias veces. La función de una conducta debe reconstruirse con evidencia.',
- investigation:'El detective Frank Geyer siguió viajes, alojamientos y pistas sobre los niños desaparecidos. La recuperación de los cuerpos y restos reforzó la investigación. La condena por Pitezel debe distinguirse tanto de las confesiones cambiantes de Holmes como de la cobertura periodística que multiplicó sus supuestas víctimas. [1, 2]',
- theories:'Propuesta de análisis: considerar elección de medios, obtención de beneficios y eliminación de riesgos en la cadena del fraude. Examinar el papel de la confianza y del conocimiento profesional como recursos. El expediente también sirve para estudiar cómo se construye una reputación criminal y cómo una narración atractiva puede desplazar a los hechos comprobables.',
- keys:['Nombre original: Herman Webster Mudgett.','Condena por Pitezel; no hay un total de víctimas universalmente establecido.','El «castillo» y las cifras de cientos de víctimas necesitan crítica de fuentes.'],
- question:'¿Qué pierde el análisis si trata la leyenda del edificio como un hecho probado?',
- answer:'Confunde especulación con evidencia y atribuye conductas o víctimas sin respaldo. El análisis debe partir de la condena, los hallazgos y las fuentes contemporáneas contrastadas.',
- timeline:[['Década de 1890','Fraudes y actividad en Chicago.'],['1894','Muerte de Pitezel y desaparición de tres hijos.'],['1895','Geyer recupera restos y sigue el itinerario.'],['1896','Ejecución por el homicidio de Pitezel.']],
- sources:[{label:'Síntesis histórica · H. H. Holmes',url:'https://en.wikipedia.org/wiki/H._H._Holmes'},{label:'Smithsonian · Evidencia y leyenda de H. H. Holmes',url:'https://www.smithsonianmag.com/smart-news/enduring-mystery-hh-holmes-americas-first-serial-killer-180977646/'}],
- caveat:'No se presenta la cifra de 200 víctimas ni una fábrica de tortura como hechos acreditados. Los mecanismos concretos de muerte varían en relatos históricos y confesiones.'
- },
- desalvo:{
- summary:'DeSalvo confesó los asesinatos atribuidos al Estrangulador de Boston, pero no fue condenado por ellos. En 2013 el ADN lo vinculó de forma concluyente a la violación y asesinato de Mary Sullivan. Esa conclusión tiene un alcance concreto y no resuelve automáticamente la autoría de todos los homicidios de la serie.',
- child:'Nació en 1931. Las biografías describen violencia en su familia y una trayectoria de delitos y agresiones sexuales anterior a la confesión. Ese contexto permite formular preguntas sobre desarrollo y aprendizaje, pero los relatos familiares deben contrastarse y no equivalen a una prueba de autoría de homicidios posteriores. [1]',
- career:'Entre 1962 y 1964 varias mujeres fueron asesinadas en el área de Boston. Tradicionalmente se habla de trece víctimas de la serie, aunque las delimitaciones varían entre fuentes. DeSalvo confesó y después se retractó. Fue condenado a perpetua por otros delitos sexuales y murió apuñalado en prisión en 1973. [1, 2]',
- victimology:'Las víctimas atribuidas a la serie eran mujeres de edades y situaciones diversas, atacadas en viviendas. Esa heterogeneidad requiere comparar cada hecho sin asumir de antemano un autor único. Mary Sullivan tenía diecinueve años y acababa de instalarse en Boston cuando fue violada y estrangulada en enero de 1964. [1, 2]',
- mo:'En las reconstrucciones de la serie figuran acceso a domicilios mediante engaño, agresión sexual y estrangulación, a menudo con prendas utilizadas como ligaduras. Las diferencias de escena, edad y forma de acceso deben registrarse. No es correcto asignar automáticamente a DeSalvo todos esos procedimientos basándose solo en el nombre mediático del caso. [1]',
- signature:'Nudos, disposición del cuerpo o utilización de ropa son variables a contrastar entre escenas. La semejanza puede orientar una vinculación, pero no demuestra identidad de autor ni una firma psicológica. Diferenciar coincidencia, conducta habitual y detalle verdaderamente distintivo protege frente al sesgo de confirmación.',
- investigation:'El semen conservado del caso Sullivan se comparó primero con ADN de un sobrino de DeSalvo. La coincidencia de Y-STR orientaba hacia el linaje paterno, no individualizaba por sí sola al autor. La exhumación y comparación directa de ADN de DeSalvo en julio de 2013 proporcionaron la confirmación. El NIJ explica expresamente esta diferencia. [2]',
- theories:'Propuesta de análisis: tratar la confesión como una fuente que requiere comprobación independiente. Examinar qué datos podía conocer el declarante, las contradicciones y posibles incentivos. Una explicación teórica de la violencia sexual no permite saltar de un homicidio probado a la atribución de toda una serie.',
- keys:['Confesión, atribución y condena son categorías distintas.','La comparación familiar de Y-STR no individualiza como la prueba directa.','La confirmación genética corresponde al homicidio de Mary Sullivan.'],
- question:'¿Demostrar que DeSalvo mató a Sullivan demuestra que cometió todos los homicidios?',
- answer:'No. Cada atribución necesita evidencia propia o una vinculación suficientemente corroborada. El resultado genético del caso Sullivan no puede extenderse de forma automática.',
- timeline:[['1962–1964','Homicidios atribuidos a la serie de Boston.'],['Década de 1960','Confesión y condena por otros delitos sexuales.'],['1973','Muerte de DeSalvo en prisión.'],['2013','Comparación familiar y confirmación genética directa.']],
- sources:[{label:'Síntesis biográfica y controversias · Albert DeSalvo',url:'https://en.wikipedia.org/wiki/Albert_DeSalvo'},{label:'NIJ · Resolución del caso Sullivan mediante ADN',url:'https://nij.ojp.gov/topics/articles/solving-cold-cases-dna-boston-strangler-case'}],
- caveat:'La serie histórica tiene delimitaciones diferentes. La cifra tradicional de trece no representa trece condenas ni trece homicidios confirmados por ADN de DeSalvo.'
+ summary:'Diecisiete adolescentes y hombres jóvenes asesinados entre 1978 y 1991. Captación hacia espacios privados, sometimiento y conservación de restos permiten estudiar control instrumental y posesión.',
+ presentation:[
+  'Los apuntes describen aislamiento, consumo problemático de alcohol, dificultades relacionales e interés por conservar restos animales. Ocultó los homicidios mientras mantenía parte de su vida cotidiana. En sus declaraciones vinculó la violencia a conservar compañía y controlar a las víctimas. [1]',
+  'La «teoría de la entidad» del material se puede discutir como lectura de fantasías que adquieren protagonismo; no acredita otra personalidad. La orientación sexual o los conflictos familiares tampoco explican por sí solos la imposición violenta de pasividad a otras personas. [1]'
+ ],
+ scene:[
+  'El apartamento de Milwaukee concentró agresión, muerte, desmembramiento y conservación. Los investigadores encontraron restos humanos y fotografías de cuerpos: no era únicamente un depósito. [1, 2]',
+  'Había que individualizar restos, cronologías y fotografías de víctimas distintas. Necrofilia, desmembramiento y canibalismo se describen por su relevancia conductual, sin presumir que cada práctica estuviera presente en todos los hechos. [1]'
+ ],
+ geography:[
+  'El homicidio de Steven Hicks en 1978 ocurrió en Ohio; la serie posterior se concentró en Wisconsin. El eje espacial conecta bares y calle con espacios privados controlados por el agresor. [1]',
+  'Concentrar varios delitos en una vivienda contrasta con la dispersión de cuerpos de otros casos. Debe separarse esa concentración de los lugares de captación y los desplazamientos de las víctimas.'
+ ],
+ mo:[
+  'Ofrecía dinero, alcohol o compañía a adolescentes y hombres jóvenes para llevarlos a un lugar privado. En la serie posterior utilizó sedación y estrangulación. La muerte de Hicks tuvo una secuencia distinta y no debe reconstruirse trasladando el patrón consolidado. [1]',
+  'Después desmembraba y eliminaba parte de los cuerpos, en ocasiones con productos químicos. Conservar partes, fotografiar y cometer actos sexuales con cadáveres excedía la eliminación de evidencia y requiere estudiar también la función expresiva. [1]'
+ ],
+ signature:[
+  'La conservación de restos, las fotografías y la necrofilia permiten interpretar posesión y control persistentes. El canibalismo aparece en algunos hechos, no como requisito uniforme de la serie. [1]',
+  'Desmembrar puede facilitar ocultación e integrarse en una fantasía. La distinción entre M.O. y firma depende de la función de cada acción, no solo de que ocurra después de la muerte.'
+ ],
+ victimology:[
+  'Las víctimas fueron adolescentes y hombres jóvenes, muchos de ellos negros; hubo menores. Preferencias y oportunidades de contacto en ocio y calle intervinieron en la selección. Las ofertas de dinero o compañía facilitaban el acceso. [1]',
+  'Se deben reconstruir identidades, desplazamientos, apoyo y respuesta a desapariciones. Explicar el caso por la homosexualidad del autor confunde orientación sexual con una causa de violencia y omite las decisiones coercitivas. [1]'
+ ],
+ av:[
+  'Restos, fotografías, desapariciones y declaraciones conectan hechos que convergen en el apartamento. El FBI colaboró con ADN y análisis biológicos, químicos y de marcas de herramientas. La vinculación no descansa solo en semejanzas de conducta. [2]',
+  'Tracy Edwards escapó y condujo a la intervención policial en julio de 1991. La confesión amplió la reconstrucción; cada atribución requiere contraste independiente. Una escena común no elimina la necesidad de identificar a cada víctima. [2]'
+ ],
+ proposal:['Sin presentación biográfica, se comprobarían acceso a zonas de captación y disponibilidad de un lugar privado donde conservar restos sin detección inmediata. La propuesta orientaría búsquedas materiales. No permitiría deducir aislamiento, orientación sexual o diagnóstico como explicación suficiente de la autoría.'],
+ comparison:{mo:'Captación a espacio privado, sedación y estrangulación; eliminación parcial de restos.',victimology:'Adolescentes y hombres jóvenes, muchos negros; contacto en bares y calle.',profile:'Aislamiento biográfico y búsqueda de posesión: conservación de restos, fotografías y necrofilia.'},
+ keys:['17 víctimas: distinguir cifra de homicidios y condenas.','El apartamento reunió evidencia de varios hechos.','Conservación y fotografías permiten estudiar posesión.'],
+ timeline:[['1978','Muerte de Steven Hicks en Ohio.'],['1987–1991','Serie posterior en Wisconsin.'],['1991','Escape de Edwards y hallazgo del apartamento.'],['1992 / 1994','Condenas; muerte en prisión.']],
+ sources:[{label:'Material de clase aportado · CASOS PARA WEB.pdf, pp. 8–9'},{label:'FBI · Investigación e identificación forense (2014)',url:'https://www.fbi.gov/news/stories/serial-killers-part-7-jeffrey-dahmer'}],
+ caveat:'El primer homicidio se sitúa en Ohio, no en la vivienda de la abuela. Las etiquetas del material no se convierten en un diagnóstico nuevo.'
  },
  onoprienko:{
- summary:'Onoprienko fue condenado por cincuenta y dos homicidios cometidos en Ucrania. Atacó a personas aisladas y a familias completas, incluidos niños. El caso combina repetición entre episodios con múltiples víctimas en algunos ataques; permite distinguir homicidio serial y asesinatos múltiples dentro de un mismo episodio.',
- child:'Nació en 1959. Su madre murió cuando era pequeño y, después de vivir con familiares, fue ingresado en un orfanato. Estos datos biográficos figuran en las reconstrucciones del caso. La institucionalización no es una explicación suficiente de sus crímenes ni permite generalizar sobre otras personas criadas en centros. [1]',
- career:'La trayectoria conocida comprende una fase en 1989 y otra en 1995–1996. Hubo robos acompañados de homicidios y ataques a viviendas. En 1999 fue declarado culpable de cincuenta y dos asesinatos. La sentencia de muerte se conmutó por prisión perpetua; murió en prisión en 2013. [1, 2, 3]',
- victimology:'No se observa aquí una selección centrada exclusivamente en sexo o edad: hubo hombres, mujeres y menores. La proximidad durante el robo, la presencia en una vivienda y la posibilidad de convertirse en testigo son variables relevantes. «Familia» describe un contexto de victimización; no explica por sí mismo por qué eligió cada domicilio. [1, 2]',
- mo:'Utilizaba una escopeta recortada para atacar y también empleó armas blancas y objetos contundentes. En algunos episodios mató a todos los ocupantes y a personas que podían presenciar los hechos. Sustraía bienes y en ocasiones incendiaba viviendas para destruir rastros. Los métodos variaron; la repetición debe buscarse en secuencias y decisiones, no solo en un arma. [1, 3]',
- signature:'La eliminación de testigos y el incendio pueden ser conductas instrumentales de precaución. El número de víctimas o la brutalidad no bastan para identificar una firma. Para atribuir un significado expresivo al exterminio de una familia habría que aportar evidencia adicional de cada episodio.',
- investigation:'Fue detenido en abril de 1996. La investigación relacionó armas y objetos sustraídos con los hechos, además de recoger sus confesiones. Declaró que actuaba por órdenes de voces; debe presentarse como una afirmación del autor, sin convertirla por sí sola en diagnóstico o explicación jurídica de su responsabilidad. [1]',
- theories:'Propuesta de análisis: separar violencia para obtener bienes de violencia para impedir identificación. Las técnicas de neutralización sirven para examinar cómo externaliza o racionaliza la responsabilidad, siempre que se analicen declaraciones concretas. No demostrarían que una supuesta orden de voces causó los homicidios. Contrastar planificación, desplazamientos y ocultación con el relato del autor.',
- keys:['52 homicidios con condena.','Serie entre episodios y múltiples víctimas en varios ataques.','Incendios y eliminación de testigos: posible función instrumental.'],
- question:'¿Por qué un ataque con varias víctimas puede formar parte de una serie homicida?',
- answer:'Porque se deben distinguir las víctimas de un episodio y la repetición de episodios separados. Las dos escalas de análisis pueden coexistir en la trayectoria de un mismo autor.',
- timeline:[['1989','Primera fase de homicidios.'],['1995–1996','Nueva fase de ataques.'],['1996 / 1999','Detención; juicio y sentencia.'],['2013','Muerte en prisión tras la conmutación a perpetua.']],
- sources:[{label:'Síntesis biográfica · Anatoly Onoprienko',url:'https://en.wikipedia.org/wiki/Anatoly_Onoprienko'},{label:'RTÉ · Condena de 1999',url:'https://www.rte.ie/news/1999/0401/1134-ukraine/'},{label:'UPI · Condena, método y muerte en prisión (2013)',url:'https://www.upi.com/Top_News/World-News/2013/08/29/Ukrainian-serial-killer-dies-of-heart-attack-in-jail/33991377777798/'}],
- caveat:'Las cronologías secundarias discrepan en detalles de algunos episodios. Se conserva la cifra de condena y las fases generales, sin presentar cada confesión como prueba autosuficiente.'
+ summary:'Cincuenta y dos homicidios con condena. Robos, ataques a familias completas y destrucción de pruebas permiten estudiar violencia instrumental y múltiples víctimas dentro de una trayectoria serial.',
+ presentation:[
+  'El material recoge pérdida materna temprana, institucionalización y un entorno familiar inestable. Hubo trabajos y desplazamientos por Europa entre fases homicidas. Pasar por un orfanato no explica por sí solo la violencia posterior. [1]',
+  'Sus declaraciones muestran deshumanización, superioridad y desplazamiento de responsabilidad hacia supuestas fuerzas o voces. Las técnicas de neutralización analizan esas justificaciones. Afirmar una «misión» no demuestra psicosis ni incapacidad para comprender los actos. [1]'
+ ],
+ scene:[
+  'Atacó viviendas, incluidas casas apartadas, y personas en vehículos o lugares de paso. En varios domicilios mató a ocupantes, incluidos niños, sustrajo bienes y provocó incendios. Se comparan lesiones, accesos, distribución de víctimas y huellas de fuego. [1]',
+  'El incendio altera la escena y puede destruir rastros: ausencia posterior de una evidencia no prueba que nunca existiera. Se registra cada episodio y su número de víctimas, sin confundir ambos recuentos.'
+ ],
+ geography:[
+  'Las fases conocidas de 1989 y 1995–1996 se distribuyen por distintas zonas de Ucrania. Movilidad y elección de espacios apartados son más útiles que suponer un único barrio de actuación. [1]',
+  'Se compararían rutas, residencias temporales y accesibilidad. No cabe aplicar mecánicamente un círculo residencial a una trayectoria móvil. Viajar por Europa no prueba que cometiera homicidios en esos destinos.'
+ ],
+ mo:[
+  'Combinó armas de fuego, armas blancas y objetos contundentes. En ataques domiciliarios ejercía violencia sobre ocupantes y testigos, robaba e incendiaba en algunos episodios. La secuencia incluye ataque y reducción de riesgos de identificación. [1]',
+  'No se describe una motivación sexual común. Armas y lugares cambian, pero se comparan acceso, robo y eliminación de testigos. La participación de un cómplice en la primera fase no se extiende a toda la serie. [1]'
+ ],
+ signature:[
+  'No se establece una firma ritual inequívoca. Matar testigos e incendiar puede tener función instrumental; la brutalidad no demuestra por sí sola una necesidad psicológica diferenciada.',
+  'El discurso de «misión» y las explicaciones sobre familias o niños se examinan como racionalizaciones. Atribuir valor simbólico a las víctimas requiere contrastar selección, declaraciones y conducta de cada episodio. [1]'
+ ],
+ victimology:[
+  'Hubo hombres, mujeres y menores, familias completas y posibles testigos. Estar en una vivienda elegida o cerca del agresor podía definir la exposición. No hay un grupo de sexo y edad tan delimitado como en Dahmer. [1]',
+  'Se distinguen víctimas de robos y personas eliminadas para evitar identificación. Decir que mataba niños para «salvarlos» de un orfanato es una justificación del autor, no una finalidad protectora ni un interés de las víctimas. [1]'
+ ],
+ av:[
+  'Se compararían intrusión, armas, sustracción de bienes, muerte de ocupantes y testigos e incendios. La combinación orienta conexiones entre episodios; no incorpora a la serie todo incendio con homicidio. [1]',
+  'Armas recuperadas, objetos sustraídos y confesiones contrastan la hipótesis. La condena de 1999 fue por 52 asesinatos. Este AV propone variables de estudio sin atribuir a la policía un modelo no documentado. [1, 2]'
+ ],
+ proposal:['Si faltara el apartado 1, se propondrían comprobaciones sobre movilidad, acceso a armas y elección de lugares con pocos observadores. La mezcla de robo y eliminación de testigos obliga a estudiar la función de la violencia. No se deducen una infancia institucionalizada ni un trastorno por incendios o número de víctimas.'],
+ comparison:{mo:'Intrusión o interceptación, armas diversas, robo y eliminación de testigos; incendios en algunos ataques.',victimology:'Hombres, mujeres y niños; familias y testigos. Importa la situación en el lugar.',profile:'Movilidad y violencia instrumental; superioridad y misión como justificaciones, sin ritual inequívoco acreditado.'},
+ keys:['52 homicidios con condena.','Serie entre episodios; varias víctimas en algunos ataques.','Incendios y eliminación de testigos pueden ser precaución.'],
+ timeline:[['1989','Primera fase de homicidios.'],['1995–1996','Segunda fase de ataques.'],['1996 / 1999','Detención; juicio y condena.'],['2013','Muerte en prisión tras conmutación a perpetua.']],
+ sources:[{label:'Material de clase aportado · CASOS PARA WEB.pdf, pp. 10–12'},{label:'RTÉ · Información contemporánea de la condena (1999)',url:'https://www.rte.ie/news/1999/0401/1134-ukraine/'},{label:'UPI · Método y muerte en prisión (2013)',url:'https://www.upi.com/Top_News/World-News/2013/08/29/Ukrainian-serial-killer-dies-of-heart-attack-in-jail/33991377777798/'}],
+ caveat:'Se mantiene la cifra judicial global de 52 homicidios. La secuencia pormenorizada del primer ataque no se considera verificada con las fuentes disponibles.'
  },
  ridgway:{
- summary:'Los homicidios de Green River originaron una investigación de décadas. Ridgway seleccionó principalmente a mujeres y adolescentes en situaciones de vulnerabilidad, las estranguló y ocultó sus cuerpos. El avance del ADN permitió vincularlo con delitos para los que ya había sido sospechoso.',
- child:'Nació en 1949. Las biografías recogen dificultades escolares y conflictos familiares. Su vida adulta incluyó trabajo estable y relaciones de pareja. La coexistencia de rutinas convencionales y homicidio ilustra que una apariencia integrada no excluye conducta criminal; los antecedentes no deben tratarse como un destino inevitable. [1]',
- career:'El hallazgo de Wendy Lee Coffield en julio de 1982 inició la investigación de Green River. Ridgway fue detenido en noviembre de 2001. En 2003 se declaró culpable de cuarenta y ocho homicidios y en 2011 de otro, el de Rebecca Marrero. La fecha de detención no es el final automático de la serie homicida. [2, 3]',
- victimology:'Entre las víctimas había mujeres y adolescentes que ejercían prostitución o atravesaban situaciones de precariedad. Ridgway reconoció que consideraba fácil acceder a ellas. Su vulnerabilidad explica oportunidades aprovechadas por el agresor, no responsabilidad de las víctimas. El análisis debe incluir el efecto de la estigmatización sobre la respuesta a desapariciones. [1, 2]',
- mo:'Captaba a las víctimas, las estrangulaba y abandonaba cuerpos en zonas boscosas o poco transitadas. Utilizó lugares de depósito de forma repetida y trasladó algunos restos. Según sus confesiones, volvió a ciertos cadáveres para realizar actos sexuales. La estrangulación, la elección del lugar y la actividad post mortem cumplen funciones que hay que estudiar por separado. [1]',
- signature:'La necrofilia constituye una variable sexual distinta del acto homicida. Un mismo lugar de depósito puede reflejar familiaridad, facilidad de acceso o precaución y no una firma. El análisis geográfico debe distinguir lugar de captación, muerte y abandono, sin suponer que coinciden.',
- investigation:'La investigación conservó evidencias y aplicó avances científicos hasta lograr su detención en 2001. El acuerdo de 2003 evitó solicitar la pena de muerte a cambio de información completa sobre los homicidios de King County. La colaboración ayudó a esclarecer hechos, pero las confesiones y cada localización debían contrastarse. [2]',
- theories:'Propuesta de análisis: examinar disponibilidad de objetivos y capacidad de protección desde la oportunidad delictiva, sin culpabilizar a las víctimas. Comparar la movilidad del autor y los depósitos de cuerpos. El caso también permite evaluar cómo la continuidad de la investigación y la conservación de muestras cambian la capacidad de probar hechos años después.',
- keys:['49 condenas: 48 en 2003 y una más en 2011.','2001 es el año de detención, no una fecha para todos los homicidios.','Distinguir captación, lugar de muerte y depósito del cuerpo.'],
- question:'¿Qué aporta la victimología además de una descripción de edades y ocupaciones?',
- answer:'Ayuda a reconstruir acceso, contexto, selección y protección disponible, así como el efecto de los sesgos institucionales. No atribuye a las víctimas la responsabilidad del delito.',
- timeline:[['1982','Primeros hallazgos junto al Green River.'],['2001','Detención tras avances en la prueba genética.'],['2003','Declaración de culpabilidad por 48 homicidios.'],['2011','Condena adicional por Rebecca Marrero.']],
- sources:[{label:'Síntesis biográfica · Gary Ridgway',url:'https://en.wikipedia.org/wiki/Gary_Ridgway'},{label:'King County Sheriff · Investigación Green River',url:'https://cd.kingcounty.gov/es-es/dept/sheriff/courts-jails-legal-system/sheriff-services/investigations/green-river'},{label:'SeattlePI · Condena por el homicidio número 49 (2011)',url:'https://www.seattlepi.com/local/article/Ridgway-pleads-guilty-in-49th-slaying-sentenced-1020351.php'}],
- caveat:'Los 49 homicidios con condena no equivalen al total de homicidios que llegó a confesar. No se usa un total confesado como cifra judicial.'
- },
- gacy:{
- summary:'Gacy asesinó a treinta y tres adolescentes y hombres jóvenes en Chicago. Una parte de su captación se apoyó en ofertas de trabajo y contactos sociales. El hallazgo de cuerpos bajo su vivienda muestra cómo una rutina pública aparentemente respetable podía coexistir con violencia y ocultación sistemáticas.',
- child:'Nació en 1942. Las biografías describen una relación conflictiva con su padre. Antes de la serie de Chicago había sido condenado en Iowa por una agresión sexual a un menor. Ese antecedente probado tiene una importancia distinta de las explicaciones retrospectivas de su vida familiar. [1]',
- career:'La serie conocida se desarrolló entre 1972 y 1978. Gacy era contratista y participaba en actividades comunitarias; también actuaba como payaso. No hay que confundir ese personaje público con un método general de captación homicida. Fue condenado por treinta y tres asesinatos en 1980 y ejecutado en 1994. [1, 2]',
- victimology:'Las víctimas eran adolescentes y hombres jóvenes. Algunos trabajaban para él o buscaban empleo; otros fueron contactados en la calle. Robert Piest, de quince años, desapareció tras salir a hablar con un contratista sobre un trabajo. La situación laboral y la confianza en un adulto facilitaron el acceso, sin responsabilidad de las víctimas. [1, 2]',
- mo:'Atraía a jóvenes a su casa mediante trabajo u otros pretextos, los inmovilizaba y ejercía violencia sexual; muchas muertes se produjeron por estrangulación con ligadura. Ocultó veintinueve cuerpos en su propiedad y arrojó otros cuatro al río. La ocultación en el domicilio no implica que todas las víctimas recorrieran exactamente la misma secuencia. [1]',
- signature:'La inmovilización, el sometimiento y la violencia sexual deben analizarse según la función y el episodio. El traje de payaso es una imagen mediática, no una firma acreditada de los homicidios. No se puede sustituir el estudio de escenas por un símbolo reconocible.',
- investigation:'La desaparición de Piest en diciembre de 1978 llevó a los investigadores a Gacy. Las contradicciones y evidencias halladas permitieron ampliar las búsquedas y recuperar cuerpos. La labor continuó décadas después mediante ADN y genealogía genética para devolver nombres a víctimas que seguían sin identificar. [1, 2]',
- theories:'Propuesta de análisis: estudiar abuso de confianza y poder en la relación laboral, junto con el control de un espacio privado. Comparar su imagen comunitaria con las acciones verificadas evita asumir que el peligro tiene un aspecto visible. La identificación de víctimas forma parte central de la investigación y no termina con la condena del autor.',
- keys:['33 víctimas; 29 cuerpos en la propiedad y cuatro en el río.','La desaparición de Piest fue decisiva para investigar su vivienda.','El personaje de payaso no es una firma delictiva demostrada.'],
- question:'¿Por qué la identificación continúa después de condenar al autor?',
- answer:'Porque esclarecer la autoría y devolver identidad a cada víctima son objetivos distintos. La identificación permite informar a familias y cerrar desapariciones concretas.',
- timeline:[['1972–1978','Serie homicida en Chicago.'],['Diciembre de 1978','Desaparición de Piest y registros de la propiedad.'],['1980 / 1994','Condena; ejecución.'],['Desde 2011','Revisión de identificaciones con nuevas técnicas.']],
- sources:[{label:'Síntesis biográfica · John Wayne Gacy',url:'https://en.wikipedia.org/wiki/John_Wayne_Gacy'},{label:'Cook County Sheriff · Identificación de una víctima (2021)',url:'https://cookcountysheriffil.gov/john-wayne-gacy-victim-identified/'}],
- caveat:'La imagen popular de «payaso asesino» no debe confundirse con la secuencia probada de los delitos. Las identidades pendientes pueden variar con nuevas investigaciones.'
- },
- bpb:{
- summary:'Bianchi y Buono actuaron conjuntamente en la serie de Hillside. Secuestraron, agredieron sexualmente y mataron a mujeres y niñas, dejando cuerpos en diferentes lugares de Los Ángeles. La actuación en pareja exige analizar tanto la coordinación como la responsabilidad y trayectoria de cada autor.',
- child:'Bianchi nació en 1951 y fue adoptado; Buono nació en 1934. Las reconstrucciones biográficas recogen trayectorias y antecedentes diferentes. No hay una infancia única de «la pareja» ni es riguroso trasladar los datos de uno al otro. La biografía debe conservarse individualizada aunque los delitos se estudien conjuntamente. [1, 2]',
- career:'La serie de Los Ángeles comprende diez víctimas entre octubre de 1977 y febrero de 1978. Después, Bianchi cometió dos homicidios en Bellingham, Washington, que condujeron a su detención en 1979. Buono fue declarado culpable de nueve homicidios de la serie y recibió perpetua; murió en prisión en 2002. [1, 2, 3]',
- victimology:'Las víctimas fueron mujeres y niñas de distintas edades y situaciones. La selección no se limitó a mujeres que ejercían prostitución. La falsa autoridad, el secuestro y la actuación de dos agresores redujeron las posibilidades de escapar. El análisis debe evitar homogeneizar a todas las víctimas con una categoría de vulnerabilidad. [1]',
- mo:'Se hicieron pasar por policías en varios contactos, usando esa apariencia de autoridad para controlar a las víctimas. Las trasladaban, las violaban y sometían a torturas antes de matarlas, principalmente por estrangulación. Abandonaban los cuerpos en laderas y otros lugares. Hubo variaciones importantes de violencia y escenario, por lo que no existe una secuencia idéntica para toda la serie. [1, 3]',
- signature:'La tortura y la exposición de cuerpos permiten investigar componentes expresivos, pero exigen contrastar detalles concretos. La falsa placa tiene una función de captación y control. La coautoría plantea una dificultad adicional: una conducta recurrente no identifica por sí sola qué participante la decidió o ejecutó.',
- investigation:'Tras su detención, Bianchi alegó una personalidad alternativa. Esa explicación fue cuestionada y la reconstrucción del caso recoge su simulación. Su cooperación permitió investigar a Buono, pero sus versiones fueron contradictorias y necesitaron corroboración. Debe diferenciarse la condena de Buono por nueve cargos de las diez víctimas atribuidas a la serie conjunta. [1, 2, 3]',
- theories:'Propuesta de análisis: examinar reparto de funciones, refuerzo mutuo y aprovechamiento de una autoridad aparente. La asociación no demuestra que uno fuera un líder absoluto y el otro un ejecutor pasivo. La alegación de una personalidad alternativa debe tratarse como parte de la estrategia y evaluación del caso, sin generalizarla a personas con trastornos disociativos.',
- keys:['Dos autores; diez víctimas de la serie conjunta.','Bianchi cometió además dos homicidios en Washington.','Buono: nueve condenas; no confundir cargos con total de la serie.'],
- question:'¿Por qué una conducta observada en un delito conjunto no identifica automáticamente al autor material?',
- answer:'Porque puede existir planificación, ejecución y control repartidos. La contribución de cada participante necesita evidencia individual, además de la vinculación del episodio.',
- timeline:[['1977–1978','Serie conjunta en Los Ángeles.'],['1979','Detención de Bianchi tras dos homicidios en Washington.'],['1983–1984','Veredicto y pena perpetua para Buono.'],['2002','Muerte de Buono en prisión.']],
- sources:[{label:'Síntesis biográfica · Kenneth Bianchi',url:'https://en.wikipedia.org/wiki/Kenneth_Bianchi'},{label:'Síntesis biográfica · Angelo Buono',url:'https://en.wikipedia.org/wiki/Angelo_Buono_Jr.'},{label:'UPI · Sentencias y cooperación de Bianchi (1984)',url:'https://www.upi.com/Archives/1984/01/10/The-Hillside-Strangler-case-the-longest-criminal-trial-in/1461442558800/'}],
- caveat:'La serie conjunta y los delitos individuales se presentan separados. No se toma la narración de Bianchi como una descripción neutral de la participación de Buono.'
- },
- little:{
- summary:'Little confesó noventa y tres homicidios. El FBI informó en 2019 de cincuenta confesiones verificadas y de otras pendientes de confirmación. Su larga trayectoria y los errores en la clasificación de algunas muertes muestran por qué deben conectarse casos y examinar la protección de mujeres socialmente invisibilizadas.',
- child:'Nació en 1940 y fue criado principalmente por su abuela. Las reconstrucciones recogen movilidad y contactos repetidos con el sistema penal. Algunas afirmaciones sobre fantasías tempranas proceden de él mismo y requieren esa atribución. No se presenta «identidad fracturada» como un diagnóstico acreditado del autor. [1]',
- career:'Sus confesiones sitúan homicidios entre 1970 y 2005 en distintos estados. En 2014 fue condenado por tres asesinatos de Los Ángeles vinculados mediante ADN. A partir de 2018 sus declaraciones permitieron revisar otros expedientes. Murió en prisión en 2020. Una confesión global no equivale a una condena por cada hecho declarado. [1, 2, 3]',
- victimology:'Las víctimas fueron mayoritariamente mujeres y muchas atravesaban situaciones de precariedad, consumo de sustancias o prostitución. Algunas muertes se habían clasificado como sobredosis, accidentes o de causa indeterminada; otros cuerpos no se encontraron. El análisis debe preguntar cómo la estigmatización y el escaso seguimiento dificultaron reconocer homicidios y relacionarlos. [2, 3]',
- mo:'Describió captación seguida de agresiones y estrangulación manual en lugares donde podía controlar a la víctima. Su movilidad separó hechos entre jurisdicciones. Las reconstrucciones no deben uniformar todos los episodios: fechas, localizaciones y métodos se contrastan caso por caso y el FBI advierte de imprecisiones en sus recuerdos. [2, 3]',
- signature:'La repetición de estrangulación permite comparar delitos, pero es un método compartido por muchos autores y no una firma individual. Los retratos de víctimas que dibujó durante las entrevistas son herramientas de investigación posteriores; no deben confundirse con trofeos o una conducta observada en las escenas.',
- investigation:'El ADN lo relacionó con tres homicidios de 1987 y 1989. ViCAP, los Texas Rangers y organismos locales cruzaron declaraciones con expedientes y desapariciones. En la publicación del FBI de octubre de 2019 constan noventa y tres confesiones y cincuenta verificadas; ese recuento lleva fecha y no pretende describir el último balance de todas las investigaciones. [2, 3]',
- theories:'Propuesta de análisis: estudiar la interacción entre oportunidades delictivas, movilidad y fragmentación de información. La invisibilidad social de las víctimas obliga a examinar prácticas institucionales, sin responsabilizarlas. Para usar un marco de identidad propuesto en clase hará falta su definición y evidencia de aplicación; no basta con nombrarlo como explicación general.',
- keys:['93 confesiones; no son 93 condenas.','50 verificadas en la publicación del FBI de 2019: dato fechado.','El cruce entre jurisdicciones y el ADN fueron esenciales.'],
- question:'¿Por qué el recuento de víctimas debe llevar categoría y fecha?',
- answer:'Porque los números de confesiones, casos verificados y condenas no son equivalentes y pueden cambiar. Fechar el balance evita presentar una cifra histórica como actualización definitiva.',
- timeline:[['1970–2005','Intervalo descrito en sus confesiones.'],['2014','Tres condenas a perpetua por homicidios en Los Ángeles.'],['2018–2019','Confesiones y vinculación de casos por distintas agencias.'],['2020','Muerte en prisión.']],
- sources:[{label:'Síntesis biográfica · Samuel Little',url:'https://en.wikipedia.org/wiki/Samuel_Little'},{label:'FBI · Confesiones y casos verificados (2019)',url:'https://www.fbi.gov/news/stories/samuel-little-most-prolific-serial-killer-in-us-history-100619'},{label:'FBI · ADN, condena y cooperación',url:'https://www.fbi.gov/news/press-releases/fbi-confirms-samuel-little-is-most-prolific-serial-killer-in-us-history'}],
- caveat:'El recuento de 2019 se presenta expresamente como histórico. Credibilidad de una confesión y confirmación de un homicidio no son la misma categoría.'
+ summary:'Green River se centró en mujeres y adolescentes vulnerables. El acceso mediante el coche, la estrangulación y el abandono en lugares apartados coexistieron con una vida laboral y familiar convencional.',
+ presentation:[
+  'Trabajó establemente como pintor y mantuvo parejas y vida familiar. Los apuntes recogen dificultades escolares y conflictos domésticos. La apariencia de trabajador integrado pudo reducir sospechas; no es un diagnóstico ni una explicación suficiente. [1]',
+  'Frialdad, engaño y cosificación son rasgos descritos. No se aporta una puntuación PCL-R publicada y no se inventa: se habla de rasgos compatibles con psicopatía. La identidad fracturada analiza vida social convencional y actividad criminal oculta, no personalidad múltiple. [1]'
+ ],
+ scene:[
+  'Los primeros hallazgos junto al Green River dieron nombre a la serie. Hubo cuerpos en bosques, riberas y otros lugares poco transitados, no solo en el río. Captación, muerte y hallazgo podían ocurrir en sitios diferentes. [1]',
+  'Se comparan desnudez, estrangulación, traslados y reutilización de depósitos. Volver para realizar actos sexuales requiere una lectura distinta de mover restos para ocultarlos. La escena de hallazgo no equivale automáticamente a la primaria. [1]'
+ ],
+ geography:[
+  'El eje territorial se sitúa al sur del área de Seattle, en Washington. Rutas conocidas conectaban captación y depósito. Reutilizar lugares puede indicar familiaridad y facilidad de acceso, no necesariamente firma. [1]',
+  'Se estudiarían agrupaciones, cambios de ubicación y separación entre captación y abandono. Inferir un área habitual exige datos de cada víctima; no adjudica todos los cuerpos de una región a un único agresor.'
+ ],
+ mo:[
+  'Se presentaba como cliente o persona amistosa, trasladaba a las víctimas en coche y las mataba principalmente por estrangulación. Después abandonaba cuerpos en lugares aislados y podía mover restos. Son conductas de acceso, control y ocultación. [1]',
+  'En algunos hechos regresó para cometer actos sexuales con los cadáveres. Esa acción no era necesaria para matar ni trasladar a la víctima y exige analizar una función sexual post mortem. [1]'
+ ],
+ signature:[
+  'La actividad sexual con cadáveres permite explorar posesión y disponibilidad de la víctima. Un cuerpo desnudo no demuestra necrofilia en cada episodio: hacen falta evidencias o declaraciones corroboradas. [1]',
+  'Agrupar depósitos puede gestionar lugares conocidos o reducir esfuerzo y exposición. La regularidad espacial no se convierte por sí sola en ritual: la firma se justifica por función expresiva.'
+ ],
+ victimology:[
+  'Seleccionó principalmente mujeres jóvenes y adolescentes; muchas ejercían prostitución, habían huido de casa o atravesaban precariedad. Accesibilidad y dificultades para detectar desapariciones son centrales. No todas compartían la misma biografía. [1]',
+  'La vulnerabilidad sitúa oportunidades aprovechadas por el agresor, no responsabilidad de las víctimas. Se reconstruyen también redes de apoyo, demoras de identificación y efecto de la estigmatización sobre la respuesta institucional. [1]'
+ ],
+ av:[
+  'Victimología, estrangulación y depósitos generaban hipótesis; la comparación genética fue decisiva para detenerlo en 2001. La evidencia material puede respaldar o descartar semejanzas conductuales. [2]',
+  'Hubo 48 declaraciones de culpabilidad en 2003 y una condena adicional en 2011 por Rebecca Marrero: 49 en total. La cooperación debe contrastarse con restos y datos de cada hecho; otras confesiones no equivalen a otras condenas. [3, 4]'
+ ],
+ proposal:['Si no hubiera biografía, se comprobarían acceso habitual a lugares de captación, vehículo y familiaridad con depósitos. El perfil priorizaría áreas de actividad. No permitiría deducir oficio de pintor, relaciones familiares o puntuación de psicopatía; seguiría siendo una hipótesis sometida a verificación.'],
+ comparison:{mo:'Apariencia de cliente o trato amistoso, coche, estrangulación y abandono apartado.',victimology:'Mujeres y adolescentes; muchas en prostitución, fugas o precariedad.',profile:'Vida laboral y familiar convencional, engaño, cosificación y actividad sexual post mortem.'},
+ keys:['49 condenas: 48 en 2003 y una en 2011.','Depósito y muerte pueden ocurrir en lugares distintos.','El ADN refuerza la vinculación más allá de la conducta.'],
+ timeline:[['1982','Primeros hallazgos de Green River.'],['2001','Detención tras comparación genética.'],['2003','Culpabilidad por 48 homicidios.'],['2011','Condena por Rebecca Marrero.']],
+ sources:[{label:'Material de clase aportado · CASOS PARA WEB.pdf, pp. 13–15'},{label:'FBI · Seattle: investigación y prueba genética',url:'https://www.fbi.gov/history/field-office-histories/seattle'},{label:'King County · Registro oficial de las 48 declaraciones de culpabilidad (2003)',url:'https://mkcclegisearch.kingcounty.gov/LegislationDetail.aspx?ID=551669&GUID=2B726EF6-F54B-42C9-816F-8870492C5188&FullText=1'},{label:'SeattlePI · Condena por el homicidio 49 (2011)',url:'https://www.seattlepi.com/local/article/Ridgway-pleads-guilty-in-49th-slaying-sentenced-1020351.php'}],
+ caveat:'Se distingue la declaración de culpabilidad de noviembre de 2003 de la sentencia de diciembre. Las 49 condenas no equivalen a todas sus confesiones.'
  }
 };
 const concepts = [
- ['Asesinato serial','Homicidios de dos o más víctimas por el mismo autor o autores en episodios separados, según la definición operativa adoptada por el FBI. Registrar los intervalos es útil, sin imponer que todos los autores tengan un mismo «periodo de enfriamiento».'],
- ['Modus operandi','Procedimientos que permiten acceder a la víctima, cometer el delito y evitar la identificación. Se aprende y puede variar. Pregunta útil: ¿qué función práctica cumple esta conducta en este episodio?'],
- ['Firma criminal','Conductas con una posible función expresiva o psicológica más allá de lo necesario para ejecutar el delito. La repetición orienta, pero no demuestra por sí sola una firma ni identifica a una persona.'],
- ['Victimología','Reconstrucción de la vida, contexto, selección y relación de la víctima con el hecho. Estudiar vulnerabilidad sirve para comprender oportunidades y protección; no atribuye responsabilidad a quien sufrió el delito.'],
- ['Actos de precaución','Conductas orientadas a reducir identificación o detención, como ocultar restos o alterar una escena. Su presencia no convierte al autor automáticamente en «organizado» ni prueba una inteligencia superior.'],
- ['Vinculación de casos','Evaluación de si distintos hechos podrían compartir autoría mediante datos conductuales, espaciales, temporales y forenses. Una semejanza de método genera una hipótesis que debe corroborarse.'],
- ['Confesión, confirmación y condena','Una confesión es una declaración; la confirmación exige corroboración; una condena es una decisión judicial sobre cargos concretos. Los tres recuentos pueden diferir sin contradicción.'],
- ['Perfil criminológico','Análisis de patrones que permite formular hipótesis de investigación. No es una identificación infalible, un diagnóstico clínico ni una prueba suficiente de culpabilidad.'],
- ['Coautoría','Participación conjunta que exige reconstruir las aportaciones individuales y la coordinación. No permite asignar todas las conductas por igual ni concluir un reparto líder–seguidor sin evidencia.'],
- ['Técnicas de neutralización','Marco para estudiar justificaciones o racionalizaciones del autor. Su aplicación debe basarse en declaraciones o comportamientos concretos, y no equivale a exculparlo o demostrar una causa única.'],
- ['Caso sin resolver','Expediente que conserva cuestiones relevantes sin esclarecer. Nuevas técnicas y revisión de muestras pueden aportar resultados; una condena del autor no resuelve necesariamente la identidad de cada víctima.'],
- ['Lectura teórica y diagnóstico','Una propuesta criminológica interpreta hechos mediante un marco explícito; un diagnóstico requiere evaluación profesional. «Identidad fracturada» se mantiene pendiente de la definición y uso específicos de los apuntes de clase.']
+ ['Modus operandi','Procedimientos para acceder a la víctima, cometer el delito y evitar la identificación. Pueden aprenderse y cambiar.','Ejemplo: ofrecer transporte, inmovilizar y ocultar un cadáver.'],
+ ['Firma criminal','Conductas expresivas o de satisfacción psicológica que exceden lo necesario para ejecutar el delito. La repetición orienta una hipótesis, no prueba identidad.','Ejemplo: estudiar la conservación de restos en Dahmer, separándola de su eliminación.'],
+ ['Victimología','Estudio de la víctima, sus relaciones, selección y contexto del hecho. Reconstruye vulnerabilidad sin responsabilizar a quien sufrió la violencia.','Pregunta: ¿cómo accedió el agresor a esa persona?'],
+ ['Escena del crimen','Espacio relacionado con preparación, ejecución o consecuencias del delito. Escena primaria y depósito pueden estar separados.','En Green River, hallazgo no equivale necesariamente a lugar de muerte.'],
+ ['Perfil geográfico','Análisis espacial de hechos y desplazamientos para proponer áreas de actividad o puntos de anclaje. Es probabilístico.','Distingue captación, agresión, muerte y depósito.'],
+ ['AV · Análisis de vinculación','Evaluación de posible autoría común entre hechos mediante conducta, espacio, tiempo y evidencia forense. Contrasta similitudes, diferencias y alternativas.','Compartir método de muerte no basta para compartir autor.'],
+ ['Perfil criminológico','Hipótesis sobre características y rutinas de un posible autor a partir de la evidencia. Orienta comprobaciones y se revisa con nuevos datos.','No identifica de forma infalible ni prueba culpabilidad.'],
+ ['Hipótesis del círculo','Modelo de Canter y Larkin que relaciona distribución de delitos y posible zona habitual del autor. Su utilidad depende del patrón espacial.','Un autor que se desplaza desde otra zona puede no ajustarse.'],
+ ['Actos de precaución','Acciones dirigidas a reducir detección, conservar anonimato o destruir evidencia. Se interpretan en contexto.','Ejemplo: incendios después de algunos ataques de Onoprienko.'],
+ ['Asesinato serial','Homicidio de dos o más víctimas por el mismo autor o autores en episodios separados, según la definición operativa del FBI.','Un episodio con varias víctimas puede pertenecer a una serie.'],
+ ['Necrofilia','Interés o actividad sexual dirigida a cadáveres. Describir la conducta no sustituye una evaluación clínica.','Se distingue de matar y de ocultar el cuerpo.'],
+ ['Trofeo','Objeto o parte corporal conservada en relación con el delito que puede servir para recordar o revivir la experiencia. Esa función debe acreditarse.','Conservar y destruir restos son conductas distintas que pueden coexistir.'],
+ ['Rasgos psicopáticos','Características como manipulación, frialdad o falta de remordimiento. Observar algunos rasgos no equivale a una evaluación completa.','No se inventan puntuaciones PCL-R desde una biografía.'],
+ ['Técnicas de neutralización','Justificaciones que desplazan responsabilidad, minimizan daño o apelan a valores supuestamente superiores.','La misión alegada por Onoprienko se analiza como discurso del autor.'],
+ ['Identidad fracturada','Marco teórico sobre coexistencia de una identidad social convencional y una actividad homicida oculta. No equivale a identidad disociativa.','Aplicación de estudio: vida laboral y familiar de Ridgway frente a sus homicidios.'],
+ ['Confesión, corroboración y condena','Declarar un hecho, respaldarlo con evidencia independiente y resolver judicialmente cargos son procesos distintos. Sus cifras pueden diferir.','Ejemplo: distinguir confesiones y 49 condenas de Ridgway.']
 ];
+
