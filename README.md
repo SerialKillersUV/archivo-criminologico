@@ -8,10 +8,13 @@ Cuaderno de estudio para estudiantes de criminología. Conserva la estética osc
 
 - Cinco casos: Joaquín Ferrándiz Ventura, Edmund Kemper, Jeffrey Dahmer, Anatoli Onoprienko y Gary Leon Ridgway.
 - Ocho apartados, por este orden: presentación / estilo de vida / personalidad; escena del crimen; perfil geográfico; modus operandi; firma criminal; victimología; AV; propuesta de perfil.
-- Claves de repaso, cronología, fuentes por apartado, impresión y navegación entre los cinco expedientes.
+- Apartados plegados al entrar, cronología, descarga directa de un PDF por caso y navegación entre los cinco expedientes.
 - Comparativa seleccionable de M.O., victimología y perfil, con enlaces a los apartados completos.
 - Dieciséis conceptos con definición y aplicación visibles, sin desplegables.
 - Veinticinco preguntas, cinco por caso, con tres opciones y una respuesta correcta. Corrección individual, explicación, enlace al tema, progreso, resultado y reinicio.
+- Bibliografía general con 17 referencias en orden alfabético: material docente, documentación, marco teórico y procedencia de las fotografías.
+
+La portada explica la finalidad académica de la asignatura Perfil e Informe Criminológico y dedica un bloque a Conceptos, otro a Preguntas y otro a Comparativa. El catálogo muestra directamente los cinco casos. Los alias son El Asesino del Círculo, El Asesino de las Colegialas, El Carnicero de Milwaukee, El Terminator de Ucrania y El Asesino del Río Verde.
 
 Las respuestas se conservan al cambiar de bloque durante la visita a Preguntas. Se borran al recargar o abandonar esa página; no se guardan datos personales ni se requiere una cuenta.
 
@@ -21,7 +24,7 @@ Sitio estático sin instalación ni compilación. Abre `index.html` o sirve esta
 
 ## Criterio documental
 
-La base es el documento de clase `CASOS PARA WEB.pdf`, pp. 1–15. Las ampliaciones externas se citan dentro de cada expediente. El PDF completo no se incorpora a los archivos públicos. Se usan términos directos —agresión sexual, estrangulación, decapitación, desmembramiento, necrofilia y canibalismo— cuando la información del caso lo requiere.
+La base es el documento de clase `CASOS PARA WEB.pdf`, pp. 1–15. Las referencias externas están reunidas en Bibliografía; los perfiles no muestran numeración de citas ni etiquetas al final de los apartados. El PDF original completo no se incorpora a los archivos públicos. Se usan términos directos —agresión sexual, estrangulación, decapitación, desmembramiento, necrofilia y canibalismo— cuando la información del caso lo requiere.
 
 Firma, AV y propuesta de perfil se identifican como interpretación o ejercicio retrospectivo. Los cinco autores están identificados: el último apartado explica cómo se plantearía una propuesta si faltara la biografía. No se presenta un perfil retrospectivo como una predicción policial histórica ni se inventan coordenadas, puntuaciones PCL-R o diagnósticos.
 
@@ -31,11 +34,13 @@ Las fotografías son derivados editados de imágenes reales. Procedencia, condic
 
 ## Interacción y accesibilidad
 
-Menú adaptable, navegación con teclado, enlaces de salto, etiquetas de formulario, estados anunciados, alternativas textuales y contenido imprimible. Las animaciones incluyen entrada de secciones, transiciones de tarjetas y tablas, progreso del test, correcciones y rotación de retratos con pausa. Se respeta `prefers-reduced-motion`, también si cambia durante la visita.
+Menú adaptable, navegación con teclado, enlaces de salto, etiquetas de formulario, estados anunciados y alternativas textuales. Las animaciones incluyen entrada de secciones, transiciones de tarjetas y tablas, progreso del test, correcciones y rotación de retratos. Se ha retirado el botón de pausa; la rotación se detiene al mantener el puntero o el foco en el recuadro. Se respeta `prefers-reduced-motion`, también si cambia durante la visita. Los retratos individuales se encuadran completos y suavizan su borde inferior mediante CSS.
 
 ## Verificación
 
-Sintaxis de los tres archivos JavaScript; ejecución DOM de las seis páginas y los cinco perfiles; 40 apartados en orden; 25 preguntas, 75 opciones y una solución por pregunta; 16 definiciones; 379 enlaces o recursos locales revisados. Se comprobaron búsqueda con y sin resultados, selección comparativa, galería sin grupos vacíos, corrección de aciertos y errores, filtros y reinicio del test, menú y URLs de casos retirados.
+Sintaxis JavaScript; ejecución DOM de las siete páginas y los cinco perfiles; 40 apartados en orden; 25 preguntas, 75 opciones y una solución por pregunta; 16 definiciones; 338 enlaces o recursos locales revisados. Se comprobaron apartados plegados y apertura conjunta, enlaces directos, elementos retirados, Bibliografía alfabética, selección comparativa, galería individual, test, filtros, reinicio, menú y URLs de casos retirados.
+
+Los cinco PDF tienen dos páginas cada uno. Se verificaron los ocho apartados completos, orden, texto íntegro sin números de cita, alias, enlace a Bibliografía y maquetación mediante renderizado de las diez páginas. Se comprobó una descarga desde el navegador y su coincidencia con el archivo generado.
 
 La revisión visual se realizó en navegador de escritorio y en un marco de 390 píxeles de ancho para verificar la adaptación móvil. No equivale a una prueba en un teléfono físico.
 
@@ -43,9 +48,13 @@ La revisión visual se realizó en navegador de escritorio y en un marco de 390 
 
 - `js/data.js`: cinco casos, ocho apartados, fuentes, comparativa y conceptos.
 - `js/questions.js`: preguntas, opciones, soluciones y explicaciones.
+- `js/bibliography.js`: referencias generales en orden alfabético.
 - `js/app.js`: generación de contenido e interacciones.
 - `css/style.css` y `css/motion.css`: diseño original y animaciones existentes.
 - `css/study.css`: extensiones del rework, formularios y adaptación.
+- `assets/pdf`: cinco PDF listos para descargar.
+
+Para actualizar los PDF después de editar las fichas, se necesita Node.js y Python con `reportlab` y `Pillow`. Ejecuta `node scripts/build-pdfs.mjs`. Si Python no está en el PATH, indica su ejecutable en la variable `ARCHIVO_PYTHON_BIN`. La generación se realiza en memoria y Node guarda los resultados. La web no necesita esas dependencias para funcionar.
 
 Las referencias documentales externas necesitan conexión. El contenido de estudio, imágenes y tipografías se sirven localmente.
 
