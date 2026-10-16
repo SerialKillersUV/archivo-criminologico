@@ -98,8 +98,7 @@
  let printDetails=[];addEventListener('beforeprint',()=>{printDetails=$$('details').map(el=>({el,open:el.open}));printDetails.forEach(({el})=>el.open=true);$$('.reveal').forEach(el=>el.classList.add('visible'));});addEventListener('afterprint',()=>printDetails.forEach(({el,open})=>el.open=open));
  const gallery=$('#heroGallery');
  if(gallery){
-  const sets=[];for(let i=0;i<cases.length;i+=3)sets.push(cases.slice(i,i+3));
-  gallery.innerHTML=sets.map((set,i)=>`<div class="hero-portraits gallery-group ${i===0?'is-active':''} ${set.length===2?'two-portraits':''}" aria-hidden="${i!==0}">${set.map(c=>`<img src="${e(c.image)}" alt="${e(c.name)} · retrato de archivo" decoding="async">`).join('')}</div>`).join('');
+  gallery.innerHTML=cases.map((c,i)=>`<div class="hero-portraits gallery-group single-portrait ${i===0?'is-active':''}" role="group" aria-roledescription="diapositiva" aria-label="${i+1} de ${cases.length}: ${e(c.name)}" aria-hidden="${i!==0}"><img src="${e(c.image)}" alt="${e(c.name)} · retrato de archivo" decoding="async"><span class="gallery-person">${e(c.name)}</span></div>`).join('');
   const groups=[...gallery.children],pause=$('#galleryPause'),art=$('.hero-art');let current=0,paused=false,hover=false,focused=false,timer;
   const show=i=>{current=(i+groups.length)%groups.length;groups.forEach((g,n)=>{g.classList.toggle('is-active',n===current);g.setAttribute('aria-hidden',String(n!==current));});$('#galleryCount').textContent=String(current+1).padStart(2,'0')+' / '+String(groups.length).padStart(2,'0');};
   const schedule=()=>{clearInterval(timer);pause.hidden=noMotion;if(!noMotion&&!paused&&!hover&&!focused&&!document.hidden)timer=setInterval(()=>show(current+1),6500);};
