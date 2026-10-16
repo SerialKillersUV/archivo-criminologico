@@ -15,11 +15,11 @@ const sections = [
  ['proposal','Propuesta de perfil','Cómo se plantearía con autor desconocido']
 ];
 const cases = [
- {id:'ferrandiz',name:'Joaquín Ferrándiz Ventura',alias:'El depredador de Castellón',place:'Castellón · España',period:'1995–1996',victims:'5 mujeres asesinadas',sentence:'69 años de prisión; excarcelado en julio de 2023 tras cumplir 25',image:'assets/portraits/ferrandiz.webp'},
- {id:'kemper',name:'Edmund Kemper',alias:'Co-ed Killer',place:'California · Estados Unidos',period:'1964 / 1972–1973',victims:'10 víctimas: 2 abuelos y 8 en la serie adulta',sentence:'Ocho condenas a prisión perpetua por los homicidios de 1972–1973',image:'assets/portraits/kemper.png'},
- {id:'dahmer',name:'Jeffrey Dahmer',alias:'Asesino de Milwaukee',place:'Ohio y Wisconsin · Estados Unidos',period:'1978–1991',victims:'17 adolescentes y hombres jóvenes',sentence:'15 perpetuas en Wisconsin y otra en Ohio; murió en prisión en 1994',image:'assets/portraits/dahmer.png'},
- {id:'onoprienko',name:'Anatoli Onoprienko',alias:'La Bestia de Ucrania',place:'Ucrania',period:'1989 / 1995–1996',victims:'52 homicidios con condena',sentence:'Pena de muerte conmutada por perpetua; murió en prisión en 2013',image:'assets/portraits/onoprienko.png'},
- {id:'ridgway',name:'Gary Leon Ridgway',alias:'Green River Killer',place:'Washington · Estados Unidos',period:'1982–1998 · homicidios conocidos',victims:'49 homicidios con condena; confesó otros',sentence:'Prisión perpetua sin libertad condicional',image:'assets/portraits/ridgway.png'}
+ {id:'ferrandiz',name:'Joaquín Ferrándiz Ventura',alias:'El Asesino del Círculo',place:'Castellón · España',period:'1995–1996',victims:'5 mujeres asesinadas',sentence:'69 años de prisión; excarcelado en julio de 2023 tras cumplir 25',image:'assets/portraits/ferrandiz.webp'},
+ {id:'kemper',name:'Edmund Kemper',alias:'El Asesino de las Colegialas',place:'California · Estados Unidos',period:'1964 / 1972–1973',victims:'10 víctimas: 2 abuelos y 8 en la serie adulta',sentence:'Ocho condenas a prisión perpetua por los homicidios de 1972–1973',image:'assets/portraits/kemper.png'},
+ {id:'dahmer',name:'Jeffrey Dahmer',alias:'El Carnicero de Milwaukee',place:'Ohio y Wisconsin · Estados Unidos',period:'1978–1991',victims:'17 adolescentes y hombres jóvenes',sentence:'15 perpetuas en Wisconsin y otra en Ohio; murió en prisión en 1994',image:'assets/portraits/dahmer.png'},
+ {id:'onoprienko',name:'Anatoli Onoprienko',alias:'El Terminator de Ucrania',place:'Ucrania',period:'1989 / 1995–1996',victims:'52 homicidios con condena',sentence:'Pena de muerte conmutada por perpetua; murió en prisión en 2013',image:'assets/portraits/onoprienko.png'},
+ {id:'ridgway',name:'Gary Leon Ridgway',alias:'El Asesino del Río Verde',place:'Washington · Estados Unidos',period:'1982–1998 · homicidios conocidos',victims:'49 homicidios con condena; confesó otros',sentence:'Prisión perpetua sin libertad condicional',image:'assets/portraits/ridgway.png'}
 ];
 const portraitSources = {
  ferrandiz:{label:'Retrato de archivo publicado por Informativos Telecinco (22/07/2023)',url:'https://www.telecinco.es/noticias/sociedad/20230722/asesino-mujeres-castellon-sale-carcel-be5ma_18_010107790.html'},
