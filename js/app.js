@@ -56,31 +56,34 @@
   $('#compareSelection').addEventListener('change',render);$('#selectAll').addEventListener('click',()=>{$$('#compareSelection input').forEach(x=>x.checked=true);render();});$('#clearSelection').addEventListener('click',()=>{$$('#compareSelection input').forEach(x=>x.checked=false);render();});render();
  }
  if($('#conceptGrid')){
-  $('#conceptGrid').innerHTML=concepts.map(([title,definition,example],i)=>`<article class="concept-card reveal"><span class="concept-index">${String(i+1).padStart(2,'0')} / CONCEPTO</span><h2>${e(title)}</h2><p>${e(definition)}</p><p class="concept-example"><span class="concept-quote-label">Del documento</span>${e(example)}</p></article>`).join('');
+  $('#conceptGrid').innerHTML=concepts.map(([title,definition,example,id],i)=>`<article class="concept-card reveal" id="${e(id)}"><span class="concept-index">${String(i+1).padStart(2,'0')} / CONCEPTO</span><h2>${e(title)}</h2><p>${e(definition)}</p><p class="concept-example"><span class="concept-quote-label">Del documento</span>${e(example)}</p></article>`).join('');
  }
  if($('#bibliographyList')){
-  $('#bibliographyList').innerHTML=bibliography.map(s=>`<li id="${e(s.id)}"><span class="reference-kind">${e(s.kind)}</span><p>${sourceLink(s)}</p></li>`).join('');
+  $('#bibliographyList').innerHTML=[['books','Bibliografía','01'],['ridgway','Documentación del caso de Gary Ridgway','02'],['portraits','Procedencia de las fotografías','03']].map(([group,title,index])=>`<section class="reference-group reveal" aria-labelledby="ref-${group}"><div class="reference-heading"><span>${index}</span><h2 id="ref-${group}">${e(title)}</h2></div><ol class="bibliography-list">${bibliography.filter(s=>s.group===group).map(s=>`<li id="${e(s.id)}"><p>${sourceLink(s)}</p></li>`).join('')}</ol></section>`).join('');
  }
  if($('#quizQuestions')){
   const filter=$('#quizCase'),answers=new Map();
-  filter.innerHTML='<option value="all">Los cinco casos · 25 preguntas</option>'+cases.map(c=>`<option value="${e(c.id)}">${e(c.name)} · 5 preguntas</option>`).join('');
-  const requested=new URLSearchParams(location.search).get('caso');if(cases.some(c=>c.id===requested))filter.value=requested;
+  const questionURL=q=>q.caseId==='concepts'?'conceptos.html#'+encodeURIComponent(q.conceptId):caseURL(q.caseId,q.section);
+  const blockName=id=>id==='concepts'?'Conceptos':cases.find(c=>c.id===id).name;
+  const blockURL=id=>id==='concepts'?'conceptos.html':caseURL(id);
+  filter.innerHTML='<option value="all">Todos los bloques · 30 preguntas</option>'+cases.map(c=>`<option value="${e(c.id)}">${e(c.name)} · 5 preguntas</option>`).join('')+'<option value="concepts">Conceptos · 5 preguntas</option>';
+  const requested=new URLSearchParams(location.search).get('caso');if(requested==='concepts'||cases.some(c=>c.id===requested))filter.value=requested;
   const current=()=>questions.filter(q=>filter.value==='all'||q.caseId===filter.value);
   function updateScore(){
    const list=current(),done=list.filter(q=>answers.has(q.id)),correct=done.filter(q=>answers.get(q.id)===q.correct).length;
    $('#quizStatus').textContent=`${done.length} de ${list.length} corregidas · ${correct} ${correct===1?'acierto':'aciertos'}`;
    $('#quizProgress').max=list.length;$('#quizProgress').value=done.length;
    const finished=done.length===list.length,result=$('#quizResult');result.hidden=!finished;
-   if(finished){const review=[...new Set(done.filter(q=>answers.get(q.id)!==q.correct).map(q=>q.caseId))];result.innerHTML=`<div class="eyebrow">TEST COMPLETADO</div><h2>${correct} / ${list.length} respuestas correctas</h2><p>${review.length?'Repasa los casos en los que has fallado y vuelve a intentarlo.':'Has resuelto correctamente este bloque. Puedes ampliar el repaso con la comparativa.'}</p><div class="result-links">${review.map(id=>`<a class="text-link" href="${caseURL(id)}">Repasar ${e(cases.find(c=>c.id===id).name)} ↗</a>`).join('')}<a class="text-link" href="comparativa.html">Ir a Comparativa ↗</a></div>`;}
+   if(finished){const review=[...new Set(done.filter(q=>answers.get(q.id)!==q.correct).map(q=>q.caseId))];result.innerHTML=`<div class="eyebrow">TEST COMPLETADO</div><h2>${correct} / ${list.length} respuestas correctas</h2><p>${review.length?'Repasa los bloques en los que has fallado y vuelve a intentarlo.':'Has resuelto correctamente este bloque. Puedes ampliar el repaso con la comparativa.'}</p><div class="result-links">${review.map(id=>`<a class="text-link" href="${blockURL(id)}">Repasar ${e(blockName(id))} ↗</a>`).join('')}<a class="text-link" href="comparativa.html">Ir a Comparativa ↗</a></div>`;}
   }
   function markAnswer(q){
    const article=document.getElementById('question-'+q.id),answer=answers.get(q.id),correct=answer===q.correct;
    article.classList.add('is-answered');article.classList.toggle('is-correct',correct);
    article.querySelectorAll('input').forEach(input=>{input.disabled=true;input.checked=Number(input.value)===answer;const label=input.closest('label');label.classList.toggle('correct-option',Number(input.value)===q.correct);label.classList.toggle('wrong-option',Number(input.value)===answer&&!correct);});
-   article.querySelector('button').hidden=true;const feedback=article.querySelector('.quiz-feedback');feedback.hidden=false;feedback.innerHTML=`<strong>${correct?'Correcto.':'Respuesta incorrecta.'} ${!correct?'La correcta es '+String.fromCharCode(65+q.correct)+'.':''}</strong><p>${e(q.explanation)}</p><a class="text-link" href="${caseURL(q.caseId,q.section)}">Revisar el apartado ↗</a>`;
+   article.querySelector('button').hidden=true;const feedback=article.querySelector('.quiz-feedback');feedback.hidden=false;feedback.innerHTML=`<strong>${correct?'Correcto.':'Respuesta incorrecta.'} ${!correct?'La correcta es '+String.fromCharCode(65+q.correct)+'.':''}</strong><p>${e(q.explanation)}</p><a class="text-link" href="${questionURL(q)}">Revisar el apartado ↗</a>`;
   }
   function render(){
-   $('#quizQuestions').innerHTML=current().map((q,i)=>`<article class="quiz-card reveal" id="question-${q.id}"><div class="quiz-meta"><span>${String(i+1).padStart(2,'0')} / ${String(current().length).padStart(2,'0')}</span><a href="${caseURL(q.caseId)}">${e(cases.find(c=>c.id===q.caseId).name)} ↗</a></div><form data-question="${q.id}"><fieldset><legend>${e(q.text)}</legend><div class="quiz-options">${q.options.map((option,n)=>`<label><input type="radio" name="answer-${q.id}" value="${n}" required><span class="option-letter" aria-hidden="true">${String.fromCharCode(65+n)}</span><span>${e(option)}</span></label>`).join('')}</div></fieldset><button class="small-button" type="submit">Comprobar respuesta ↗</button></form><div class="quiz-feedback" role="status" hidden></div></article>`).join('');current().filter(q=>answers.has(q.id)).forEach(markAnswer);updateScore();reveal();
+   $('#quizQuestions').innerHTML=current().map((q,i)=>`<article class="quiz-card reveal" id="question-${q.id}"><div class="quiz-meta"><span>${String(i+1).padStart(2,'0')} / ${String(current().length).padStart(2,'0')}</span><a href="${blockURL(q.caseId)}">${e(blockName(q.caseId))} ↗</a></div><form data-question="${q.id}"><fieldset><legend>${e(q.text)}</legend><div class="quiz-options">${q.options.map((option,n)=>`<label><input type="radio" name="answer-${q.id}" value="${n}" required><span class="option-letter" aria-hidden="true">${String.fromCharCode(65+n)}</span><span>${e(option)}</span></label>`).join('')}</div></fieldset><button class="small-button" type="submit">Comprobar respuesta ↗</button></form><div class="quiz-feedback" role="status" hidden></div></article>`).join('');current().filter(q=>answers.has(q.id)).forEach(markAnswer);updateScore();reveal();
   }
   $('#quizQuestions').addEventListener('submit',ev=>{ev.preventDefault();const q=questions.find(q=>q.id===ev.target.dataset.question),input=ev.target.querySelector('input:checked');if(!q||!input||answers.has(q.id))return;answers.set(q.id,Number(input.value));markAnswer(q);updateScore();const feedback=document.querySelector('#question-'+q.id+' .quiz-feedback');feedback.tabIndex=-1;feedback.focus({preventScroll:true});});
   filter.addEventListener('change',()=>{const url=new URL(location.href);if(filter.value==='all')url.searchParams.delete('caso');else url.searchParams.set('caso',filter.value);history.replaceState(null,'',url);render();});

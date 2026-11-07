@@ -1,4 +1,4 @@
-/* 25 preguntas basadas exclusivamente en el documento. Explicaciones literales. */
+/* 25 preguntas de los casos y 5 sobre conceptos. Tres opciones por pregunta. */
 const questions = [
   {
     "id": "berkowitz-1",
@@ -324,5 +324,70 @@ const questions = [
     ],
     "correct": 1,
     "explanation": "La investigación dio un giro en julio de 1991, cuando Tracy Edwards consiguió escapar del apartamento de Dahmer y alertó a la policía. Los agentes encontraron pruebas materiales que permitieron descubrir restos humanos y reconstruir parte de la actividad criminal. Dahmer colaboró posteriormente con los investigadores y confesó haber asesinado a 17 hombres."
+  },
+  {
+    "id": "concept-1",
+    "conceptId": "modus-operandi",
+    "text": "¿Qué describe el modus operandi?",
+    "options": [
+      "Las necesidades expresivas que exceden la ejecución del delito.",
+      "Los procedimientos para acceder a la víctima, cometer el delito y reducir la identificación.",
+      "La distribución espacial de los hechos."
+    ],
+    "correct": 1,
+    "caseId": "concepts",
+    "explanation": "Procedimientos que utiliza el autor para acceder a la víctima, ejecutar el delito y reducir el riesgo de identificación. Su función es instrumental y puede cambiar con la experiencia."
+  },
+  {
+    "id": "concept-2",
+    "conceptId": "firma-criminal",
+    "text": "¿Qué caracteriza a la firma criminal?",
+    "options": [
+      "Su función expresiva o de satisfacción psicológica, más allá de ejecutar el delito.",
+      "El lugar exacto donde vive el autor.",
+      "El número de condenas impuestas."
+    ],
+    "correct": 0,
+    "caseId": "concepts",
+    "explanation": "Conductas que expresan necesidades o fantasías del autor y van más allá de lo necesario para cometer el delito. Se estudia su función psicológica y su consistencia entre hechos."
+  },
+  {
+    "id": "concept-3",
+    "conceptId": "analisis-de-vinculacion",
+    "text": "¿Qué exige el análisis de vinculación?",
+    "options": [
+      "Relacionar todos los hechos que ocurren en una misma ciudad.",
+      "Comparar únicamente el método de muerte.",
+      "Contrastar similitudes y diferencias junto con el contexto y la evidencia forense."
+    ],
+    "correct": 2,
+    "caseId": "concepts",
+    "explanation": "Evaluación de la posible autoría común de distintos hechos. Contrasta similitudes, diferencias, contexto espacial y temporal y evidencia forense; una coincidencia aislada no basta."
+  },
+  {
+    "id": "concept-4",
+    "conceptId": "perfil-geografico",
+    "text": "¿Qué puede aportar un perfil geográfico?",
+    "options": [
+      "La identificación segura del autor.",
+      "Áreas de actividad y posibles puntos de anclaje.",
+      "Una evaluación clínica de la personalidad."
+    ],
+    "correct": 1,
+    "caseId": "concepts",
+    "explanation": "Análisis de la distribución espacial de los hechos y de los desplazamientos del autor. Permite plantear áreas de actividad y posibles puntos de anclaje; no localiza con certeza una vivienda."
+  },
+  {
+    "id": "concept-5",
+    "conceptId": "victimologia",
+    "text": "¿Qué estudia la victimología?",
+    "options": [
+      "La víctima, sus relaciones, circunstancias y proceso de selección por el agresor.",
+      "Exclusivamente las condenas del autor.",
+      "Solo el lugar donde se encuentran los restos."
+    ],
+    "correct": 0,
+    "caseId": "concepts",
+    "explanation": "Estudio de la víctima, sus relaciones, circunstancias y proceso de selección por el agresor. Analiza la vulnerabilidad y las oportunidades de acceso sin atribuir responsabilidad a la víctima."
   }
 ];
