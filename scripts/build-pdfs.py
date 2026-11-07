@@ -11,6 +11,8 @@ from reportlab.lib.enums import TA_LEFT, TA_RIGHT
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.utils import ImageReader
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, KeepTogether, Image
 from PIL import Image as PILImage
 
@@ -20,7 +22,14 @@ INK = colors.HexColor('#202026')
 MUTED = colors.HexColor('#55555f')
 PAGE_W, PAGE_H = A4
 WIDTH = PAGE_W - 104
-clean = lambda text: re.sub(r'\s*\[\d+(?:, \d+)*\]', '', str(text))
+clean = lambda text: str(text)
+FONT = 'Helvetica'
+BOLD = 'Helvetica-Bold'
+font_dir = Path('C:/Windows/Fonts')
+if (font_dir / 'arial.ttf').exists():
+ pdfmetrics.registerFont(TTFont('Archivo', str(font_dir / 'arial.ttf')))
+ pdfmetrics.registerFont(TTFont('ArchivoBold', str(font_dir / 'arialbd.ttf')))
+ FONT, BOLD = 'Archivo', 'ArchivoBold'
 
 styles = {
  'title': ParagraphStyle('title',fontName='Helvetica-Bold',fontSize=25,leading=29,textColor=INK,spaceAfter=9),
@@ -32,6 +41,8 @@ styles = {
  'small': ParagraphStyle('small',fontName='Helvetica',fontSize=8.5,leading=13,textColor=MUTED,spaceAfter=8),
  'date': ParagraphStyle('date',fontName='Helvetica-Bold',fontSize=9,leading=14,textColor=RED),
 }
+for style in styles.values():
+ style.fontName = BOLD if 'Bold' in style.fontName else FONT
 
 def p(text, style='body'):
  return Paragraph(escape(clean(text)), styles[style])
@@ -57,7 +68,10 @@ def page(canvas, doc):
 def build(case, detail, sections):
  buffer=io.BytesIO()
  doc=SimpleDocTemplate(buffer,pagesize=A4,rightMargin=52,leftMargin=52,topMargin=54,bottomMargin=54,title=case['name']+' — Archivo Criminológico',author='Martí Gadea y Sergio Pastor',pageCompression=1)
- left=[p(case['name'],'title'),p(case['alias'],'alias'),p(case['place']+' · '+case['period'],'meta')]
+ left=[p(case['name'],'title')]
+ if case['alias']:
+  left.append(p(case['alias'],'alias'))
+ left.append(p('CASOS PARA LA WEB.pdf · páginas '+case['sourcePages'].replace('–','-'),'meta'))
  photo_path=ROOT / case['image']
  picture=PILImage.open(photo_path).convert('RGBA')
  picture.thumbnail((264,366),PILImage.Resampling.LANCZOS)
@@ -71,16 +85,12 @@ def build(case, detail, sections):
  photo=Image(photo_bytes,width=iw*scale,height=ih*scale)
  header=Table([[left,photo]],colWidths=[WIDTH-105,105],hAlign='LEFT')
  header.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),0),('RIGHTPADDING',(0,0),(-1,-1),0),('TOPPADDING',(0,0),(-1,-1),0),('BOTTOMPADDING',(0,0),(-1,-1),8),('ALIGN',(1,0),(1,0),'RIGHT')]))
- story=[header,p('Víctimas / alcance: '+case['victims'],'meta'),p('Resolución judicial: '+case['sentence'],'meta'),Spacer(1,9),p(detail['summary'],'summary')]
+ story=[header,Spacer(1,9)]
  for index,(key,label,*_) in enumerate(sections,1):
   heading=p(f'{index:02d} / {label}','section')
   paragraphs=[p(text) for text in detail[key]]
-  story.append(KeepTogether([heading,*paragraphs]))
- story.append(p('Cronología','section'))
- rows=[[p(date,'date'),p(text,'small')] for date,text in detail['timeline']]
- timeline=Table(rows,colWidths=[88,WIDTH-88],hAlign='LEFT')
- timeline.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),0),('RIGHTPADDING',(0,0),(-1,-1),10),('TOPPADDING',(0,0),(-1,-1),4),('BOTTOMPADDING',(0,0),(-1,-1),4),('LINEBELOW',(0,0),(-1,-1),.35,colors.HexColor('#dddddf'))]))
- story.extend([timeline,Spacer(1,18),Paragraph('Bibliografía general: <link href="https://serialkillersuv.github.io/archivo-criminologico/bibliografia.html" color="#aa2434">consultar las referencias del archivo</link>.',styles['small'])])
+  story.append(KeepTogether([heading,paragraphs[0]]))
+  story.extend(KeepTogether([paragraph]) for paragraph in paragraphs[1:])
  doc.build(story,onFirstPage=page,onLaterPages=page)
  payload=buffer.getvalue()
  return {'case':case['id'],'file':'expediente-'+case['id']+'.pdf','bytes':len(payload),'base64':base64.b64encode(payload).decode('ascii')}
