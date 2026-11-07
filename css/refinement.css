@@ -245,3 +245,19 @@ footer{padding-block:36px;line-height:1.7}.footer-brand,footer>span{font-size:va
  .case-card.visible:hover,.concept-card.visible:hover{transform:none}
 }
 @media print{body{font-size:11pt}.site-header{display:none}.case-layout{display:block;padding:0}.analysis-section .analysis-body p{font-size:11pt;line-height:1.6}.analysis-section{break-inside:auto}.case-hero-grid{display:block}.reference-group{display:block;break-inside:avoid}.reference-heading h2{font-size:20pt}.bibliography-list p{font-size:11pt}}
+
+/* Ajustes de las anotaciones: presentación justificada y marco animado. */
+.purpose-copy>p:not(.purpose-end){text-align:justify;text-justify:inter-word;hyphens:auto}
+.hero-visual-motion{min-width:0;width:100%;position:relative}
+@media(prefers-reduced-motion:no-preference){
+ .hero-visual-motion{animation:gallery-frame-float 7s ease-in-out infinite;will-change:transform}
+ .hero-art{animation:archive-enter 1s .2s var(--ease-out) backwards,gallery-frame-glow 5.5s 1.2s ease-in-out infinite}
+ .hero-art .orbital::before{content:'';position:absolute;inset:-2px;border-radius:inherit;border:2px solid transparent;border-top-color:#e33b4b99;border-right-color:#e33b4b22;animation:gallery-ring-turn 10s linear infinite}
+ .hero-visual-motion:has(.hero-art:hover),.hero-visual-motion:focus-within{animation-play-state:paused}
+}
+@keyframes gallery-frame-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes gallery-frame-glow{0%,100%{border-color:#713944;box-shadow:0 24px 70px #0005,0 0 0 0 #e33b4b00}50%{border-color:#c55366;box-shadow:0 28px 85px #0006,0 0 32px #b9243424}}
+@keyframes gallery-ring-turn{to{transform:rotate(360deg)}}
+@media(max-width:600px) and (prefers-reduced-motion:no-preference){.hero-visual-motion{animation-name:gallery-frame-float-mobile}}
+@keyframes gallery-frame-float-mobile{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@media(prefers-reduced-motion:reduce){.hero-visual-motion{animation:none!important;transform:none!important;will-change:auto}.hero-art .orbital::before{animation:none!important}}

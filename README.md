@@ -39,3 +39,7 @@ Se han comprobado las siete páginas, cinco fichas, 40 apartados, 359 enlaces o 
 Ejecutar node scripts/verify-content.mjs comprueba la huella del cuerpo transcrito y que la comparativa y las explicaciones del test proceden de sus apartados.
 
 Editar js/data.js para el texto, js/questions.js para el test y js/bibliography.js para las referencias. Los perfiles se generan desde js/app.js. css/refinement.css contiene la actualización visual y js/experience.js sus interacciones decorativas. Para regenerar los PDF se necesita Node.js y Python con reportlab y Pillow: node scripts/build-pdfs.mjs. Puede regenerarse solo uno con --case berkowitz y se puede indicar el ejecutable de Python en ARCHIVO_PYTHON_BIN. La web publicada no necesita estas dependencias.
+
+## Últimas anotaciones
+
+Se actualizan los títulos de Conceptos y Comparativa, las introducciones de Casos y Bibliografía y la expresión «para estudiar de cara al examen». Los dos párrafos de presentación se justifican sin afectar a su cierre. El cuadro de retratos añade flotación, iluminación del borde y un arco orbital animado, con reducción de movimiento y pausas al interactuar.
