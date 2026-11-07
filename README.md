@@ -1,60 +1,37 @@
 # Archivo Criminológico
 
-Página web creada por Martí Gadea y Sergio Pastor. Revisión del 16 de octubre de 2026.
+Página creada por Martí Gadea y Sergio Pastor. Rework del 7 de noviembre de 2026.
 
-Cuaderno de estudio para estudiantes de criminología. Conserva la estética oscura y carmesí, las tipografías locales, los retratos de archivo y la composición del proyecto.
+## Contenido documental
 
-## Contenido
+El contenido de los casos es una transcripción íntegra de CASOS PARA LA WEB.pdf (18 páginas), aportado por el usuario. Se normalizan espacios y saltos de línea para adaptarlo a HTML; no se añaden, corrigen ni completan datos o interpretaciones sobre los casos.
 
-- Cinco casos: Joaquín Ferrándiz Ventura, Edmund Kemper, Jeffrey Dahmer, Anatoli Onoprienko y Gary Leon Ridgway.
-- Ocho apartados, por este orden: presentación / estilo de vida / personalidad; escena del crimen; perfil geográfico; modus operandi; firma criminal; victimología; AV; propuesta de perfil.
-- Apartados plegados al entrar, cronología, descarga directa de un PDF por caso y navegación entre los cinco expedientes.
-- Comparativa seleccionable de M.O., victimología y perfil, con enlaces a los apartados completos.
-- Dieciséis conceptos con definición y aplicación visibles, sin desplegables.
-- Veinticinco preguntas, cinco por caso, con tres opciones y una respuesta correcta. Corrección individual, explicación, enlace al tema, progreso, resultado y reinicio.
-- Bibliografía general con 17 referencias en orden alfabético: material docente, documentación, marco teórico y procedencia de las fotografías.
+Orden del documento: David Berkowitz (El Hijo de Sam), Anatoli Onoprienko, Gary Leon Ridgway (El asesino de Green River), Edmund Kemper y Jeffrey Dahmer. Joaquín Ferrándiz deja de formar parte del archivo.
 
-La portada explica la finalidad académica de la asignatura Perfil e Informe Criminológico y dedica un bloque a Conceptos, otro a Preguntas y otro a Comparativa. El catálogo muestra directamente los cinco casos. Los alias son El Asesino del Círculo, El Asesino de las Colegialas, El Carnicero de Milwaukee, El Terminator de Ucrania y El Asesino del Río Verde.
+Cada ficha contiene los ocho apartados del PDF: presentación / estilo de vida / personalidad; escena del crimen; perfil geográfico; modus operandi; firma criminal; victimología; análisis de vinculación; detención y condena. Se han retirado las propuestas de perfil, cronologías, resúmenes, cifras y alias añadidos en versiones anteriores que no están en este documento.
 
-Las respuestas se conservan al cambiar de bloque durante la visita a Preguntas. Se borran al recargar o abandonar esa página; no se guardan datos personales ni se requiere una cuenta.
+Los 147 párrafos del cuerpo de los casos coinciden con el original tras normalizar espacios. Su SHA-256 es c5a949e8195d7b030739ce2cef7337c155384b61497e86ad2b277759eb7c8c1c.
 
-## Abrir y publicar
+## Recursos de estudio
 
-Sitio estático sin instalación ni compilación. Abre `index.html` o sirve esta carpeta con un servidor HTTP. Para GitHub Pages, el contenido se encuentra en la raíz de la rama publicada. Mantén juntas las carpetas `assets`, `css` y `js`.
+- Comparativa: extractos literales de los apartados de modus operandi, victimología y personalidad.
+- Preguntas: 25, cinco por caso, con tres opciones. Sus explicaciones son párrafos del documento; las opciones proceden también de su texto.
+- Conceptos: 13 definiciones generales con ejemplos tomados literalmente del material, sin ampliar los perfiles.
+- Bibliografía: material docente como única fuente del contenido de los casos; referencia incluida en su página 8 y procedencia de los cinco retratos.
+- PDF: cinco expedientes descargables de tres páginas, con los ocho apartados y todo su texto. No contienen las ampliaciones de la versión anterior.
 
-## Criterio documental
+El documento original completo no se incorpora como archivo público. Las fotografías identifican los expedientes y se documentan en assets/portraits/FUENTES.md; no se usan como fuentes de contenido. Los cuatro recortes anteriores se conservan y el retrato de Berkowitz se incorpora sin editar.
 
-La base es el documento de clase `CASOS PARA WEB.pdf`, pp. 1–15. Las referencias externas están reunidas en Bibliografía; los perfiles no muestran numeración de citas ni etiquetas al final de los apartados. El PDF original completo no se incorpora a los archivos públicos. Se usan términos directos —agresión sexual, estrangulación, decapitación, desmembramiento, necrofilia y canibalismo— cuando la información del caso lo requiere.
+## Diseño y uso
 
-Firma, AV y propuesta de perfil se identifican como interpretación o ejercicio retrospectivo. Los cinco autores están identificados: el último apartado explica cómo se plantearía una propuesta si faltara la biografía. No se presenta un perfil retrospectivo como una predicción policial histórica ni se inventan coordenadas, puntuaciones PCL-R o diagnósticos.
+Se conservan la estética oscura y carmesí, tipografías locales, animaciones, cinco retratos individuales, menú adaptable, apartados plegados al entrar y descarga directa de PDF. Se respeta prefers-reduced-motion. El catálogo no incluye buscador ni contador. No se guardan datos personales.
 
-Se han ajustado afirmaciones problemáticas del material: no se afirma que Kemper comiera las cuerdas vocales de su madre, no se sitúa el primer homicidio de Dahmer en la vivienda de la abuela, no se presenta como verificada una familia de diez víctimas en el primer episodio de Onoprienko y se distinguen las 48 condenas iniciales de Ridgway de la adicional de 2011. Confesión, evidencia y condena no se equiparan.
+Sitio estático: abrir index.html o servir la carpeta con HTTP. En GitHub Pages se publica el contenido de la raíz. Mantener juntas las carpetas assets, css y js.
 
-Las fotografías son derivados editados de imágenes reales. Procedencia, condiciones y edición en `assets/portraits/FUENTES.md`. No se declara una licencia libre uniforme sobre las fotografías. Inter y Oswald se incluyen con sus licencias.
+## Comprobación y mantenimiento
 
-## Interacción y accesibilidad
+Se han comprobado las siete páginas, cinco fichas, 40 apartados, 333 enlaces o recursos locales, 25 preguntas, 75 opciones y los controles interactivos. Se ha verificado la igualdad del texto con el documento y la integridad de todos los párrafos en los PDF. Las 15 páginas generadas se han revisado mediante renderizado.
 
-Menú adaptable, navegación con teclado, enlaces de salto, etiquetas de formulario, estados anunciados y alternativas textuales. Las animaciones incluyen entrada de secciones, transiciones de tarjetas y tablas, progreso del test, correcciones y rotación de retratos. Se ha retirado el botón de pausa; la rotación se detiene al mantener el puntero o el foco en el recuadro. Se respeta `prefers-reduced-motion`, también si cambia durante la visita. Los retratos individuales se encuadran completos y suavizan su borde inferior mediante CSS.
+Ejecutar node scripts/verify-content.mjs comprueba la huella del cuerpo transcrito y que la comparativa y las explicaciones del test proceden de sus apartados.
 
-## Verificación
-
-Sintaxis JavaScript; ejecución DOM de las siete páginas y los cinco perfiles; 40 apartados en orden; 25 preguntas, 75 opciones y una solución por pregunta; 16 definiciones; 338 enlaces o recursos locales revisados. Se comprobaron apartados plegados y apertura conjunta, enlaces directos, elementos retirados, Bibliografía alfabética, selección comparativa, galería individual, test, filtros, reinicio, menú y URLs de casos retirados.
-
-Los cinco PDF tienen dos páginas cada uno. Se verificaron los ocho apartados completos, orden, texto íntegro sin números de cita, alias, enlace a Bibliografía y maquetación mediante renderizado de las diez páginas. Se comprobó una descarga desde el navegador y su coincidencia con el archivo generado.
-
-La revisión visual se realizó en navegador de escritorio y en un marco de 390 píxeles de ancho para verificar la adaptación móvil. No equivale a una prueba en un teléfono físico.
-
-## Edición
-
-- `js/data.js`: cinco casos, ocho apartados, fuentes, comparativa y conceptos.
-- `js/questions.js`: preguntas, opciones, soluciones y explicaciones.
-- `js/bibliography.js`: referencias generales en orden alfabético.
-- `js/app.js`: generación de contenido e interacciones.
-- `css/style.css` y `css/motion.css`: diseño original y animaciones existentes.
-- `css/study.css`: extensiones del rework, formularios y adaptación.
-- `assets/pdf`: cinco PDF listos para descargar.
-
-Para actualizar los PDF después de editar las fichas, se necesita Node.js y Python con `reportlab` y `Pillow`. Ejecuta `node scripts/build-pdfs.mjs`. Si Python no está en el PATH, indica su ejecutable en la variable `ARCHIVO_PYTHON_BIN`. La generación se realiza en memoria y Node guarda los resultados. La web no necesita esas dependencias para funcionar.
-
-Las referencias documentales externas necesitan conexión. El contenido de estudio, imágenes y tipografías se sirven localmente.
-
+Editar js/data.js para el texto, js/questions.js para el test y js/bibliography.js para las referencias. Los perfiles se generan desde js/app.js. Para regenerar los PDF se necesita Node.js y Python con reportlab y Pillow: node scripts/build-pdfs.mjs. Puede indicarse el ejecutable de Python en ARCHIVO_PYTHON_BIN. La web publicada no necesita estas dependencias.
