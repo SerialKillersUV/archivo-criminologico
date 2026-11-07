@@ -1,4 +1,4 @@
-/* Transcripción del documento aportado. Sin ampliaciones sobre los casos. */
+/* Texto de los casos conservado íntegramente; conceptos seleccionados para el estudio. */
 const sourceDocument = {
   "title": "CASOS PARA LA WEB.pdf",
   "pages": 18,
@@ -48,9 +48,8 @@ const cases = [
     "alias": "El Hijo de Sam",
     "place": "Nueva York",
     "period": "1976 y 1977",
-    "image": "assets/portraits/berkowitz.jpg",
-    "sourcePages": "1–4",
-    "originalPhoto": true
+    "image": "assets/portraits/berkowitz.png",
+    "sourcePages": "1–4"
   },
   {
     "id": "onoprienko",
@@ -381,67 +380,62 @@ const details = {
 const concepts = [
   [
     "Modus operandi",
-    "Procedimientos para acceder a la víctima, cometer el delito y evitar la identificación. Pueden aprenderse y cambiar.",
-    "El modus operandi de Gary Ridgway se caracterizaba por la selección de mujeres vulnerables, el engaño para conseguir su confianza, el estrangulamiento y el abandono de los cadáveres en lugares aislados."
+    "Procedimientos que utiliza el autor para acceder a la víctima, ejecutar el delito y reducir el riesgo de identificación. Su función es instrumental y puede cambiar con la experiencia.",
+    "El modus operandi de Gary Ridgway se caracterizaba por la selección de mujeres vulnerables, el engaño para conseguir su confianza, el estrangulamiento y el abandono de los cadáveres en lugares aislados.",
+    "modus-operandi"
   ],
   [
     "Firma criminal",
-    "Conductas expresivas o de satisfacción psicológica que exceden lo necesario para ejecutar el delito. La repetición orienta una hipótesis, no prueba identidad.",
-    "La firma criminal de Berkowitz se caracterizaba por la construcción de una identidad demoníaca y por la necesidad de provocar, intimidar y obtener notoriedad."
+    "Conductas que expresan necesidades o fantasías del autor y van más allá de lo necesario para cometer el delito. Se estudia su función psicológica y su consistencia entre hechos.",
+    "La firma criminal de Berkowitz se caracterizaba por la construcción de una identidad demoníaca y por la necesidad de provocar, intimidar y obtener notoriedad.",
+    "firma-criminal"
   ],
   [
     "Victimología",
-    "Estudio de la víctima, sus relaciones, selección y contexto del hecho. Reconstruye vulnerabilidad sin responsabilizar a quien sufrió la violencia.",
-    "Se caracteriza por una selección de víctimas muy amplia, aunque con un patrón recurrente, eran familias completas que se encontraban en sus viviendas, incluidos adultos y menores."
+    "Estudio de la víctima, sus relaciones, circunstancias y proceso de selección por el agresor. Analiza la vulnerabilidad y las oportunidades de acceso sin atribuir responsabilidad a la víctima.",
+    "Se caracteriza por una selección de víctimas muy amplia, aunque con un patrón recurrente, eran familias completas que se encontraban en sus viviendas, incluidos adultos y menores.",
+    "victimologia"
   ],
   [
     "Escena del crimen",
-    "Espacio relacionado con preparación, ejecución o consecuencias del delito. Escena primaria y depósito pueden estar separados.",
-    "Las escenas relacionadas con los crímenes de Ridgway presentaban dos espacios: los lugares donde se producían los asesinatos y aquellos en los que abandonaba los cadáveres."
+    "Espacio relacionado con la preparación, ejecución o consecuencias del delito. El lugar de la agresión y el lugar donde aparece el cuerpo pueden ser distintos.",
+    "Las escenas relacionadas con los crímenes de Ridgway presentaban dos espacios: los lugares donde se producían los asesinatos y aquellos en los que abandonaba los cadáveres.",
+    "escena-del-crimen"
   ],
   [
     "Perfil geográfico",
-    "Análisis espacial de hechos y desplazamientos para proponer áreas de actividad o puntos de anclaje. Es probabilístico.",
-    "Su actividad criminal se concentró principalmente en California, especialmente en el área de Santa Cruz y sus alrededores. Esta zona contaba con una importante presencia de estudiantes universitarias, lo que facilitaba la selección de mujeres jóvenes que se desplazaban haciendo autostop."
+    "Análisis de la distribución espacial de los hechos y de los desplazamientos del autor. Permite plantear áreas de actividad y posibles puntos de anclaje; no localiza con certeza una vivienda.",
+    "Su actividad criminal se concentró principalmente en California, especialmente en el área de Santa Cruz y sus alrededores. ",
+    "perfil-geografico"
   ],
   [
     "AV · Análisis de vinculación",
-    "Evaluación de posible autoría común entre hechos mediante conducta, espacio, tiempo y evidencia forense. Contrasta similitudes, diferencias y alternativas.",
-    "La vinculación de los homicidios se apoyó en las similitudes en la selección de las víctimas, los métodos de captación y conductas posteriores a los asesinatos. Dahmer elegía hombres jóvenes que respondían a sus preferencias físicas, establecía contacto con ellos y los trasladaba a espacios privados."
+    "Evaluación de la posible autoría común de distintos hechos. Contrasta similitudes, diferencias, contexto espacial y temporal y evidencia forense; una coincidencia aislada no basta.",
+    "La vinculación de los homicidios se apoyó en las similitudes en la selección de las víctimas, los métodos de captación y conductas posteriores a los asesinatos. ",
+    "analisis-de-vinculacion"
   ],
   [
     "Perfil criminológico",
-    "Hipótesis sobre características y rutinas de un posible autor a partir de la evidencia. Orienta comprobaciones y se revisa con nuevos datos.",
-    "Destacaba por su elevada inteligencia, capacidad de manipulación y aparente tranquilidad al describir sus crímenes. También presentaba una profunda hostilidad hacia las mujeres, especialmente hacia su madre."
-  ],
-  [
-    "Actos de precaución",
-    "Acciones dirigidas a reducir detección, conservar anonimato o destruir evidencia. Se interpretan en contexto.",
-    "Onoprienko comenzó a incendiar las viviendas a finales de 1995, conducta que repetiría en otros episodios. Esta práctica tenía una finalidad instrumental, ya que buscaba destruir evidencias que pudieran relacionarlo con los crímenes."
-  ],
-  [
-    "Necrofilia",
-    "Interés o actividad sexual dirigida a cadáveres. Describir la conducta no sustituye una evaluación clínica.",
-    "Esto permite observar una necesidad de mantener el control sobre las víctimas incluso después de su muerte. La conservación de restos y fotografías funcionaba como una forma de mantener una conexión con ellas y prolongar las fantasías que habían motivado sus actos. La necrofilia y el canibalismo son elementos relevantes para comprender la dimensión sexual y simbólica de su comportamiento."
+    "Conjunto de hipótesis sobre las características y rutinas de un posible autor, elaborado a partir de la evidencia. Orienta la investigación y se revisa con nuevos datos; no identifica por sí solo a una persona.",
+    "Destacaba por su elevada inteligencia, capacidad de manipulación y aparente tranquilidad al describir sus crímenes. ",
+    "perfil-criminologico"
   ],
   [
     "Rasgos psicopáticos",
-    "Características como manipulación, frialdad o falta de remordimiento. Observar algunos rasgos no equivale a una evaluación completa.",
-    "Presentaba rasgos compatibles con la psicopatía, como falta de empatía, frialdad emocional, ausencia de remordimiento y objetualización de las víctimas. Pero no existe una puntuación PCL-R publicada que permita confirmar este diagnóstico. También destaca la separación entre su identidad pública y su comportamiento criminal, que puede analizarse con la teoría de la Identidad Fracturada estudiada en clase."
+    "Características como manipulación, frialdad emocional, falta de empatía o ausencia de remordimiento. La descripción de algunos rasgos no equivale a una evaluación clínica completa ni permite asignar una puntuación PCL-R.",
+    "Presentaba rasgos compatibles con la psicopatía, como falta de empatía, frialdad emocional, ausencia de remordimiento y objetualización de las víctimas. ",
+    "rasgos-psicopaticos"
   ],
   [
     "Identidad fracturada",
-    "Marco teórico sobre coexistencia de una identidad social convencional y una actividad homicida oculta. No equivale a identidad disociativa.",
-    "La teoría de la Identidad Fracturada permite interpretar la contradicción que hay entre la imagen cotidiana que Dahmer dejaba ver y la actividad criminal que mantenía oculta. Esta perspectiva ayuda a comprender cómo podía conservar una apariencia social funcional mientras desarrollaba una conducta violenta y destructiva."
+    "Marco de interpretación de la coexistencia de una imagen social aparentemente funcional y una actividad criminal oculta. No equivale a una segunda personalidad ni a un trastorno de identidad disociativo.",
+    "La teoría de la Identidad Fracturada permite interpretar la contradicción que hay entre la imagen cotidiana que Dahmer dejaba ver y la actividad criminal que mantenía oculta. ",
+    "identidad-fracturada"
   ],
   [
     "Homología",
-    "Relación entre comportamientos que presentan similitudes a lo largo del desarrollo.",
-    "La teoría de la homología permite relacionar sus comportamientos infantiles, como la decapitación de animales y la mutilación de muñecas, con las prácticas que realizó con sus víctimas. Esto permite observar una continuidad en determinadas expresiones de violencia a lo largo de su desarrollo."
-  ],
-  [
-    "Teoría de la «Entidad»",
-    "Interpretación de los deseos y fantasías como una fuerza interna que adquiere intensidad.",
-    "Aquí encontramos la llamada teoría de la «Entidad», estudiada en clase, que aparece en algunas interpretaciones de su caso. Esta plantea que Dahmer percibía deseos y fantasías como una fuerza interna que poco a poco tenía mayor intensidad. No debe entenderse como una segunda personalidad ni como un diagnóstico, sino como una forma de interpretar cómo sus fantasías fueron ganando presencia hasta dominar su comportamiento."
+    "En el material de estudio, se emplea para relacionar las semejanzas entre comportamientos violentos infantiles y conductas posteriores del autor. Permite examinar la continuidad de determinadas expresiones de violencia.",
+    "La teoría de la homología permite relacionar sus comportamientos infantiles, como la decapitación de animales y la mutilación de muñecas, con las prácticas que realizó con sus víctimas. ",
+    "homologia"
   ]
 ];

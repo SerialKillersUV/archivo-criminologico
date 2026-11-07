@@ -5,6 +5,8 @@ import {spawnSync} from 'node:child_process';
 const root=path.resolve(import.meta.dirname,'..');
 const source=fs.readFileSync(path.join(root,'js/data.js'),'utf8');
 const data=vm.runInNewContext(source+'\n({cases,details,sections})');
+const caseIndex=process.argv.indexOf('--case');
+if(caseIndex>=0){const requested=process.argv[caseIndex+1];data.cases=data.cases.filter(c=>c.id===requested);if(data.cases.length!==1)throw new Error('Caso no encontrado: '+requested);}
 const result=spawnSync(process.env.ARCHIVO_PYTHON_BIN||'python',[path.join(root,'scripts/build-pdfs.py')],{input:JSON.stringify(data),encoding:'utf8',maxBuffer:20*1024*1024});
 if(result.error)throw result.error;
 if(result.status!==0)throw new Error(result.stderr);
