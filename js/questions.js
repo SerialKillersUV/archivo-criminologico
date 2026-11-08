@@ -56,7 +56,7 @@ const questions = [
     "id": "berkowitz-5",
     "caseId": "berkowitz",
     "section": "victimology",
-    "text": "¿Qué víctimas describe principalmente el apartado de Berkowitz?",
+    "text": "¿Qué víctimas seleccionaba principalmente Berkowitz?",
     "options": [
       "Familias completas",
       "Hombres jóvenes",
@@ -316,14 +316,14 @@ const questions = [
     "id": "dahmer-5",
     "caseId": "dahmer",
     "section": "av",
-    "text": "¿Qué evidencias permitieron identificar a las víctimas y relacionar los homicidios de Dahmer?",
+    "text": "¿Qué contradicción permite analizar la teoría de la identidad fracturada en Dahmer?",
     "options": [
-      "Cartas dirigidas a la policía y a los medios",
-      "Pruebas físicas, fotografías, restos humanos y testimonios",
-      "La repetición de incendios en viviendas familiares"
+      "La separación entre sus homicidios y los de otros autores",
+      "El contraste entre su apariencia cotidiana y la actividad criminal oculta",
+      "La existencia de dos personalidades independientes"
     ],
     "correct": 1,
-    "explanation": "El análisis de las pruebas físicas, las fotografías, los restos humanos y los testimonios permitió identificar a las víctimas y relacionar los distintos homicidios. El FBI también prestó apoyo mediante análisis de ADN, estudios químicos y biológicos y otras técnicas forenses."
+    "explanation": "La teoría de la Identidad Fracturada permite interpretar la contradicción que hay entre la imagen cotidiana que Dahmer dejaba ver y la actividad criminal que mantenía oculta. Esta perspectiva ayuda a comprender cómo podía conservar una apariencia social funcional mientras desarrollaba una conducta violenta y destructiva."
   },
   {
     "id": "concept-1",

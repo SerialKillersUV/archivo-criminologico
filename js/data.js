@@ -507,7 +507,7 @@ const concepts = [
   ],
   [
     "Rasgos psicopáticos",
-    "Rasgos afectivos e interpersonales como la manipulación, la frialdad emocional y la falta de empatía o remordimiento. Pueden aparecer en asesinos en serie, pero no son una característica universal de estos autores.",
+    "Rasgos afectivos e interpersonales como la manipulación, la frialdad emocional y la falta de empatía o remordimiento.",
     "Presentaba rasgos compatibles con la psicopatía, como falta de empatía, frialdad emocional, ausencia de remordimiento y objetualización de las víctimas. ",
     "rasgos-psicopaticos",
     "ridgway"
