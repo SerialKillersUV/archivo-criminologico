@@ -71,7 +71,8 @@ def build(case, detail, sections):
  left=[p(case['name'],'title')]
  if case['alias']:
   left.append(p(case['alias'],'alias'))
- left.append(p('CASOS PARA LA WEB.pdf · páginas '+case['sourcePages'].replace('–','-'),'meta'))
+ for fact in case['facts']:
+  left.append(p(fact['label']+': '+fact['value'].replace('–','-'),'meta'))
  photo_path=ROOT / case['image']
  picture=PILImage.open(photo_path).convert('RGBA')
  picture.thumbnail((264,366),PILImage.Resampling.LANCZOS)
