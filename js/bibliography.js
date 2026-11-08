@@ -1,11 +1,5 @@
-/* Referencias separadas por tipo y ordenadas alfabéticamente. */
+/* Bibliografía general y procedencia de las fotografías; orden alfabético. */
 const bibliography = [
-  {
-    "id": "biografia-onoprienko",
-    "group": "biographies",
-    "label": "Anatoli Onoprienko. Crime+Investigation. Biografía y cronología.",
-    "url": "https://www.crimeandinvestigation.co.uk/crime-files/anatoly-onoprienko"
-  },
   {
     "id": "retrato-onoprienko",
     "group": "portraits",
@@ -13,22 +7,10 @@ const bibliography = [
     "url": "https://en.wikipedia.org/wiki/File:Anatoly_Onoprienko_mugshot.jpg"
   },
   {
-    "id": "biografia-berkowitz",
-    "group": "biographies",
-    "label": "David Berkowitz. Biography.com (2025). Son of Sam.",
-    "url": "https://www.biography.com/crime/a65436797/son-of-sam"
-  },
-  {
     "id": "retrato-berkowitz",
     "group": "portraits",
     "label": "David Berkowitz. Mount Vernon Argus (1977), vía Wikimedia Commons.",
     "url": "https://commons.wikimedia.org/wiki/File:David_Berkowitz_Arrested_August_10_1977_Mount_Vernon_Argus.jpg"
-  },
-  {
-    "id": "biografia-kemper",
-    "group": "biographies",
-    "label": "Edmund Kemper. Biography.com (2023). Biografía.",
-    "url": "https://www.biography.com/crime/edmund-kemper"
   },
   {
     "id": "retrato-kemper",
@@ -49,22 +31,10 @@ const bibliography = [
     "url": "https://commons.wikimedia.org/wiki/File:Gary_Ridgway_1982_Mugshot.jpg"
   },
   {
-    "id": "biografia-ridgway",
-    "group": "biographies",
-    "label": "Gary Leon Ridgway. Wikipedia. Biografía y cronología.",
-    "url": "https://en.wikipedia.org/wiki/Gary_Ridgway"
-  },
-  {
     "id": "documento-ridgway",
-    "group": "ridgway",
+    "group": "books",
     "label": "Gary Ridgway. Summary of evidence (2001).",
     "url": "https://www.westsideseattle.com/sites/default/files/attachments/Gary%20Ridgway%202001%20summary%20of%20evidence%20%2801-1-10270-9%29.pdf"
-  },
-  {
-    "id": "biografia-dahmer",
-    "group": "biographies",
-    "label": "Jeffrey Dahmer. Biography.com (2023). Biografía.",
-    "url": "https://www.biography.com/crime/jeffrey-dahmer"
   },
   {
     "id": "retrato-dahmer",

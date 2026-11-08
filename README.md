@@ -1,49 +1,27 @@
 # Archivo Criminológico
 
-Página creada por Martí Gadea y Sergio Pastor para la actividad complementaria de Investigación Criminal: Perfil e Informe Criminológico. Actualización del 8 de noviembre de 2026.
+Página de Martí Gadea y Sergio Pastor para la actividad complementaria de Investigación Criminal: Perfil e Informe Criminológico. Revisión del 8 de noviembre de 2026.
 
-## Contenido documental
+## Contenido
 
-El cuerpo de los ocho apartados de cada caso es una transcripción íntegra de CASOS PARA LA WEB.pdf (18 páginas), aportado por el usuario. Se normalizan espacios y saltos de línea para adaptarlo a HTML. Por indicación posterior del usuario, las cabeceras incorporan datos biográficos y cronológicos contrastados en fuentes externas, recogidas en Bibliografía. No se modifica el texto transcrito de los apartados.
+Los ocho apartados de cada expediente conservan los 147 párrafos íntegros del material docente aportado, normalizando solo espacios y saltos de línea. Su SHA-256 es c5a949e8195d7b030739ce2cef7337c155384b61497e86ad2b277759eb7c8c1c. Las cabeceras mantienen los datos biográficos y apodos solicitados en la actualización anterior.
 
-Orden del documento: David Berkowitz (El Hijo de Sam), Anatoli Onoprienko, Gary Leon Ridgway (El asesino de Green River), Edmund Kemper y Jeffrey Dahmer. Joaquín Ferrándiz deja de formar parte del archivo.
-
-Cada ficha contiene los ocho apartados del PDF: presentación / estilo de vida / personalidad; escena del crimen; perfil geográfico; modus operandi; firma criminal; victimología; análisis de vinculación; detención y condena. No se añaden interpretaciones a estos ocho apartados. Los apodos indicados por el usuario aparecen en las tarjetas y cabeceras.
-
-Los 147 párrafos del cuerpo de los casos coinciden con el original tras normalizar espacios. Su SHA-256 es c5a949e8195d7b030739ce2cef7337c155384b61497e86ad2b277759eb7c8c1c.
+Cinco casos: David Berkowitz, Anatoli Onoprienko, Gary Leon Ridgway, Edmund Kemper y Jeffrey Dahmer. Cada perfil contiene presentación / estilo de vida / personalidad; escena del crimen; perfil geográfico; modus operandi; firma criminal; victimología; análisis de vinculación; detención y condena.
 
 ## Recursos de estudio
 
-- Comparativa: extractos literales de los apartados de modus operandi, victimología y personalidad.
-- Preguntas: 30, con tres opciones. Se conservan las 25 de casos y se añaden cinco de conceptos con filtro, explicación y enlace al concepto correspondiente.
-- Conceptos: diez fichas de M.O., firma, victimología, escena, perfil geográfico, AV, perfil criminológico, rasgos psicopáticos, identidad fracturada y homología.
-- Bibliografía: cuatro bloques separados para el libro Nuevos perfiles criminales, las fuentes biográficas, la documentación de Gary Ridgway y las fotografías. Se enlaza el catálogo Trobès de la UV y se ordena cada bloque alfabéticamente.
-- PDF: cinco expedientes descargables de tres páginas, con los ocho apartados y todo su texto. Sus cabeceras incluyen los mismos datos biográficos y apodos que la web.
+- Comparativa: extractos literales de modus operandi, victimología y firma criminal, con enlaces al apartado correspondiente.
+- Conceptos: diez fichas. Modus operandi, firma criminal, victimología, escena del crimen, perfil geográfico, análisis de vinculación, actos de precaución, rasgos psicopáticos, teoría de la identidad fracturada y necrofilia. Cada ejemplo identifica y enlaza su caso. No se equipara automáticamente el asesinato en serie con la psicopatía.
+- Preguntas: 25 sobre casos y cinco sobre conceptos; tres opciones por pregunta, con inicio en mayúscula. Las explicaciones de casos son párrafos de sus apartados y las de conceptos coinciden con sus definiciones. Los enunciados se refieren directamente a los casos.
+- Bibliografía: dos bloques alfabéticos. La bibliografía general reúne el libro Nuevos perfiles criminales y la referencia de Gary Ridgway; el segundo bloque recoge la procedencia de las fotografías.
+- PDF: cinco expedientes con los ocho apartados íntegros y texto justificado. Títulos, metadatos y última línea de cada párrafo se alinean a la izquierda para mantener una lectura natural. Los enlaces de descarga llevan versión para evitar servir copias anteriores desde la caché.
 
-El documento original completo no se incorpora como archivo público. Las fotografías identifican los expedientes y se documentan en assets/portraits/FUENTES.md; no se usan como fuentes de contenido. Los cuatro recortes anteriores se conservan. El retrato de Berkowitz utiliza ahora un PNG con transparencia real, también en su PDF, obtenido con la herramienta integrada de edición de imágenes. El prompt se conserva en el archivo de procedencia.
+## Diseño
 
-## Diseño y uso
+Se conservan la estética oscura y carmesí, las tipografías locales, las animaciones y la reducción de movimiento, los retratos con transparencia y los apartados plegados al entrar. La letra se adapta al tamaño de la pantalla. El menú mantiene Inicio, Casos, Conceptos, Preguntas, Comparativa y Bibliografía. No se guardan datos personales.
 
-Se conservan la estética oscura y carmesí, las tipografías locales, los cinco retratos individuales, los apartados plegados al entrar y la descarga directa de PDF. Se han renovado jerarquía, espaciado, tarjetas, controles, tabla y bibliografía. La portada explica la actividad complementaria y el repaso del examen, presenta Conceptos y Preguntas y elimina su antiguo bloque de Comparativa. El menú sigue Inicio, Casos, Conceptos, Preguntas, Comparativa y Bibliografía.
+## Mantenimiento
 
-La letra principal usa una escala fluida: 16 px en móvil, aproximadamente 17,6 px a 1280 px y 19,5 px a 2043 px. Se han ajustado medidas de lectura, interlineado, controles y etiquetas para cada tamaño. Se comprobaron las siete páginas a 320, 390, 768, 1280 y 2043 px, sin desbordamientos horizontales del documento.
+Sitio estático para GitHub Pages. Mantener juntas las carpetas assets, css y js. Los datos están en js/data.js, las preguntas en js/questions.js y las referencias en js/bibliography.js. js/app.js genera el contenido interactivo.
 
-Las animaciones incluyen entradas escalonadas, galería con fundidos, retratos con movimiento suave, iluminación de tarjetas al pasar el puntero, inclinación leve de la galería, transiciones de botones y menú, apertura de apartados, progreso del test, correcciones y navegación de páginas cuando el navegador lo admite. Se respeta prefers-reduced-motion y el movimiento del puntero se aplica solo con un dispositivo preciso. El catálogo no incluye buscador ni contador. No se guardan datos personales.
-
-Sitio estático: abrir index.html o servir la carpeta con HTTP. En GitHub Pages se publica el contenido de la raíz. Mantener juntas las carpetas assets, css y js.
-
-## Comprobación y mantenimiento
-
-Se han comprobado las siete páginas, cinco fichas, 40 apartados, 359 enlaces o recursos locales, 30 preguntas, 90 opciones y los controles interactivos, incluido el bloque de Conceptos con aciertos y errores. Se ha verificado la igualdad de los 147 párrafos de casos con el documento y la integridad de todos los párrafos en los PDF. Se han regenerado los cinco PDF con sus nuevas cabeceras y se han revisado sus 15 páginas mediante renderizado.
-
-Ejecutar node scripts/verify-content.mjs comprueba la huella del cuerpo transcrito y que la comparativa y las explicaciones del test proceden de sus apartados.
-
-Editar js/data.js para el texto, js/questions.js para el test y js/bibliography.js para las referencias. Los perfiles se generan desde js/app.js. css/refinement.css contiene la actualización visual y js/experience.js sus interacciones decorativas. Para regenerar los PDF se necesita Node.js y Python con reportlab y Pillow: node scripts/build-pdfs.mjs. Puede regenerarse solo uno con --case berkowitz y se puede indicar el ejecutable de Python en ARCHIVO_PYTHON_BIN. La web publicada no necesita estas dependencias.
-
-## Últimas anotaciones
-
-Se actualizan los títulos de Conceptos y Comparativa, las introducciones de Casos y Bibliografía y la expresión «para estudiar de cara al examen». Los dos párrafos de presentación se justifican sin afectar a su cierre. El cuadro de retratos añade flotación, iluminación del borde y un arco orbital animado, con reducción de movimiento y pausas al interactuar.
-
-## Cabeceras y anotaciones del 8 de noviembre
-
-La portada muestra el nombre completo de la asignatura y solo el indicador de cinco expedientes. Se añaden los apodos de Onoprienko, Kemper y Dahmer y se simplifican los lugares de las tarjetas. Cada cabecera presenta nacimiento, área de actuación y periodo criminal; Onoprienko y Dahmer incluyen también su fecha de fallecimiento. La etiqueta de los ejemplos de Conceptos pasa a «De los casos» y la introducción de Bibliografía se refiere a «esta página web». Las fuentes biográficas se consultaron el 8 de noviembre de 2026.
+Ejecutar node scripts/verify-content.mjs comprueba la huella del cuerpo original, los extractos de la comparativa, el respaldo de las explicaciones, los 30 ítems y los diez conceptos. Para regenerar los PDF se necesitan Node.js y Python con reportlab y Pillow: node scripts/build-pdfs.mjs. ARCHIVO_PYTHON_BIN permite indicar el ejecutable de Python. Estas dependencias no se necesitan en la web publicada.
