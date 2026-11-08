@@ -261,3 +261,12 @@ footer{padding-block:36px;line-height:1.7}.footer-brand,footer>span{font-size:va
 @media(max-width:600px) and (prefers-reduced-motion:no-preference){.hero-visual-motion{animation-name:gallery-frame-float-mobile}}
 @keyframes gallery-frame-float-mobile{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 @media(prefers-reduced-motion:reduce){.hero-visual-motion{animation:none!important;transform:none!important;will-change:auto}.hero-art .orbital::before{animation:none!important}}
+
+/* Cabeceras: datos biográficos y cronología de cada expediente. */
+.case-biography{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 30px;margin:28px 0 30px;border-top:1px solid var(--line)}
+.case-biography>div{padding:18px 0;border-bottom:1px solid var(--line);min-width:0}
+.case-biography>div:last-child:nth-child(odd){grid-column:1/-1}
+.case-biography dt{font:var(--label-size)/1.65 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--red);margin-bottom:7px}
+.case-biography dd{font-size:var(--body-size);line-height:1.65;margin:0;color:var(--ink)}
+@media(max-width:600px){.case-biography{gap:0 20px;margin-block:24px}.case-biography>div{padding-block:16px}.case-biography dt{font-size:10px;letter-spacing:.045em}.case-biography dd{font-size:16px}}
+@media(max-width:360px){.case-biography{grid-template-columns:1fr}.case-biography dt{font-size:11px}.case-biography>div:last-child:nth-child(odd){grid-column:auto}}

@@ -1,14 +1,14 @@
 # Archivo Criminológico
 
-Página creada por Martí Gadea y Sergio Pastor para la actividad complementaria de Investigación Criminal: Perfil e Informe Criminológico. Rework visual del 7 de noviembre de 2026.
+Página creada por Martí Gadea y Sergio Pastor para la actividad complementaria de Investigación Criminal: Perfil e Informe Criminológico. Actualización del 8 de noviembre de 2026.
 
 ## Contenido documental
 
-El contenido de los casos es una transcripción íntegra de CASOS PARA LA WEB.pdf (18 páginas), aportado por el usuario. Se normalizan espacios y saltos de línea para adaptarlo a HTML; no se añaden, corrigen ni completan datos o interpretaciones sobre los casos.
+El cuerpo de los ocho apartados de cada caso es una transcripción íntegra de CASOS PARA LA WEB.pdf (18 páginas), aportado por el usuario. Se normalizan espacios y saltos de línea para adaptarlo a HTML. Por indicación posterior del usuario, las cabeceras incorporan datos biográficos y cronológicos contrastados en fuentes externas, recogidas en Bibliografía. No se modifica el texto transcrito de los apartados.
 
 Orden del documento: David Berkowitz (El Hijo de Sam), Anatoli Onoprienko, Gary Leon Ridgway (El asesino de Green River), Edmund Kemper y Jeffrey Dahmer. Joaquín Ferrándiz deja de formar parte del archivo.
 
-Cada ficha contiene los ocho apartados del PDF: presentación / estilo de vida / personalidad; escena del crimen; perfil geográfico; modus operandi; firma criminal; victimología; análisis de vinculación; detención y condena. Se han retirado las propuestas de perfil, cronologías, resúmenes, cifras y alias añadidos en versiones anteriores que no están en este documento.
+Cada ficha contiene los ocho apartados del PDF: presentación / estilo de vida / personalidad; escena del crimen; perfil geográfico; modus operandi; firma criminal; victimología; análisis de vinculación; detención y condena. No se añaden interpretaciones a estos ocho apartados. Los apodos indicados por el usuario aparecen en las tarjetas y cabeceras.
 
 Los 147 párrafos del cuerpo de los casos coinciden con el original tras normalizar espacios. Su SHA-256 es c5a949e8195d7b030739ce2cef7337c155384b61497e86ad2b277759eb7c8c1c.
 
@@ -17,8 +17,8 @@ Los 147 párrafos del cuerpo de los casos coinciden con el original tras normali
 - Comparativa: extractos literales de los apartados de modus operandi, victimología y personalidad.
 - Preguntas: 30, con tres opciones. Se conservan las 25 de casos y se añaden cinco de conceptos con filtro, explicación y enlace al concepto correspondiente.
 - Conceptos: diez fichas de M.O., firma, victimología, escena, perfil geográfico, AV, perfil criminológico, rasgos psicopáticos, identidad fracturada y homología.
-- Bibliografía: tres bloques separados para el libro Nuevos perfiles criminales, la documentación de Gary Ridgway y las fotografías. Se enlaza el catálogo Trobès de la UV y se ordena cada bloque alfabéticamente.
-- PDF: cinco expedientes descargables de tres páginas, con los ocho apartados y todo su texto. No contienen las ampliaciones de la versión anterior.
+- Bibliografía: cuatro bloques separados para el libro Nuevos perfiles criminales, las fuentes biográficas, la documentación de Gary Ridgway y las fotografías. Se enlaza el catálogo Trobès de la UV y se ordena cada bloque alfabéticamente.
+- PDF: cinco expedientes descargables de tres páginas, con los ocho apartados y todo su texto. Sus cabeceras incluyen los mismos datos biográficos y apodos que la web.
 
 El documento original completo no se incorpora como archivo público. Las fotografías identifican los expedientes y se documentan en assets/portraits/FUENTES.md; no se usan como fuentes de contenido. Los cuatro recortes anteriores se conservan. El retrato de Berkowitz utiliza ahora un PNG con transparencia real, también en su PDF, obtenido con la herramienta integrada de edición de imágenes. El prompt se conserva en el archivo de procedencia.
 
@@ -34,7 +34,7 @@ Sitio estático: abrir index.html o servir la carpeta con HTTP. En GitHub Pages 
 
 ## Comprobación y mantenimiento
 
-Se han comprobado las siete páginas, cinco fichas, 40 apartados, 359 enlaces o recursos locales, 30 preguntas, 90 opciones y los controles interactivos, incluido el bloque de Conceptos con aciertos y errores. Se ha verificado la igualdad de los 147 párrafos de casos con el documento y la integridad de todos los párrafos en los PDF. Se ha regenerado y revisado por renderizado el expediente de Berkowitz con su retrato nuevo; los otros cuatro PDF conservan el contenido publicado.
+Se han comprobado las siete páginas, cinco fichas, 40 apartados, 359 enlaces o recursos locales, 30 preguntas, 90 opciones y los controles interactivos, incluido el bloque de Conceptos con aciertos y errores. Se ha verificado la igualdad de los 147 párrafos de casos con el documento y la integridad de todos los párrafos en los PDF. Se han regenerado los cinco PDF con sus nuevas cabeceras y se han revisado sus 15 páginas mediante renderizado.
 
 Ejecutar node scripts/verify-content.mjs comprueba la huella del cuerpo transcrito y que la comparativa y las explicaciones del test proceden de sus apartados.
 
@@ -43,3 +43,7 @@ Editar js/data.js para el texto, js/questions.js para el test y js/bibliography.
 ## Últimas anotaciones
 
 Se actualizan los títulos de Conceptos y Comparativa, las introducciones de Casos y Bibliografía y la expresión «para estudiar de cara al examen». Los dos párrafos de presentación se justifican sin afectar a su cierre. El cuadro de retratos añade flotación, iluminación del borde y un arco orbital animado, con reducción de movimiento y pausas al interactuar.
+
+## Cabeceras y anotaciones del 8 de noviembre
+
+La portada muestra el nombre completo de la asignatura y solo el indicador de cinco expedientes. Se añaden los apodos de Onoprienko, Kemper y Dahmer y se simplifican los lugares de las tarjetas. Cada cabecera presenta nacimiento, área de actuación y periodo criminal; Onoprienko y Dahmer incluyen también su fecha de fallecimiento. La etiqueta de los ejemplos de Conceptos pasa a «De los casos» y la introducción de Bibliografía se refiere a «esta página web». Las fuentes biográficas se consultaron el 8 de noviembre de 2026.

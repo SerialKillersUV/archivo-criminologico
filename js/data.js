@@ -47,45 +47,123 @@ const cases = [
     "name": "David Berkowitz",
     "alias": "El Hijo de Sam",
     "place": "Nueva York",
-    "period": "1976 y 1977",
+    "period": "1976–1977",
     "image": "assets/portraits/berkowitz.png",
-    "sourcePages": "1–4"
+    "sourcePages": "1–4",
+    "facts": [
+      {
+        "label": "Nacimiento",
+        "value": "1 de junio de 1953"
+      },
+      {
+        "label": "Área de actuación",
+        "value": "Nueva York · Estados Unidos"
+      },
+      {
+        "label": "Actividad criminal",
+        "value": "1976–1977"
+      }
+    ]
   },
   {
     "id": "onoprienko",
     "name": "Anatoli Onoprienko",
-    "alias": "",
+    "alias": "El Terminator de Ucrania",
     "place": "Ucrania",
-    "period": "",
+    "period": "1989 y 1995–1996",
     "image": "assets/portraits/onoprienko.png",
-    "sourcePages": "4–7"
+    "sourcePages": "4–7",
+    "facts": [
+      {
+        "label": "Nacimiento",
+        "value": "25 de julio de 1959"
+      },
+      {
+        "label": "Fallecimiento",
+        "value": "27 de agosto de 2013"
+      },
+      {
+        "label": "Área de actuación",
+        "value": "Ucrania"
+      },
+      {
+        "label": "Actividad criminal",
+        "value": "1989 y 1995–1996"
+      }
+    ]
   },
   {
     "id": "ridgway",
     "name": "Gary Leon Ridgway",
     "alias": "El asesino de Green River",
-    "place": "Washington · condado de King",
-    "period": "",
+    "place": "Washington",
+    "period": "1982–1998",
     "image": "assets/portraits/ridgway.png",
-    "sourcePages": "8–11"
+    "sourcePages": "8–11",
+    "facts": [
+      {
+        "label": "Nacimiento",
+        "value": "18 de febrero de 1949"
+      },
+      {
+        "label": "Área de actuación",
+        "value": "Washington · Estados Unidos"
+      },
+      {
+        "label": "Actividad criminal",
+        "value": "1982–1998"
+      }
+    ]
   },
   {
     "id": "kemper",
     "name": "Edmund Kemper",
-    "alias": "",
-    "place": "California · Santa Cruz",
-    "period": "",
+    "alias": "El Asesino de las Colegialas",
+    "place": "California",
+    "period": "1964 y 1972–1973",
     "image": "assets/portraits/kemper.png",
-    "sourcePages": "12–15"
+    "sourcePages": "12–15",
+    "facts": [
+      {
+        "label": "Nacimiento",
+        "value": "18 de diciembre de 1948"
+      },
+      {
+        "label": "Área de actuación",
+        "value": "California · Estados Unidos"
+      },
+      {
+        "label": "Actividad criminal",
+        "value": "1964 y 1972–1973"
+      }
+    ]
   },
   {
     "id": "dahmer",
     "name": "Jeffrey Dahmer",
-    "alias": "",
-    "place": "Wisconsin · Milwaukee",
-    "period": "",
+    "alias": "El Carnicero de Milwaukee",
+    "place": "Wisconsin",
+    "period": "1978–1991",
     "image": "assets/portraits/dahmer.png",
-    "sourcePages": "15–18"
+    "sourcePages": "15–18",
+    "facts": [
+      {
+        "label": "Nacimiento",
+        "value": "21 de mayo de 1960"
+      },
+      {
+        "label": "Fallecimiento",
+        "value": "28 de noviembre de 1994"
+      },
+      {
+        "label": "Área de actuación",
+        "value": "Wisconsin y Ohio · Estados Unidos"
+      },
+      {
+        "label": "Actividad criminal",
+        "value": "1978–1991"
+      }
+    ]
   }
 ];
 
