@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 from xml.sax.saxutils import escape
 from reportlab.lib import colors
-from reportlab.lib.enums import TA_LEFT, TA_RIGHT
+from reportlab.lib.enums import TA_LEFT, TA_RIGHT, TA_JUSTIFY
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.utils import ImageReader
@@ -37,7 +37,7 @@ styles = {
  'meta': ParagraphStyle('meta',fontName='Helvetica',fontSize=9,leading=14,textColor=MUTED,spaceAfter=6),
  'summary': ParagraphStyle('summary',fontName='Helvetica',fontSize=11,leading=16,textColor=INK,spaceAfter=14),
  'section': ParagraphStyle('section',fontName='Helvetica-Bold',fontSize=12,leading=16,textColor=RED,spaceBefore=12,spaceAfter=7),
- 'body': ParagraphStyle('body',fontName='Helvetica',fontSize=10,leading=14.3,textColor=INK,spaceAfter=7),
+ 'body': ParagraphStyle('body',fontName='Helvetica',fontSize=10,leading=14.3,textColor=INK,spaceAfter=7,alignment=TA_JUSTIFY,justifyLastLine=0),
  'small': ParagraphStyle('small',fontName='Helvetica',fontSize=8.5,leading=13,textColor=MUTED,spaceAfter=8),
  'date': ParagraphStyle('date',fontName='Helvetica-Bold',fontSize=9,leading=14,textColor=RED),
 }

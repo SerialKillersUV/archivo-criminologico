@@ -244,7 +244,7 @@ const details = {
     "comparison": {
       "mo": "El modus operandi (MO) consistía en localizar parejas jóvenes mientras circulaba en su coche, se aproximaba a ellas y dispararles a corta distancia utilizando un arma de fuego. Esto caracterizado también por una ausencia de contacto físico, ya que no necesitaba mantener una interacción prolongada con las víctimas para ejecutar los ataques.",
       "victimology": "Las víctimas de Berkowitz eran principalmente mujeres jóvenes y parejas jóvenes. La selección de estas víctimas refleja el componente misógino y obsesivo, ya que existía un odio hacia las mujeres, que constituían el principal foco de sus ataques.",
-      "profile": "En cuanto a su comportamiento podemos destacar diferentes rasgos como la conducta antisocial y agresiva desde su adolescencia, misoginia, necesidad de notoriedad (utilizaba cartas dirigidas a la policía y a la prensa), manipulación y búsqueda de poder y control (en prisión pudo utilizar la religión para conseguir prestigio, influencia y autoridad)."
+      "signature": "La firma criminal de Berkowitz se caracterizaba por la construcción de una identidad demoníaca y por la necesidad de provocar, intimidar y obtener notoriedad."
     }
   },
   "onoprienko": {
@@ -298,7 +298,7 @@ const details = {
     "comparison": {
       "mo": "El modus operandi se caracterizaba por una gran brutalidad y por la utilización de diferentes armas para ejecutar sus asesinatos. Entre las armas que utilizaba se encontraban armas de fuego, cuchillos, hachas y martillos. Según sus propias declaraciones, mostraba interés por experimentar con diferentes métodos de ataque, aunque no manifestaba interés por mantener relaciones sexuales con sus víctimas.",
       "victimology": "Se caracteriza por una selección de víctimas muy amplia, aunque con un patrón recurrente, eran familias completas que se encontraban en sus viviendas, incluidos adultos y menores.",
-      "profile": "En cuanto a su personalidad podemos destacar la agresividad y antisocialidad, falta de empatía en sus asesinatos indiscriminados, incluyendo familias enteras, deshumanización ya que describía algunos de sus ataques como si estuviera «cazando personas», egocentrismo y sentimiento de superioridad y ausencia de remordimientos."
+      "signature": "Algunos comportamientos que permiten aproximarse a su posible componente psicológico encontramos principalmente la percepción de los asesinatos como una actividad de caza. Esta expresión refleja una importante deshumanización de las víctimas, que pasaban a ser consideradas objetivos sobre los que ejercer violencia."
     }
   },
   "ridgway": {
@@ -351,7 +351,7 @@ const details = {
     "comparison": {
       "mo": "El modus operandi de Gary Ridgway se caracterizaba por la selección de mujeres vulnerables, el engaño para conseguir su confianza, el estrangulamiento y el abandono de los cadáveres en lugares aislados.",
       "victimology": "El perfil de las víctimas de Gary Ridgway presenta un patrón definido. Seleccionaba mujeres jóvenes, muchas de ellas adolescentes, que ejercían la prostitución o se encontraban en situaciones de vulnerabilidad. La mayoría de las víctimas eran mujeres que trabajaban en la prostitución callejera y las elegía porque le resultaba más sencillo acercarse a ellas y consideraba que sus desapariciones podían pasar más desapercibidas.",
-      "profile": "Presentaba rasgos compatibles con la psicopatía, como falta de empatía, frialdad emocional, ausencia de remordimiento y objetualización de las víctimas. Pero no existe una puntuación PCL-R publicada que permita confirmar este diagnóstico. También destaca la separación entre su identidad pública y su comportamiento criminal, que puede analizarse con la teoría de la Identidad Fracturada estudiada en clase."
+      "signature": "Uno de los elementos más relevantes es la relación de posesión y control que mantenía respecto a los cadáveres. Sentía que los cuerpos le pertenecían y que cuando eran descubiertos y retirados por la policía, experimentaba la sensación de que le estaban quitando algo que era suyo."
     }
   },
   "kemper": {
@@ -404,7 +404,7 @@ const details = {
     "comparison": {
       "mo": "Kemper seleccionaba mujeres jóvenes, especialmente estudiantes universitarias que hacían autostop. Se acercaba a ellas con apariencia de normalidad y utilizaba diferentes engaños para conseguir que confiaran en él. En ocasiones fingía ser estudiante o un hombre de negocios, e incluso llegó a simular que tenía intenciones suicidas para despertar la compasión de las jóvenes.",
       "victimology": "Sus víctimas fueron principalmente mujeres jóvenes, muchas de ellas estudiantes universitarias que hacían autostop en los alrededores de Santa Cruz y otras zonas de California. Entre ellas se encontraban Mary Ann Pesce, Anita Luchessa, Aiko Koo y otras estudiantes universitarias.",
-      "profile": "Destacaba por su elevada inteligencia, capacidad de manipulación y aparente tranquilidad al describir sus crímenes. También presentaba una profunda hostilidad hacia las mujeres, especialmente hacia su madre."
+      "signature": "Uno de los elementos más característicos de Kemper era la mutilación y decapitación de sus víctimas. También realizaba comportamientos sexuales con los cadáveres y conservaba determinadas partes de los cuerpos."
     }
   },
   "dahmer": {
@@ -450,7 +450,7 @@ const details = {
     "comparison": {
       "mo": "El modus operandi fue evolucionando y adquiriendo mayor organización con el tiempo. Seleccionaba hombres jóvenes que respondían a sus preferencias físicas y sexuales. El contacto se producía habitualmente en bares, establecimientos de ocio o mediante encuentros casuales, aunque también recurrió a recoger autoestopistas. Para conseguir que las víctimas lo acompañaran, les ofrecía dinero, alcohol o drogas, y a veces les proponía posar para fotografías.",
       "victimology": "Las víctimas fueron hombres jóvenes, con edades entre la adolescencia y la edad adulta. La mayoría eran hombres afroamericanos, aunque también hubo víctimas de origen latino, asiático y blanco. Esta selección estaba relacionada con sus preferencias sexuales y con un patrón físico que buscaba en los hombres con los que contactaba.",
-      "profile": "Su vida adulta estuvo marcada por la inestabilidad personal, el consumo abusivo de alcohol y las dificultades para establecer relaciones afectivas. A pesar de ello, podía mantener una apariencia relativamente normal, trabajar y relacionarse socialmente, mientras ocultaba sus fantasías y comportamientos criminales. En el ámbito psicológico se le identificaron diferentes alteraciones, entre ellas trastornos de personalidad y parafilias. Pero es más preciso hablar de rasgos y alteraciones en las evaluaciones psiquiátricas que calificarlo directamente como psicópata."
+      "signature": "La firma criminal de Dahmer se caracteriza por unos comportamientos posteriores a la muerte que no eran necesarios para consumar el homicidio ni para evitar su identificación. Entre ellos estaban las prácticas sexuales con los cadáveres, el desmembramiento, la conservación de cráneos y otras partes corporales, la realización de fotografías y el canibalismo en determinados casos."
     }
   }
 };
@@ -460,60 +460,70 @@ const concepts = [
     "Modus operandi",
     "Procedimientos que utiliza el autor para acceder a la víctima, ejecutar el delito y reducir el riesgo de identificación. Su función es instrumental y puede cambiar con la experiencia.",
     "El modus operandi de Gary Ridgway se caracterizaba por la selección de mujeres vulnerables, el engaño para conseguir su confianza, el estrangulamiento y el abandono de los cadáveres en lugares aislados.",
-    "modus-operandi"
+    "modus-operandi",
+    "ridgway"
   ],
   [
     "Firma criminal",
     "Conductas que expresan necesidades o fantasías del autor y van más allá de lo necesario para cometer el delito. Se estudia su función psicológica y su consistencia entre hechos.",
-    "La firma criminal de Berkowitz se caracterizaba por la construcción de una identidad demoníaca y por la necesidad de provocar, intimidar y obtener notoriedad.",
-    "firma-criminal"
+    "La firma criminal de Dahmer se caracteriza por unos comportamientos posteriores a la muerte que no eran necesarios para consumar el homicidio ni para evitar su identificación. Entre ellos estaban las prácticas sexuales con los cadáveres, el desmembramiento, la conservación de cráneos y otras partes corporales, la realización de fotografías y el canibalismo en determinados casos.",
+    "firma-criminal",
+    "dahmer"
   ],
   [
     "Victimología",
     "Estudio de la víctima, sus relaciones, circunstancias y proceso de selección por el agresor. Analiza la vulnerabilidad y las oportunidades de acceso sin atribuir responsabilidad a la víctima.",
     "Se caracteriza por una selección de víctimas muy amplia, aunque con un patrón recurrente, eran familias completas que se encontraban en sus viviendas, incluidos adultos y menores.",
-    "victimologia"
+    "victimologia",
+    "onoprienko"
   ],
   [
     "Escena del crimen",
     "Espacio relacionado con la preparación, ejecución o consecuencias del delito. El lugar de la agresión y el lugar donde aparece el cuerpo pueden ser distintos.",
     "Las escenas relacionadas con los crímenes de Ridgway presentaban dos espacios: los lugares donde se producían los asesinatos y aquellos en los que abandonaba los cadáveres.",
-    "escena-del-crimen"
+    "escena-del-crimen",
+    "ridgway"
   ],
   [
     "Perfil geográfico",
-    "Análisis de la distribución espacial de los hechos y de los desplazamientos del autor. Permite plantear áreas de actividad y posibles puntos de anclaje; no localiza con certeza una vivienda.",
+    "Análisis de la distribución espacial de los hechos y de los desplazamientos del autor. Permite plantear áreas de actividad y posibles puntos de anclaje.",
     "Su actividad criminal se concentró principalmente en California, especialmente en el área de Santa Cruz y sus alrededores. ",
-    "perfil-geografico"
+    "perfil-geografico",
+    "kemper"
   ],
   [
     "AV · Análisis de vinculación",
-    "Evaluación de la posible autoría común de distintos hechos. Contrasta similitudes, diferencias, contexto espacial y temporal y evidencia forense; una coincidencia aislada no basta.",
+    "Evaluación de la posible autoría común de distintos hechos. Contrasta similitudes, diferencias, contexto espacial y temporal y evidencia forense.",
     "La vinculación de los homicidios se apoyó en las similitudes en la selección de las víctimas, los métodos de captación y conductas posteriores a los asesinatos. ",
-    "analisis-de-vinculacion"
+    "analisis-de-vinculacion",
+    "dahmer"
   ],
   [
-    "Perfil criminológico",
-    "Conjunto de hipótesis sobre las características y rutinas de un posible autor, elaborado a partir de la evidencia. Orienta la investigación y se revisa con nuevos datos; no identifica por sí solo a una persona.",
-    "Destacaba por su elevada inteligencia, capacidad de manipulación y aparente tranquilidad al describir sus crímenes. ",
-    "perfil-criminologico"
+    "Actos de precaución",
+    "Conductas orientadas a reducir el riesgo de descubrimiento e identificación del autor mediante la ocultación o destrucción de pruebas y la alteración de la escena.",
+    "Luego de cometer el crimen, robaba objetos de valor y, en determinados asesinatos, incendiaba las viviendas para destruir posibles evidencias.",
+    "actos-de-precaucion",
+    "onoprienko"
   ],
   [
     "Rasgos psicopáticos",
-    "Características como manipulación, frialdad emocional, falta de empatía o ausencia de remordimiento. La descripción de algunos rasgos no equivale a una evaluación clínica completa ni permite asignar una puntuación PCL-R.",
+    "Rasgos afectivos e interpersonales como la manipulación, la frialdad emocional y la falta de empatía o remordimiento. Pueden aparecer en asesinos en serie, pero no son una característica universal de estos autores.",
     "Presentaba rasgos compatibles con la psicopatía, como falta de empatía, frialdad emocional, ausencia de remordimiento y objetualización de las víctimas. ",
-    "rasgos-psicopaticos"
+    "rasgos-psicopaticos",
+    "ridgway"
   ],
   [
-    "Identidad fracturada",
+    "Teoría de la identidad fracturada",
     "Marco de interpretación de la coexistencia de una imagen social aparentemente funcional y una actividad criminal oculta. No equivale a una segunda personalidad ni a un trastorno de identidad disociativo.",
     "La teoría de la Identidad Fracturada permite interpretar la contradicción que hay entre la imagen cotidiana que Dahmer dejaba ver y la actividad criminal que mantenía oculta. ",
-    "identidad-fracturada"
+    "identidad-fracturada",
+    "dahmer"
   ],
   [
-    "Homología",
-    "En el material de estudio, se emplea para relacionar las semejanzas entre comportamientos violentos infantiles y conductas posteriores del autor. Permite examinar la continuidad de determinadas expresiones de violencia.",
-    "La teoría de la homología permite relacionar sus comportamientos infantiles, como la decapitación de animales y la mutilación de muñecas, con las prácticas que realizó con sus víctimas. ",
-    "homologia"
+    "Necrofilia",
+    "Actividad sexual con cadáveres. En estos expedientes se estudia como una conducta posterior a la muerte vinculada con la posesión y el control sobre la víctima.",
+    "Después mantenía comportamientos sexuales con los cadáveres, los desmembraba y trataba de eliminar los restos mediante diferentes procedimientos.",
+    "necrofilia",
+    "dahmer"
   ]
 ];
